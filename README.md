@@ -20,7 +20,7 @@ Sistema de quiz de vestibular com botões físicos (ESP32) conectados a uma apli
 
 1. Clonar o repositório:
 ```bash
-   git clone <url-do-repo>
+   git clone https://github.com/Brunokenji1/ACELERA2.git
    cd projeto_acelera
 ```
 
@@ -44,17 +44,6 @@ Sistema de quiz de vestibular com botões físicos (ESP32) conectados a uma apli
 - Senha: `lfcebolabrunochaves`
 
 > ⚠️ Essas credenciais são apenas para desenvolvimento local. Em produção, usar variáveis de ambiente seguras.
-
-## Estrutura do projeto
-projeto_acelera/
-├── docker-compose.yml    # Configuração do Postgres local
-├── database/
-│   ├── schema.sql        # Criação das tabelas
-│   └── seeds.sql         # Dados iniciais
-├── backend/              # API Node.js
-├── frontend/             # App React
-├── firmware/             # Código MicroPython do ESP32
-└── docs/                 # Documentação do projeto
 
 ## Equipe
 - Bruno Kenji Okamoto — Banco de dados
