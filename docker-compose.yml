@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: quiz_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: projeto_acelera
+      POSTGRES_PASSWORD: lfcebolabrunochaves
+      POSTGRES_DB: quiz_vestibular
+    ports:
+      - "5432:5432"
+    volumes:
+      - quiz_data:/var/lib/postgresql/data
+
+volumes:
+  quiz_data:

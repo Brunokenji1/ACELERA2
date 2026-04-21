@@ -1,0 +1,31 @@
+# Variáveis de ambiente (senhas, etc)
+.env
+.env.local
+.env.*.local
+
+# Dependências
+node_modules/
+__pycache__/
+*.pyc
+
+# Builds
+dist/
+build/
+out/
+
+# Logs
+*.log
+logs/
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Docker (dados locais ficam fora do repo)
+postgres_data/
+
