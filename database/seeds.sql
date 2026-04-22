@@ -12,3 +12,6 @@ INSERT INTO materias (nome) VALUES
     ('Inglês'),
     ('Literatura'),
     ('Redação');
+
+
+	
