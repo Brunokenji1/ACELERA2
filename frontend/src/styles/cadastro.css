@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* FUNDO */
+.background {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: (#ffffff);
+}
+
+/* CARD */
+.card {
+  width: 800px;
+  height: 600px;
+  display: flex;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.cadastro-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: white;
+}
+
+/* LOGO */
+.logo-title {
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+}
+
+.cadastro-left .study {
+  color: #2000B1;
+  font-weight: bold;
+}
+
+.cadastro-left .flow {
+  color: orange;
+}
+
+/* LADO DIREITO (AZUL) */
+.cadastro-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #2000B1, #3a1fd9);
+  color: white;
+}
+
+/* FORM */
+.cadastro-right form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* TITULO */
+.cadastro-right h2 {
+  text-align: center;
+  color: white;
+}
+
+/* INPUTS */
+.cadastro-right input {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+
+  background: rgba(255,255,255,0.9);
+}
+
+/* LINHAS */
+.row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.row input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* BOTÃO */
+.cadastro-right button {
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+
+  background-color: #ff6d00;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cadastro-right button:hover {
+  background-color: #e65c00;
+}
+
+/* LINK */
+.register {
+  text-align: center;
+  font-size: 12px;
+  color: white;
+}
+
+.cadastro-link a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.cadastro-link a:visited {
+  color: #ffffff;
+}
+
+.cadastro-link a:hover {
+  color: #ffffff;
+}
+
+.cadastro-link a:active {
+  color: #ffffff;
+}

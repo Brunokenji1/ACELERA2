@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* FUNDO SUAVE */
+.background {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #4b6af1 0%, #5947f8 50%);
+}
+
+/* CARD CENTRAL */
+.card {
+  width: 800px;
+  height: 600px;
+  display: flex;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  background: rgba(255, 255, 255, 0.096);
+
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+/* LADO ESQUERDO */
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #2000B1, #3a1fd9);
+  border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+/* LOGO TEXTO */
+.logo-title {
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+}
+
+.study {
+  color: white;
+  font-weight: bold;
+}
+
+.flow {
+  color: orange;
+}
+
+/* LADO DIREITO */
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: white; 
+}
+
+.right form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.right h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* INPUTS */
+.right input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #b9b9b9;
+  outline: none;
+}
+
+/* LINK */
+.link {
+  font-size: 12px;
+  color: #2000B1;
+  text-align: right;
+}
+
+/* BOTÃO */
+.right button {
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background-color: #ff6d00;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.right button:hover {
+  background-color: #e65c00;
+}
+
+/* CADASTRO */
+.register {
+  font-size: 12px;
+  text-align: center;
+  color: #333;
+}
+
+.register span {
+  color: #2000B1;
+  cursor: pointer;
+}
