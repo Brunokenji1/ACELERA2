@@ -31,7 +31,7 @@ export default function Cadastro() {
 
   return (
     <div className="background">
-      <div className="card">
+      <div className="cadastro-card">
         {/* ESQUERDA (LOGO BRANCA) */}
         <div className="left cadastro-left">
           <h1 className="logo-title">

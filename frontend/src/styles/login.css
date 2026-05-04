@@ -14,7 +14,7 @@ body {
 }
 
 /* CARD CENTRAL */
-.card {
+.login-card {
   width: 800px;
   height: 600px;
   display: flex;
@@ -30,7 +30,7 @@ body {
 }
 
 /* LADO ESQUERDO */
-.left {
+.login-left {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -57,7 +57,7 @@ body {
 }
 
 /* LADO DIREITO */
-.right {
+.login-right {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -66,20 +66,20 @@ body {
   background: white; 
 }
 
-.right form {
+.login-right form {
   width: 80%;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.right h2 {
+.login-right h2 {
   text-align: center;
   color: #333;
 }
 
 /* INPUTS */
-.right input {
+.login-right input {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #b9b9b9;
@@ -94,7 +94,7 @@ body {
 }
 
 /* BOTÃO */
-.right button {
+.login-right button {
   padding: 12px;
   border-radius: 25px;
   border: none;
