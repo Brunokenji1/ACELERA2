@@ -7,32 +7,58 @@ export default function Layout() {
 
   return (
     <div className={`layout ${open ? "open" : "closed"}`}>
-
       {/* HEADER */}
       <header className="header">
-        <button onClick={() => setOpen(!open)} className="menu-btn">
+        <button className="menu-btn" onClick={() => setOpen(!open)}>
           ☰
         </button>
 
-        <h1 className="logo">STUDY <span>flow</span></h1>
+        <h1 className="logo">
+          STUDY<span>flow</span>
+        </h1>
+
         <div className="user">Aluno</div>
       </header>
 
       {/* SIDEBAR */}
       <aside className="sidebar">
-        <ul>
-          <li><Link to="/perfil"> {open && "Perfil"}</Link></li>
-          <li><Link to="/ranking"> {open && "Ranking"}</Link></li>
-          <li><Link to="/questoes"> {open && "Questões"}</Link></li>
-          <li><Link to="/ajuda"> {open && "Ajuda"}</Link></li>
-        </ul>
+        <nav>
+          <Link to="/perfil" className="item">
+            <span className="icon">👤</span>
+            {open && <span>Perfil</span>}
+          </Link>
+
+          <Link to="/ranking" className="item">
+            <span className="icon">🏆</span>
+            {open && <span>Ranking</span>}
+          </Link>
+
+          <Link to="/questoes" className="item">
+            <span className="icon">📚</span>
+            {open && <span>Questões</span>}
+          </Link>
+
+          <Link to="/resolucoes" className="item">
+            <span className="icon">📄</span>
+            {open && <span>Resoluções</span>}
+          </Link>
+
+          <Link to="/partida" className="item">
+            <span className="icon">🎮</span>
+            {open && <span>Partida</span>}
+          </Link>
+
+          <Link to="/ajuda" className="item">
+            <span className="icon">❓</span>
+            {open && <span>Ajuda</span>}
+          </Link>
+        </nav>
       </aside>
 
       {/* CONTEÚDO */}
       <main className="content">
         <Outlet />
       </main>
-
     </div>
   );
 }
