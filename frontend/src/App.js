@@ -10,7 +10,6 @@ import Ranking from "./pages/Ranking";
 import Questoes from "./pages/Questoes";
 import Ajuda from "./pages/Ajuda";
 
-
 function App() {
   return (
     <BrowserRouter>

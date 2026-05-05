@@ -19,10 +19,10 @@ function Login() {
   return (
     <div className="background">
 
-      <div className="card">
+      <div className="login-card">
 
         {/* ESQUERDA (LOGO) */}
-        <div className="left">
+        <div className="login-left">
           <h1 className="logo-title">
             <span className="study">STUDY</span>
             <span className="flow">flow</span>
@@ -30,7 +30,7 @@ function Login() {
         </div>
 
         {/* DIREITA (LOGIN) */}
-        <div className="right">
+        <div className="login-right">
           <form onSubmit={handleLogin}>
 
             <h2>Login</h2>
