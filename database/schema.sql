@@ -20,7 +20,7 @@ CREATE TABLE questao(
 	id_materia INTEGER NOT NULL,
 	enunciado TEXT,
 	dificuldade VARCHAR(1),
-	ano INTEGER CHECK (ano BETWEEM 1970 AND 2100),
+	ano INTEGER CHECK (ano BETWEEN 1970 AND 2100),
 	criado_em TIMESTAMP
 );
 

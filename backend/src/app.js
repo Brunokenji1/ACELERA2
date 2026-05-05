@@ -1,5 +1,5 @@
 //aqui ficara as instuções/rotas da API
-
+const routes = require('./routes');
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -11,5 +11,6 @@ app.use(helmet())           //adiciona cabecalho de seguranã http automatico.
 app.use(cors())             //conexao com frontend
 app.use(express.json())     //permite a leitura dos json que o frontend manda (todas as informações chegam como json)
 
+app.use('/api',routes)
 
-module.exports = {app, express}
+module.exports = app
