@@ -1,4 +1,6 @@
-// aqui ficara a configuracao do postgresql
+// aqui fica a configuracao do postgresql
+// criar o banco: Get-Content database/schema.sql | docker exec -i quiz_postgres psql -U projeto_acelera -d quiz_vestibular
+// listar o banco:  docker exec -i quiz_postgres psql -U projeto_acelera -d quiz_vestibular -c "\dt"
 
 require('dotenv').config();     //acessa todos os itens atraves de proceess.env.ITEM
 const { Sequelize } = require('sequelize');

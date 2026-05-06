@@ -1,7 +1,7 @@
 const {DataTypes} = require('sequelize');   
 const {sequelize} = require('../config/database');
 
-const Materia = sequelize.define('Materia',{
+const Materias = sequelize.define('Materias',{
     id:{
     type:DataTypes.INTEGER,
     primaryKey:true,
@@ -14,8 +14,8 @@ const Materia = sequelize.define('Materia',{
     }
 },
 {
-    tableName:'materia',
+    tableName:'materias',
     timestamps:false,
 },
 )
-module.exports = Materia;
+module.exports = Materias;

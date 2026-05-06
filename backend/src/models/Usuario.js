@@ -1,7 +1,7 @@
 const {DataTypes} = require('sequelize');   // instancia a função de definir tipos da biblioteca sequelize
 const {sequelize} = require('../config/database');  // puxa o sequelize instanciado no database.js
 
-const Usuario = sequelize.define('Usuario' , {
+const Usuarios = sequelize.define('Usuarios' , {
     id: {
     type: DataTypes.INTEGER,
         primaryKey: true,
@@ -24,9 +24,21 @@ const Usuario = sequelize.define('Usuario' , {
         type: DataTypes.STRING(255),
         allowNull: false,
     },
+    tipo:{
+        type:DataTypes.STRING(20),
+        allowNull: false,
+        defaultValue: 'usuario',
+        validate:{
+            isIn:[['usuario','admin']]
+        },
+    },
     pontos_totais:{
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
+        defaultValue:0,
+        validate:{
+            min:0       //valida se pontos>0
+        }
     },
     criado_em:{
         type: DataTypes.DATE,
@@ -35,8 +47,8 @@ const Usuario = sequelize.define('Usuario' , {
     
 },
 {
-    tableName: 'usuario',   //pro sequelize conseguir achar a tabela
+    tableName: 'usuarios',   //pro sequelize conseguir achar a tabela
     timestamps: false,      //para o sequelize n inventar de tentar mexer nas datas
 },
 )
-module.exports = Usuario;   
+module.exports = Usuarios;   
