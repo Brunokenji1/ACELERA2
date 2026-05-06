@@ -1,0 +1,34 @@
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(90deg, #ff6d00, #ff8c42);
+
+  color: white;
+  cursor: pointer;
+}
+
+.input {
+  width: 100%;
+  height: 45px;
+
+  border-radius: 10px;
+  border: 2px solid #ddd;
+
+  padding: 12px;
+}
+
+.card-default {
+  background: #ffffff;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 15px 35px rgba(15, 23, 42, 0.10),
+    0 5px 15px rgba(15, 23, 42, 0.06);
+
+  transition: all 0.25s ease;
+}
