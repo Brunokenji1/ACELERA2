@@ -47,7 +47,6 @@ export default function Categorias() {
       icon: "📝",
       tags: ["Vestibular", "Provas", "Simulados"],
     },
-
   ];
 
   return (
@@ -70,7 +69,13 @@ export default function Categorias() {
             key={index}
             className="categoria-card"
             onClick={() =>
-              navigate(`/questoes/${categoria.nome.toLowerCase()}`)
+              navigate(
+                `/questoes/${categoria.nome
+                  .normalize("NFD")
+                  .replace(/[\u0300-\u036f]/g, "")
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")}`
+              )
             }
           >
             {/* TOPO */}

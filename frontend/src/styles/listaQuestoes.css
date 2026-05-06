@@ -1,0 +1,162 @@
+.lista-container {
+  width: 100%;
+}
+
+/* HEADER */
+.lista-header {
+  margin-bottom: 35px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.lista-header h1 {
+  font-size: 36px;
+  color: #1a1a2e;
+
+  margin-bottom: 5px;
+}
+
+.lista-header p {
+  color: #666;
+}
+
+/* VOLTAR */
+.btn-voltar {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background: #ff6d00;
+
+  color: white;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  box-shadow: 0 8px 20px rgba(255, 109, 0, 0.25);
+}
+
+.btn-voltar:hover {
+  transform: scale(1.08);
+}
+
+/* LISTA */
+.questoes-lista {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+/* CARD */
+.questao-card {
+    cursor: pointer;
+  background: white;
+
+  border-radius: 22px;
+
+  padding: 10px 14px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+  transition: 0.25s;
+}
+
+.questao-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* ESQUERDA */
+.questao-left {
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+}
+
+/* ID */
+.questao-id {
+  font-size: 24px;
+  font-weight: bold;
+
+  color: #ff6d00;
+
+  min-width: 70px;
+}
+
+/* TÍTULO */
+.questao-card h2 {
+  color: #2000B1;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+}
+
+/* INFO */
+.questao-info {
+  display: flex;
+  gap: 12px;
+}
+
+.questao-info span {
+  padding: 7px 14px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+
+  color: white;
+
+  min-width: 80px;
+
+  text-align: center;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 4px 10px rgba(75, 45, 255, 0.25);
+}
+
+.facil {
+  background: linear-gradient(135deg, #00b35f, #00cc88);
+}
+
+.medio {
+  background: linear-gradient(135deg, #ff9800, #ffb300);
+}
+
+.dificil {
+  background: linear-gradient(135deg, #ff3d3d, #ff5f5f);
+}
+
+.ano {
+  background: #437dd4;
+}
+
+.pontos {
+  background: linear-gradient(135deg, #7b2dff, #b84dff);
+}
