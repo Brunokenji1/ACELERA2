@@ -39,3 +39,30 @@ Materias.hasMany(Questoes,{
 Questoes.belongsTo(Materias,{
     foreignKey: 'id_materia'
 });
+
+
+Questoes.hasMany(Alternativas,{
+    foreignKey: 'id_questao'
+});
+Alternativas.belongsTo(Questoes,{
+    foreignKey: 'id_questao'
+});
+
+
+Usuarios.hasMany(Partidas,{
+    foreignKey: 'id_criador'
+});
+Partidas.belongsTo({
+    foreignKey: 'id_criador'
+});
+
+
+//fazer linhas 154 - 160 do schema depois
+
+
+Usuarios.hasMany(UsuarioPartida,{
+    foreignKey: 'id_usuario'
+});
+UsuarioPartida.belongsTo(Usuarios,{
+    foreignKey: 'id_usuario'
+});
