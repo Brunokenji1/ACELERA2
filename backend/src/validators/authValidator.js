@@ -1,0 +1,1 @@
+//aqui é uma verificação se as informações seguem os padroes propostos, se tem qtd de caracteres certa, essas coisas

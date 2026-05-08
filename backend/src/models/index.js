@@ -23,46 +23,125 @@ TipoNivel.hasMany(Fontes,{
 Fontes.belongsTo(TipoNivel,{
     foreignKey: 'id_tipo_nivel'
 });
-
-
+//-------------------------------------------------------
 Fontes.hasMany(Questoes,{
     foreignKey: 'id_fonte'
 });
 Questoes.belongsTo(Fontes,{
     foreignKey: 'id_fonte'
 });
-
-
+//-------------------------------------------------------
 Materias.hasMany(Questoes,{
     foreignKey: 'id_materia'
 });
 Questoes.belongsTo(Materias,{
     foreignKey: 'id_materia'
 });
-
-
+//-------------------------------------------------------
 Questoes.hasMany(Alternativas,{
     foreignKey: 'id_questao'
 });
 Alternativas.belongsTo(Questoes,{
     foreignKey: 'id_questao'
 });
-
-
+//-------------------------------------------------------
 Usuarios.hasMany(Partidas,{
     foreignKey: 'id_criador'
 });
-Partidas.belongsTo({
+Partidas.belongsTo(Usuarios,{
     foreignKey: 'id_criador'
 });
-
-
-//fazer linhas 154 - 160 do schema depois
-
-
+//-------------------------------------------------------
+Materias.hasMany(Partidas,{
+    foreignKey: 'id_materia',
+});
+Partidas.belongsTo(Materias,{
+    foreignKey: 'id_materia',
+});
+//-------------------------------------------------------
+Fontes.hasMany(Partidas,{
+    foreignKey: 'id_fonte',
+});
+Partidas.belongsTo(Fontes,{
+    foreignKey: 'id_fonte',
+});
+//-------------------------------------------------------
 Usuarios.hasMany(UsuarioPartida,{
     foreignKey: 'id_usuario'
 });
 UsuarioPartida.belongsTo(Usuarios,{
     foreignKey: 'id_usuario'
 });
+//-------------------------------------------------------
+Partidas.hasMany(UsuarioPartida,{
+    foreignKey: 'id_partida',
+    onDelete: 'CASCADE'
+});
+UsuarioPartida.belongsTo(Partidas,{
+    foreignKey: 'id_partida'
+});
+//-------------------------------------------------------
+Partidas.hasMany(Rodadas,{
+    foreignKey: 'id_partida',
+    onDelete: 'CASCADE'
+});
+Rodadas.belongsTo(Partidas,{
+    foreignKey: 'id_partida'
+})
+//-------------------------------------------------------
+Rodadas.hasMany(RodadaDeQuestoes,{
+    foreignKey: 'id_rodada',
+    onDelete: 'CASCADE'
+});
+RodadaDeQuestoes.belongsTo(Rodadas,{
+    foreignKey: 'id_rodada'
+});
+//-------------------------------------------------------
+Questoes.hasMany(RodadaDeQuestoes,{
+    foreignKey: 'id_questao'
+});
+RodadaDeQuestoes.belongsTo(Questoes,{
+    foreignKey: 'id_questao'
+});
+//-------------------------------------------------------
+Usuarios.hasMany(RodadaDeQuestoes,{
+    foreignKey: 'id_participante_1'
+});
+RodadaDeQuestoes.belongsTo(Usuarios,{
+    foreignKey: 'id_participante_1'
+});
+//-------------------------------------------------------
+Usuarios.hasMany(RodadaDeQuestoes,{
+    foreignKey: 'id_participante_2'
+});
+RodadaDeQuestoes.belongsTo(Usuarios,{
+    foreignKey: 'id_participante_2'
+});
+//-------------------------------------------------------
+Alternativas.hasMany(Tentativas,{
+    foreignKey: 'id_alternativa'
+});
+Tentativas.belongsTo(Alternativas,{
+    foreignKey: 'id_alternativa'
+});
+//-------------------------------------------------------
+Rodadas.hasMany(Tentativas,{
+    foreignKey: 'id_rodada',
+    onDelete: 'CASCADE'
+});
+Tentativas.belongsTo(Rodadas,{
+    foreignKey: 'id_rodada'
+});
+//-------------------------------------------------------
+Usuarios.hasMany(Tentativas,{
+    foreignKey: 'id_usuario'
+});
+Tentativas.belongsTo(Usuarios,{
+    foreignKey: 'id_usuario'
+});
+
+module.exports ={
+    Alternativas,Fontes,Materias,Partidas,Questoes, 
+    RodadaDeQuestoes, Rodadas, Tentativas, TipoNivel, 
+    UsuarioPartida, Usuarios
+}
