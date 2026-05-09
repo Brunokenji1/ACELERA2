@@ -16,6 +16,7 @@ import Ranking from "./pages/Ranking";
 //Questoes 
 import Categorias from "./pages/Questoes/Categorias";
 import ListaQuestoes from "./pages/Questoes/ListaQuestoes";
+import Questao from "./pages/Questoes/Questao";
 
 
 import Ajuda from "./pages/Ajuda";
@@ -33,6 +34,7 @@ function App() {
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/questoes" element={<Categorias />} />
           <Route path="/questoes/:categoria" element={<ListaQuestoes />} />
+          <Route path="/questao/:id" element={<Questao />} />
           <Route path="/resolucoes" element={<Resolucoes />} />
           <Route path="/partida" element={<Partida />} />
           <Route path="/ajuda" element={<Ajuda />} />

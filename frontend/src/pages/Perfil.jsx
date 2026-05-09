@@ -7,7 +7,7 @@ export default function Perfil() {
       {/* TOPO */}
       <div className="perfil-header">
         <h1>Meu Perfil</h1>
-        <button className="btn-editar">✏️ Editar Perfil</button>
+        <button className="btn-editar-perfil">✏️ Editar Perfil</button>
       </div>
 
       <div className="perfil-content">
@@ -23,7 +23,7 @@ export default function Perfil() {
             <span>🏆</span>
           </div>
 
-          <div className="perfil-card pontos">
+          <div className="perfil-card pontos-perfil">
             <p>Pontuação</p>
             <h2>980,00 pts</h2>
             <span>⭐</span>

@@ -46,7 +46,7 @@ export default function ListaQuestoes() {
       {/* HEADER */}
       <div className="lista-header">
         <div className="header-left">
-          <button className="btn-voltar" onClick={() => navigate("/questoes")}>
+          <button className="btn-voltar-lista" onClick={() => navigate("/questoes")}>
             ←
           </button>
 

@@ -23,7 +23,7 @@
   margin-left: 40px;
 }
 
-.btn-editar {
+.btn-editar-perfil {
   background: linear-gradient(90deg, #ff6d00);
   color: white;
   border: none;
@@ -86,7 +86,7 @@
   background: linear-gradient(135deg, #2000B1, #4b2dff);
 }
 
-.pontos {
+.pontos-perfil {
   background: linear-gradient(135deg, #ff6d00, #ff8c42);
 }
 

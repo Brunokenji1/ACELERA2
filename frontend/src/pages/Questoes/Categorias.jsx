@@ -11,7 +11,7 @@ export default function Categorias() {
     {
       nome: "Matemática",
       descricao: "Questões envolvendo matemática e raciocínio lógico.",
-      cor: "matematica",
+      materia: "matematica",
       icon: "📐",
       tags: ["Álgebra", "Geometria", "Raciocínio"],
     },
@@ -19,7 +19,7 @@ export default function Categorias() {
     {
       nome: "Linguagens",
       descricao: "Questões de português, literatura e interpretação.",
-      cor: "linguagens",
+      materia: "linguagens",
       icon: "📖",
       tags: ["Português", "Literatura", "Artes"],
     },
@@ -27,7 +27,7 @@ export default function Categorias() {
     {
       nome: "Ciências Humanas",
       descricao: "Questões de história, geografia e filosofia.",
-      cor: "humanas",
+      materia: "humanas",
       icon: "🌎",
       tags: ["História", "Geografia", "Filosofia"],
     },
@@ -35,7 +35,7 @@ export default function Categorias() {
     {
       nome: "Ciências da Natureza",
       descricao: "Questões de física, química e biologia.",
-      cor: "natureza",
+      materia: "natureza",
       icon: "🧪",
       tags: ["Física", "Química", "Biologia"],
     },
@@ -43,7 +43,7 @@ export default function Categorias() {
     {
       nome: "ENEM",
       descricao: "Questões gerais do ENEM com múltiplas áreas.",
-      cor: "enem",
+      materia: "enem",
       icon: "📝",
       tags: ["Vestibular", "Provas", "Simulados"],
     },
@@ -79,7 +79,7 @@ export default function Categorias() {
             }
           >
             {/* TOPO */}
-            <div className={`card-top ${categoria.cor}`}>
+            <div className={`card-top ${categoria.materia}`}>
               <div className="icon-box">{categoria.icon}</div>
             </div>
 
