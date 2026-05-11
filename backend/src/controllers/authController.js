@@ -3,9 +3,15 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Usuarios = require('../models/Usuarios');
+const {validationResult} = require('express-validator');
+
 
 async function cadastro (req,res) {    //todo controlador recebe req,res como parametro
     try{
+        const erros = validationResult(req)
+        if(!erros.isEmpty()){
+            return res.status(400).json({erros: erros.array() })
+        }
         const {nome, email, senha, data_nascimento} = req.body;     //extraindo as variaveis do usuario que chegam do frontend para poder manipular
         const jaExiste = await Usuarios.findOne({where: {email}})   //verifica se ja existe o email cadastrado
     
@@ -43,6 +49,10 @@ async function cadastro (req,res) {    //todo controlador recebe req,res como pa
 };
 async function login(req,res) {                     //função para fazer o login
     try{
+        const erros = validationResult(req)
+        if(!erros.isEmpty()){
+            return res.status(400).json({erros: erros.array() })
+        }
         const {email,senha} = req.body;                 //extraindo somente os dados necessarios
         const usuarioExistente = await Usuarios.findOne({where: {email}})   //vendo se existe email
         
