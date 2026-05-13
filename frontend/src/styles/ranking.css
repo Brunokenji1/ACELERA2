@@ -1,0 +1,164 @@
+.ranking-container {
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+}
+
+/* HEADER */
+.ranking-header {
+  margin-bottom: 30px;
+}
+
+.ranking-header h1 {
+  font-size: 38px;
+
+  color: #1a1a2e;
+
+  margin-bottom: 8px;
+}
+
+.ranking-header p {
+  color: #666;
+}
+
+/* LISTA */
+.ranking-lista {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-bottom: 30px;
+}
+
+/* ITEM */
+.ranking-item {
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 10px 14px;
+
+  display: flex;
+
+  border: 1.5px solid #ff6f00e3;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.06);
+
+  transition: 0.2s;
+}
+
+.ranking-item:hover {
+  transform: translateY(-2px);
+}
+
+/* ESQUERDA */
+.ranking-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+/* POSIÇÃO */
+.ranking-posicao {
+  font-weight: bold;
+
+  color: #ff6d00;
+
+  font-size: 18px;
+
+  min-width: 45px;
+}
+
+/* NOME */
+.ranking-nome {
+  font-size: 17px;
+
+  color: #1a1a2e;
+
+  font-weight: 600;
+}
+
+/* PONTOS */
+.ranking-pontos {
+  background: #280aad;
+
+  color: white;
+
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  font-weight: bold;
+
+  font-size: 14px;
+}
+
+/* USUÁRIO */
+.ranking-user {
+  position: sticky;
+
+  bottom: 20px;
+
+  background: linear-gradient(135deg, #2000B1, #4b2dff);
+
+  color: white;
+
+  border-radius: 16px;
+
+  padding: 12px 18px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  box-shadow:
+    0 12px 30px rgba(32,0,177,0.25);
+}
+
+.ranking-user .ranking-posicao,
+.ranking-user .ranking-nome {
+  color: white;
+}
+
+.ranking-user .ranking-pontos {
+  background: white;
+
+  color: #2000B1;
+}
+
+/* TOP 1 */
+.gold {
+  border: 2px solid #e4c203;
+
+  box-shadow:
+    0 6px 18px rgba(255, 215, 0, 0.25);
+}
+
+/* TOP 2 */
+.silver {
+  border: 2px solid #C0C0C0;
+
+  box-shadow:
+    0 6px 18px rgba(192, 192, 192, 0.25);
+}
+
+/* TOP 3 */
+.bronze {
+  border: 2px solid #CD7F32;
+
+  box-shadow:
+    0 6px 18px rgba(205, 127, 50, 0.25);
+}
