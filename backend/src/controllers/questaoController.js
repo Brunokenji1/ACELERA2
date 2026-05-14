@@ -1,8 +1,5 @@
 //autenticação das questoes
-
-const Questoes = require('../models/Questoes');
-const Materias = require('../models/Materias');
-const Alternativas = require('../models/Alternativas');
+const { Questoes, Materias, Alternativas } = require('../models')
 
 async function listarQuestoes(req,res) {
     try{
