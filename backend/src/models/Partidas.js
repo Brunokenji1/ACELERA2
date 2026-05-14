@@ -30,7 +30,7 @@ const Partidas = sequelize.define('Partidas',{
             isIn:[['aguardando','em_andamento','finalizada']]
         },
 },
-    criado_em:{
+    criada_em:{
         type:DataTypes.DATE,
         allowNull:false,
         defaultValue: DataTypes.NOW,
