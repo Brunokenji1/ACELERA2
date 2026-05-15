@@ -17,6 +17,10 @@ const Partidas = sequelize.define('Partidas',{
     id_fonte:{
         type:DataTypes.INTEGER,
     },
+    quantidade_questoes:{
+        type:DataTypes.INTEGER,
+        defaultValue: 11,
+    },
     dificuldade:{
         type:DataTypes.STRING(10),
         validate:{      

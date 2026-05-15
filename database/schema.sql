@@ -68,7 +68,7 @@ CREATE TABLE partidas(
     id_criador INTEGER NOT NULL,
     id_materia INTEGER,
     id_fonte INTEGER,
-    quantidade_questeos INTEGER DEFAULT 11,
+    quantidade_questoes INTEGER DEFAULT 11,
     dificuldade VARCHAR(10) CHECK (dificuldade IN ('facil', 'medio', 'dificil')),
     status VARCHAR(20) NOT NULL DEFAULT 'aguardando' 
     	CHECK (status IN ('aguardando', 'em_andamento', 'finalizada')),
