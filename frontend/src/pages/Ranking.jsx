@@ -1,5 +1,6 @@
 import "../styles/ranking.css";
 
+
 export default function Ranking() {
   const ranking = [
   { posicao: 1, nome: "João", pontos: 1250 },
@@ -97,5 +98,7 @@ export default function Ranking() {
         <span className="ranking-pontos">{usuario.pontos} pts</span>
       </div>
     </div>
+
+      
   );
 };

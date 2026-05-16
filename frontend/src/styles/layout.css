@@ -91,3 +91,15 @@ background: linear-gradient(0deg,  #3a1fd9, #2000B1);
   background: #eef1f7;
   padding: 25px;
 }
+
+.ajuda-btn {
+  width: 100%;
+
+  background: none;
+
+  border: none;
+
+  cursor: pointer;
+
+  font-size: 16px;
+}

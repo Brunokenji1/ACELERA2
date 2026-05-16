@@ -1,9 +1,51 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import AjudaModal from "./AjudaModal";
 import "../styles/layout.css";
 
 export default function Layout() {
   const [open, setOpen] = useState(true);
+
+  const [ajudaAberta, setAjudaAberta] = useState(false);
+
+  const location = useLocation();
+
+  const textosAjuda = {
+    "/perfil": {
+      titulo: "Perfil",
+
+      descricao:
+        "Nesta tela você pode visualizar suas informações pessoais, acompanhar seu desempenho na plataforma e monitorar sua evolução ao longo do tempo. Aqui também serão exibidas suas estatísticas, pontuação total e progresso nas atividades.",
+    },
+
+    "/ranking": {
+      titulo: "Ranking",
+
+      descricao:
+        "O ranking mostra os jogadores com maior pontuação da plataforma. Resolva questões e acumule pontos para subir posições. Seu posicionamento atual também aparece destacado no final da lista.",
+    },
+
+    "/questoes": {
+      titulo: "Questões",
+
+      descricao:
+        "Nesta área você pode escolher categorias e responder questões de diferentes matérias e níveis de dificuldade. Cada questão possui até três tentativas. Ao acertar, você ganha pontos que ajudam no seu desempenho geral e no ranking.",
+    },
+
+    "/resolucoes": {
+      titulo: "Resoluções",
+
+      descricao:
+        "Aqui você poderá visualizar resoluções e explicações detalhadas das questões respondidas. Esta área ajuda na revisão de conteúdo e no entendimento dos erros e acertos realizados durante os exercícios.",
+    },
+
+    "/partida": {
+      titulo: "Partida",
+
+      descricao:
+        "O modo partida permite competir com outros jogadores em desafios de perguntas e respostas. Durante as partidas você poderá testar seus conhecimentos em tempo real e conquistar mais pontos na plataforma.",
+    },
+  };
 
   return (
     <div className={`layout ${open ? "open" : "closed"}`}>
@@ -48,10 +90,14 @@ export default function Layout() {
             {open && <span>Partida</span>}
           </Link>
 
-          <Link to="/ajuda" className="item">
+          <button
+            className="item ajuda-btn"
+            onClick={() => setAjudaAberta(true)}
+          >
             <span className="icon">❓</span>
+
             {open && <span>Ajuda</span>}
-          </Link>
+          </button>
         </nav>
       </aside>
 
@@ -59,6 +105,13 @@ export default function Layout() {
       <main className="content">
         <Outlet />
       </main>
+
+      <AjudaModal
+        aberto={ajudaAberta}
+        fechar={() => setAjudaAberta(false)}
+        titulo={textosAjuda[location.pathname]?.titulo}
+        descricao={textosAjuda[location.pathname]?.descricao}
+      />
     </div>
   );
 }

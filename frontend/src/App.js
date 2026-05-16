@@ -19,8 +19,6 @@ import ListaQuestoes from "./pages/Questoes/ListaQuestoes";
 import Questao from "./pages/Questoes/Questao";
 
 
-import Ajuda from "./pages/Ajuda";
-
 function App() {
   return (
     <BrowserRouter>
@@ -37,7 +35,6 @@ function App() {
           <Route path="/questao/:id" element={<Questao />} />
           <Route path="/resolucoes" element={<Resolucoes />} />
           <Route path="/partida" element={<Partida />} />
-          <Route path="/ajuda" element={<Ajuda />} />
         </Route>
 
       </Routes>
