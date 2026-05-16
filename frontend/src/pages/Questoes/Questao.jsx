@@ -80,7 +80,7 @@ export default function Questao() {
 
           <span className="tag-enem">ENEM 2023</span>
 
-          <span className="categoria">Linguagens e suas Tecnologias</span>
+          <span className="tag-categoria">Linguagens e suas Tecnologias</span>
         </div>
 
         {/* DIREITA */}
