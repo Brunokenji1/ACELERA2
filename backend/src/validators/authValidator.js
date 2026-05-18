@@ -6,7 +6,9 @@ const {body} = require('express-validator');
 const cadastroValidator = [ 
     body('email').isEmail().notEmpty().withMessage('Email inválido'),
     body('senha').isLength({min: 6}).withMessage('Senha muito curta'),
-    body('nome').notEmpty().withMessage('Nome obrigatório')
+    body('nome').notEmpty().withMessage('Nome obrigatório'),
+    body('cpf').notEmpty().withMessage('CPF obrigatório').isLength({min:11, max:14}).withMessage('CPF inválido'),
+    body('telefone').notEmpty().withMessage('Telefone obrigatório').isLength({min:10, max:20}).withMessage('Telefone inválido'),
 ]
 
 const loginValidator = [

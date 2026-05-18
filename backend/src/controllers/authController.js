@@ -12,7 +12,7 @@ async function cadastro (req,res) {    //todo controlador recebe req,res como pa
         if(!erros.isEmpty()){
             return res.status(400).json({erros: erros.array() })
         }
-        const {nome, email, senha, data_nascimento} = req.body;     //extraindo as variaveis do usuario que chegam do frontend para poder manipular
+        const {nome, email, senha, data_nascimento, cpf, telefone} = req.body;     //extraindo as variaveis do usuario que chegam do frontend para poder manipular
         const jaExiste = await Usuarios.findOne({where: {email}})   //verifica se ja existe o email cadastrado
     
         if(jaExiste){
@@ -24,7 +24,9 @@ async function cadastro (req,res) {    //todo controlador recebe req,res como pa
             nome,
             email,
             senha_hash,
-            data_nascimento
+            data_nascimento,
+            cpf,
+            telefone
         });
         
         //criação do token vem dps do usuario pq ele precisa do id (que é criado quando um novo usuario é criado (SERIAL no model))

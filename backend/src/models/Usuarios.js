@@ -20,6 +20,15 @@ const Usuarios = sequelize.define('Usuarios' , {
         unique:true,
         allowNull: false,
     },
+    cpf:{
+        typr: DataTypes.STRING(14),
+        unique: true,
+        allowNull: false,
+    },
+    telefone:{
+        type:DataTypes.STRING(20),
+        allowNull: false,
+    },
     senha_hash:{
         type: DataTypes.STRING(255),
         allowNull: false,

@@ -16,7 +16,7 @@
     "nodejs",
     "express"
   ],
-  "author": "Seu Nome",
+  "author": "Pedro Chaves",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.16.1",
@@ -29,7 +29,8 @@
     "jsonwebtoken": "^9.0.3",
     "mqtt": "^5.15.1",
     "pg": "^8.20.0",
-    "sequelize": "^6.37.8"
+    "sequelize": "^6.37.8",
+    "socket.io": "^4.8.3"
   },
   "devDependencies": {
     "eslint": "^8.55.0",
