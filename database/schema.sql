@@ -59,6 +59,8 @@ CREATE TABLE usuarios(
     email VARCHAR(250) UNIQUE NOT NULL,
     cpf VARCHAR(14) UNIQUE NOT NULL,
     telefone VARCHAR(29) NOT NULL,
+    foto_url VARCHAR(500),
+    bio TEXT, 
     senha_hash VARCHAR(255) NOT NULL,
     tipo VARCHAR(20) NOT NULL DEFAULT 'usuario' CHECK (tipo IN ('usuario', 'admin')),
     pontos_totais INTEGER NOT NULL DEFAULT 0 CHECK (pontos_totais >= 0),

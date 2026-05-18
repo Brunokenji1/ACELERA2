@@ -14,6 +14,10 @@ async function perfil(req,res) {
                 id: usuario.id,
                 nome: usuario.nome,
                 email: usuario.email,
+                telefone: usuario.telefone,
+                cpf: usuario.cpf,
+                foto_url: usuario.foto_url,
+                bio: usuario.bio,
                 pontos_totais: usuario.pontos_totais
             }
         })
@@ -43,4 +47,33 @@ async function ranking(req,res) {
     }
 }
 
-module.exports = { perfil, ranking }
+async function atualizarPerfil(req, res) {  //para poder editar as informações
+    try {
+        const id = req.usuarioId
+        const { nome, telefone, foto_url, bio } = req.body
+
+        const usuario = await Usuarios.findOne({ where: { id } })
+        if (!usuario) {
+            return res.status(404).json({ erro: 'Usuario não encontrado' })
+        }
+
+        await usuario.update({ nome, telefone, foto_url, bio })
+
+        return res.status(200).json({
+            mensagem: 'Perfil atualizado com sucesso',
+            usuario: {
+                id: usuario.id,
+                nome: usuario.nome,
+                email: usuario.email,
+                telefone: usuario.telefone,
+                foto_url: usuario.foto_url,
+                bio: usuario.bio,
+            }
+        })
+    }
+    catch (err) {
+        return res.status(500).json({ erro: 'Erro interno' })
+    }
+}
+
+module.exports = { perfil, ranking, atualizarPerfil }

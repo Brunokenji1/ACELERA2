@@ -29,6 +29,14 @@ const Usuarios = sequelize.define('Usuarios' , {
         type:DataTypes.STRING(20),
         allowNull: false,
     },
+    foto_url:{
+        type:DataTypes.STRING(500),
+        allowNull: true,
+    },
+    bio:{
+        type:DataTypes.TEXT,
+        allowNull: true,
+    },
     senha_hash:{
         type: DataTypes.STRING(255),
         allowNull: false,

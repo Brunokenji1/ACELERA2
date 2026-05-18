@@ -85,5 +85,54 @@ async function login(req,res) {                     //função para fazer o logi
         return res.status(401).json({erro: 'Conta não encontrada'})
     }
 }
+async function verificarIdentidade(req,res) {
+    try{
+        const {email, cpf} = req.body
+        if(!email || !cpf){
+            return res.status(400).json({erro: 'Email e CPF são obrigatórios'})
+        }
+        const usuario = await Usuarios.findOne({
+            where: {email, cpf}
+        })
+        if (!usuario){
+            return res.status(404).json({erro: 'Dados não conferem'})
+        }
+        const cpfNormalizado = cpf.replace(/[.\-\s]/g, '')
 
-module.exports = {cadastro, login}
+        const usuarioEncontrado = await Usuarios.findOne({where: {email, cpf: cpfNormalizado}})
+        return res.status(200).json({
+            mensagem: 'Identidade verificada',
+            id_usuario: usuarioEncontrado.id,
+        })
+    }
+    catch(err){
+        return res.status(500).json({erro: 'Erro interno'})
+    }
+}
+
+async function redefinirSenha(req,res) {
+        try{
+            const {id_usuario, nova_senha} = req.body
+            if(!id_usuario || !nova_senha){
+                return res.status(400).json({erro: 'Dados incompletos'})
+            }
+            if(nova_senha.length < 6){
+                return res.status(400).json({erro: 'Senha muito curta'})
+            }
+            const usuario = await Usuarios.findOne({where: {id: id_usuario}})
+            if(!usuario){
+                return res.status(404).json({erro: 'Usuário não encontrado'})
+            }
+
+            const senha_hash = await bcrypt.hash(nova_senha,10)
+            await usuario.update({senha_hash})
+
+            return res.status(200).json({mensagem: 'Senha redefinida com sucesso'})
+
+        }
+        catch(err){
+            return res.status(500).json({erro: 'Erro interno'})
+        }
+}
+
+module.exports = {cadastro, login, verificarIdentidade,redefinirSenha}
