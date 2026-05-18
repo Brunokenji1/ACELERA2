@@ -1,0 +1,163 @@
+.resolucoes-container {
+  width: 100%;
+}
+
+/* HEADER */
+.resolucoes-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 35px;
+}
+
+.resolucoes-header h1 {
+  font-size: 38px;
+
+  color: #1a1a2e;
+
+  margin-bottom: 6px;
+}
+
+.resolucoes-header p {
+  color: #666;
+}
+
+/* PESQUISA */
+.input-pesquisa {
+  width: 260px;
+
+  height: 48px;
+
+  border: 2px solid #ff6d00;
+
+  border-radius: 14px;
+
+  padding: 0 18px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  background: white;
+}
+
+/* LISTA */
+.resolucoes-lista {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+/* CARD */
+.resolucao-card {
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 0 20px;
+
+  height: 66px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.04);
+}
+
+.resolucao-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ESQUERDA */
+.resolucao-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 26px;
+}
+
+/* ID */
+.questaoRes-id {
+  font-size: 16px;
+
+  font-weight: bold;
+
+  color: #ff6d00;
+
+  min-width: 65px;
+}
+
+/* TITULO */
+.resolucao-card h2 {
+  color: #2000B1;
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+/* STATUS */
+.status {
+  width: 100px;
+
+  height: 36px;
+
+  border-radius: 999px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  color: white;
+}
+
+.status.acertou {
+  background: #00b35f;
+}
+
+.status.errou {
+  background: #ff3d3d;
+}
+
+/* VAZIO */
+.resolucoes-vazio {
+  background: white;
+
+  padding: 60px;
+
+  border-radius: 24px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.resolucoes-vazio h2 {
+  color: #1a1a2e;
+
+  margin-bottom: 14px;
+}
+
+.resolucoes-vazio p {
+  color: #666;
+}
