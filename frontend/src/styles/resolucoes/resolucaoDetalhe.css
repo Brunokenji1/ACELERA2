@@ -1,0 +1,208 @@
+.resolucao-container {
+  width: 100%;
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding-bottom: 50px;
+}
+
+/* TOPO */
+.resolucao-topo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  margin-bottom: 30px;
+}
+
+/* VOLTAR */
+.resolucao-btn-voltar {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background: #ff6d00;
+
+  color: white;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.resolucao-btn-voltar:hover {
+  transform: scale(1.08);
+}
+
+/* TAGS */
+.resolucao-tags {
+  display: flex;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+.resolucao-tags span {
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  color: white;
+
+  font-weight: bold;
+
+  font-size: 14px;
+}
+
+.resolucao-id {
+  background: #280aad;
+}
+
+.resolucao-materia {
+  background: #2000B1;
+}
+
+.resolucao-prova {
+  background: #ff6d00;
+}
+
+/* BOX QUESTÃO */
+.resolucao-box {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  margin-bottom: 28px;
+
+  border: 2px solid #ff6d00;
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.05);
+}
+
+.resolucao-box h2 {
+  color: #2000B1;
+
+  margin-bottom: 18px;
+}
+
+.resolucao-box p {
+  line-height: 1.7;
+
+  color: #333;
+
+  font-size: 17px;
+}
+
+/* IMAGEM */
+.resolucao-imagem {
+  width: 100%;
+
+  max-width: 700px;
+
+  margin-top: 25px;
+
+  border-radius: 18px;
+
+  display: block;
+}
+
+/* ALTERNATIVAS */
+.resolucao-alternativas {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  margin-bottom: 30px;
+}
+
+.resolucao-alternativa {
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 18px 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  border: 2px solid #ff6d00;
+}
+
+/* LETRA */
+.resolucao-letra {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: #f5f7fb;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+
+  color: #2000B1;
+}
+
+/* CORRETA */
+.resolucao-correta {
+  background: #e8ffe8;
+
+  border-color: #00b35f;
+}
+
+/* ERRADA */
+.resolucao-errada {
+  background: #ffe8e8;
+
+  border-color: #ff3d3d;
+}
+
+/* RESOLUÇÃO */
+.resolucao-explicacao-box {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  border: 2px solid #2000B1;
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.05);
+}
+
+.resolucao-explicacao-box h2 {
+  color: #2000B1;
+
+  margin-bottom: 18px;
+}
+
+.resolucao-explicacao-box p {
+  line-height: 1.7;
+
+  color: #333;
+
+  font-size: 17px;
+}

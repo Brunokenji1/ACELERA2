@@ -2,7 +2,11 @@ import "../../styles/resolucoes/listaResolucoes.css";
 
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 export default function ListaResolucoes() {
+  const navigate = useNavigate();
+
   const [pesquisa, setPesquisa] = useState("");
 
   const resolucoes = [
@@ -59,7 +63,12 @@ export default function ListaResolucoes() {
       {resolucoesFiltradas.length > 0 ? (
         <div className="resolucoes-lista">
           {resolucoesFiltradas.map((questao) => (
-            <div key={questao.id} className="resolucao-card">
+            <div
+              key={questao.id}
+              className="resolucao-card"
+              onClick={() => navigate(`/resolucoes/${questao.id}`)}
+            >
+                
               {/* ESQUERDA */}
               <div className="resolucao-left">
                 <span className="questaoRes-id">{questao.id}</span>
@@ -77,7 +86,6 @@ export default function ListaResolucoes() {
       ) : (
         <div className="resolucoes-vazio">
           <h2>Nenhuma resolução encontrada</h2>
-
         </div>
       )}
     </div>

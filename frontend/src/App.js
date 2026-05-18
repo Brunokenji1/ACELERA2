@@ -18,6 +18,7 @@ import Questao from "./pages/Questoes/Questao";
 
 //Resolucoes
 import ListaResolucoes from "./pages/Resolucoes/ListaResolucoes";
+import ResolucaoDetalhe from "./pages/Resolucoes/ResolucaoDetalhe";
 
 function App() {
   return (
@@ -27,13 +28,20 @@ function App() {
         <Route path="/cadastro" element={<Cadastro />} />
 
         <Route element={<Layout />}>
+
           <Route path="/perfil" element={<Perfil />} />
+
           <Route path="/ranking" element={<Ranking />} />
+
           <Route path="/questoes" element={<Categorias />} />
           <Route path="/questoes/:categoria" element={<ListaQuestoes />} />
           <Route path="/questao/:id" element={<Questao />} />
+
           <Route path="/resolucoes" element={<ListaResolucoes />} />
+          <Route path="/resolucoes/:id" element={<ResolucaoDetalhe />} />
+
           <Route path="/partida" element={<Partida />} />
+
         </Route>
       </Routes>
     </BrowserRouter>
