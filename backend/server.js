@@ -14,7 +14,7 @@ async function iniciar(){
     //iniciando o socket no mesmo servidor do express
     inicializarSocket(servidor)
 
-    servidor.listen(PORT =>{
+    servidor.listen(PORT, () =>{
         console.log(`Servidor online na PORTA: ${PORT}`)
     })
 

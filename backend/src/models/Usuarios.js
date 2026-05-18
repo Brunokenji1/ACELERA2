@@ -21,7 +21,7 @@ const Usuarios = sequelize.define('Usuarios' , {
         allowNull: false,
     },
     cpf:{
-        typr: DataTypes.STRING(14),
+        type: DataTypes.STRING(14),
         unique: true,
         allowNull: false,
     },
