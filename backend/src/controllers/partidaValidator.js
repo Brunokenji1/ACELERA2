@@ -22,3 +22,4 @@ const criarPartidaValidator = [
         .toInt(),
 ]
 module.exports = {criarPartidaValidator}
+

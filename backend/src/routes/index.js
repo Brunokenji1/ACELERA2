@@ -3,6 +3,7 @@ const usuarioRotas = require('./usuario.routes');
 const authRoutes = require('./auth.routes');
 const questaoRouter = require('./questao.routes');
 const partidaRouter = require('./partida.routes');
+const resolucaoRouter = require('./resolucao.routes');
 
 const router = Router();
 
@@ -13,5 +14,6 @@ router.use('/auth', authRoutes)     //aqui vai usar '/api/auth/cadastro'; '/api/
 router.use('/usuarios',usuarioRotas)
 router.use('/questoes', questaoRouter)
 router.use('/partidas', partidaRouter)
+router.use('/resolucoes', resolucaoRouter)
 
 module.exports = router;

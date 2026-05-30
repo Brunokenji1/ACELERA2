@@ -25,10 +25,10 @@ Fontes.belongsTo(TipoNivel,{
 });
 //-------------------------------------------------------
 Fontes.hasMany(Questoes,{
-    foreignKey: 'id_fonte'
+    foreignKey: 'id_fonte',
 });
 Questoes.belongsTo(Fontes,{
-    foreignKey: 'id_fonte'
+    foreignKey: 'id_fonte',
 });
 //-------------------------------------------------------
 Materias.hasMany(Questoes,{
@@ -39,10 +39,13 @@ Questoes.belongsTo(Materias,{
 });
 //-------------------------------------------------------
 Questoes.hasMany(Alternativas,{
-    foreignKey: 'id_questao'
+    foreignKey: 'id_questao',
+    as:'alternativas'
 });
 Alternativas.belongsTo(Questoes,{
-    foreignKey: 'id_questao'
+    foreignKey: 'id_questao',
+    as: 'questao'
+
 });
 //-------------------------------------------------------
 Usuarios.hasMany(Partidas,{

@@ -10,7 +10,7 @@ async function listarQuestoes(req,res) {
         const todasQuestoes = await Questoes.findAll({
             where,
             order: [['id','ASC']],   //ASC = crescente
-            include: [{model: Alternativas}]
+            include: [{model: Alternativas, as: 'alternativas'}]
         }) 
         return res.status(200).json({ todasQuestoes});
     }
@@ -26,7 +26,7 @@ async function buscarQuestoes(req,res) {
                 id
             },
             include:{
-                model: Alternativas
+                model: Alternativas, as: 'alternativas'
             }})
         if(!questaoBuscada){
             return res.status(404).json({erro: 'Questão não encontrada'})

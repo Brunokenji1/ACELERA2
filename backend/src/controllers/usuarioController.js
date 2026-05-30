@@ -2,15 +2,24 @@
 
 const Usuarios = require('../models/Usuarios')
 
-async function perfil(req,res) {
-    try{
+async function perfil(req, res) {
+    try {
         const id = req.usuarioId
-        const usuario = await Usuarios.findOne({ where: {id}})
-        if(!usuario){
-            return res.status(404).json({err: 'Usuario não encontrado'})
+        const usuario = await Usuarios.findOne({ where: { id } })
+        if (!usuario) {
+            return res.status(404).json({ erro: 'Usuario não encontrado' })
         }
+
+        // calcula posição no ranking
+        const usuariosAcima = await Usuarios.count({
+            where: {
+                pontos_totais: { [require('sequelize').Op.gt]: usuario.pontos_totais }
+            }
+        })
+        const posicao = usuariosAcima + 1
+
         return res.status(200).json({
-            usuario:{
+            usuario: {
                 id: usuario.id,
                 nome: usuario.nome,
                 email: usuario.email,
@@ -18,32 +27,30 @@ async function perfil(req,res) {
                 cpf: usuario.cpf,
                 foto_url: usuario.foto_url,
                 bio: usuario.bio,
-                pontos_totais: usuario.pontos_totais
+                pontos_totais: usuario.pontos_totais,
+                posicao_ranking: posicao
             }
         })
-
-    }
-    catch(err){
-        return res.status(500).json({err: 'Erro interno'})
+    } catch(err) {
+        return res.status(500).json({ erro: 'Erro interno' })
     }
 }
 
-async function ranking(req,res) {
-    try{
-        const usuario = await Usuarios.findAll({
-            order: [['pontos_totais', 'DESC']] //desc = decrescente
+async function ranking(req, res) {
+    try {
+        const usuarios = await Usuarios.findAll({
+            order: [['pontos_totais', 'DESC']] //DESC -> decrescente 
         })
         return res.status(200).json({
-            ranking: usuario.map(u =>({     //.map() transforma o usuario pegando so os campos q eu quero
+            ranking: usuarios.map((u, index) => ({  //map pega só o que eu quero
+                posicao: index + 1,
                 id: u.id,
                 nome: u.nome,
                 pontos_totais: u.pontos_totais
-
             }))
         })
-    }
-    catch(err){
-        return res.status(500).json({err: 'Erro interno'})
+    } catch(err) {
+        return res.status(500).json({ erro: 'Erro interno' })
     }
 }
 

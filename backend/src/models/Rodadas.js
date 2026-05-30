@@ -32,7 +32,7 @@ const Rodadas = sequelize.define('Rodadas',{
     iniciado_em:{
         type:DataTypes.DATE
     },
-    finalizado_em:{
+    finalizada_em:{
         type:DataTypes.DATE,
     },
 },

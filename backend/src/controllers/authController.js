@@ -46,7 +46,7 @@ async function cadastro (req,res) {    //todo controlador recebe req,res como pa
 
     }
     catch(err){
-        return res.status(500).json({erro: 'Erro interno'})
+        return res.status(500).json({err: 'Erro interno'})
     }
 };
 async function login(req,res) {                     //função para fazer o login
