@@ -7,8 +7,6 @@ import Perfil from "./pages/Perfil";
 
 import Layout from "./components/Layout";
 
-import Partida from "./pages/Partida";
-
 import Ranking from "./pages/Ranking";
 
 //Questoes
@@ -20,12 +18,19 @@ import Questao from "./pages/Questoes/Questao";
 import ListaResolucoes from "./pages/Resolucoes/ListaResolucoes";
 import ResolucaoDetalhe from "./pages/Resolucoes/ResolucaoDetalhe";
 
+//Partidas
+import ListaPartidas from "./pages/Partidas/ListaPartidas";
+import CriarPartida from "./pages/Partidas/CriarPartida";
+import Partida from "./pages/Partidas/Partida";
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
+
+        <Route path="/partidas/criar" element={<CriarPartida />} />
 
         <Route element={<Layout />}>
 
@@ -40,7 +45,9 @@ function App() {
           <Route path="/resolucoes" element={<ListaResolucoes />} />
           <Route path="/resolucoes/:id" element={<ResolucaoDetalhe />} />
 
-          <Route path="/partida" element={<Partida />} />
+          <Route path="/partidas" element={<ListaPartidas />} />
+         
+          <Route path="/partidas/:id" element={<Partida />} />
 
         </Route>
       </Routes>

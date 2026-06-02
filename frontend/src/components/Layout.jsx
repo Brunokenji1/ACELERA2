@@ -39,7 +39,7 @@ export default function Layout() {
         "Aqui você poderá visualizar resoluções e explicações detalhadas das questões respondidas. Esta área ajuda na revisão de conteúdo e no entendimento dos erros e acertos realizados durante os exercícios.",
     },
 
-    "/partida": {
+    "/partidas": {
       titulo: "Partida",
 
       descricao:
@@ -85,7 +85,7 @@ export default function Layout() {
             {open && <span>Resoluções</span>}
           </Link>
 
-          <Link to="/partida" className="item">
+          <Link to="/partidas" className="item">
             <span className="icon">🎮</span>
             {open && <span>Partida</span>}
           </Link>

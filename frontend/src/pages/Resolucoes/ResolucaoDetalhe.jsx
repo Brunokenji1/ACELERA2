@@ -44,6 +44,11 @@ export default function ResolucaoDetalhe() {
         letra: "D",
         texto: "19",
       },
+
+      {
+        letra: "E",
+        texto: "21",
+      },
     ],
   };
 

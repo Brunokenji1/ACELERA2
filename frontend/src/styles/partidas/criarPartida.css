@@ -1,0 +1,206 @@
+.criar-partida-page {
+  min-height: 100vh;
+
+  display: flex;
+
+  background: #e5eaf2;
+}
+
+/* FAIXAS */
+
+.faixa-esquerda,
+.faixa-direita {
+  width: 80px;
+
+  background: #2000b1;
+}
+
+.faixa-esquerda {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  padding-top: 30px;
+}
+
+/* BOTÃO VOLTAR */
+
+.btn-voltar-partida {
+  width: 55px;
+  height: 55px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #ff6d00;
+
+  color: white;
+
+  font-size: 28px;
+
+  cursor: pointer;
+}
+
+/* CONTEÚDO */
+
+.conteudo-partida {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 40px;
+
+  padding: 40px;
+}
+
+/* CARDS */
+
+.jogador-card,
+.configuracoes-card {
+  background: #ffffff;
+
+  border-radius: 28px;
+
+  padding: 40px;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.05),
+    0 20px 40px rgba(0, 0, 0, 0.04);
+
+  border: none;
+}
+
+.jogador-card {
+  width: 300px;
+
+  min-height: 500px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.configuracoes-card {
+  width: 420px;
+
+  min-height: 500px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+  
+}
+
+/* AVATAR */
+
+.avatar-placeholder {
+   width: 160px;
+  height: 160px;
+
+  border-radius: 20px;
+
+  background: #f5f7fb;
+
+  border: 2px solid #d9dce8;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: #2000B1;
+
+  font-weight: bold;
+}
+
+/* CAMPOS */
+
+.configuracoes-card select,
+.jogador-card input {
+  width: 100%;
+
+  padding: 14px;
+
+  border-radius: 12px;
+
+  border: 2px solid #d9dce8;
+
+  background: #f8f9fc;
+
+  font-size: 15px;
+
+  transition: 0.2s;
+}
+
+.configuracoes-card select:focus,
+.jogador-card input:focus {
+  outline: none;
+
+  border-color: #ff6d00;
+}
+
+/* BOTÃO INICIAR */
+
+.btn-iniciar {
+  width: 100%;
+
+  height: 55px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #ff6d00;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  margin-top: auto;
+}
+
+.nome-box {
+  width: 100%;
+
+  background: #f5f7fb;
+
+  border: 2px solid #d9dce8;
+
+  border-radius: 12px;
+
+  padding: 12px;
+
+  text-align: center;
+
+  font-weight: 600;
+
+  color: #333;
+}
+
+.campo-label {
+  width: 100%;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #2000B1;
+}

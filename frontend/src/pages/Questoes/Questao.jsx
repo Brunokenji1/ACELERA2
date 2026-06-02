@@ -91,11 +91,6 @@ export default function Questao() {
       <div className="questao-box">
         <p>
           A crítica do livro de memórias de Michelle Obama aborda a história das
-          relações humanas e destaca:  A crítica do livro de memórias de Michelle Obama aborda a história das
-          relações humanas e destaca:  A crítica do livro de memórias de Michelle Obama aborda a história das
-          relações humanas e destaca:  A crítica do livro de memórias de Michelle Obama aborda a história das
-          relações humanas e destaca:  A crítica do livro de memórias de Michelle Obama aborda a história das
-          relações humanas e destaca:  A crítica do livro de memórias de Michelle Obama aborda a história das
           relações humanas e destaca:
         </p>
       </div>
