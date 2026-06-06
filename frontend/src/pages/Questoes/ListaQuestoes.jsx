@@ -1,4 +1,6 @@
 import "../../styles/listaQuestoes.css";
+import { useState, useEffect } from "react";
+import { listarQuestoes } from "../../services/questaoService";
 
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -6,47 +8,56 @@ export default function ListaQuestoes() {
   const { categoria } = useParams();
 
   const navigate = useNavigate();
+  const [questoes, setQuestoes] = useState([]);
 
-  const questoes = [
-    {
-      id: "0024",
-      titulo: "Proporcionalidade e Equações do Primeiro Grau",
-      dificuldade: "Médio",
-      pontos: "4 pts",
-      ano: "ENEM 2022",
-    },
+  useEffect(() => {
+    async function carregarQuestoes() {
+      try {
+        const resposta = await listarQuestoes();
 
-    {
-      id: "0025",
-      titulo: "Proporcionalidade",
-      dificuldade: "Fácil",
-      pontos: "2 pts",
-      ano: "ENEM 2021",
-    },
+        console.log(resposta);
 
-    {
-      id: "0026",
-      titulo: "Média Aritmética",
-      dificuldade: "Médio",
-      pontos: "4 pts",
-      ano: "ENEM 2020",
-    },
+        const todas = resposta.todasQuestoes;
 
-    {
-      id: "0027",
-      titulo: "Geometria Plana",
-      dificuldade: "Difícil",
-      pontos: "8 pts",
-      ano: "ENEM 2019",
-    },
-  ];
+        if (categoria === "matematica") {
+          setQuestoes(todas.filter((q) => q.id_materia === 1));
+
+        } else if (categoria === "linguagens") {
+          setQuestoes(todas.filter((q) => [2, 8, 9].includes(q.id_materia)));
+
+        } else if (categoria === "ciencias-humanas") {
+          setQuestoes(
+            todas.filter((q) => [3, 4, 10, 11].includes(q.id_materia)),
+          );
+
+        } else if (categoria === "ciencias-da-natureza") {
+          setQuestoes(todas.filter((q) => [5, 6, 7].includes(q.id_materia)));
+
+        } else {
+          setQuestoes(todas);
+          
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    carregarQuestoes();
+  }, []);
+
+  if (!questoes.length) {
+    return <p>Carregando questões...</p>;
+  }
 
   return (
     <div className="lista-container">
       {/* HEADER */}
       <div className="lista-header">
         <div className="header-left">
-          <button className="btn-voltar-lista" onClick={() => navigate("/questoes")}>
+          <button
+            className="btn-voltar-lista"
+            onClick={() => navigate("/questoes")}
+          >
             ←
           </button>
 
@@ -70,7 +81,7 @@ export default function ListaQuestoes() {
             <div className="questao-left">
               <span className="questao-id">{questao.id}</span>
 
-              <h2>{questao.titulo}</h2>
+              <h2>{questao.enunciado.substring(0, 80)}...</h2>
             </div>
 
             {/* DIREITA */}
@@ -84,9 +95,9 @@ export default function ListaQuestoes() {
                 {questao.dificuldade}
               </span>
 
-              <span className="ano">{questao.ano}</span>
+              <span className="ano">ENEM {questao.ano}</span>
 
-              <span className="pontos">{questao.pontos}</span>
+              <span className="pontos">1 pt</span>
             </div>
           </div>
         ))}

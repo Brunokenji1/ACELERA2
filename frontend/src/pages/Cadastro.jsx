@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/cadastro.css";
+import { cadastrar } from "../services/authService";
 
 export default function Cadastro() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     nome: "",
-    nomeUsuario: "",
     email: "",
     telefone: "",
     cpf: "",
+    data_nascimento: "",
     senha: "",
     confirmaSenha: "",
   });
@@ -23,10 +26,32 @@ export default function Cadastro() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Adicionar lógica de validação e cadastro
-    console.log("Cadastro:", formData);
+
+    if (formData.senha !== formData.confirmaSenha) {
+      alert("As senhas não coincidem");
+      return;
+    }
+
+    try {
+      const resposta = await cadastrar({
+        nome: formData.nome,
+        email: formData.email,
+        telefone: formData.telefone,
+        cpf: formData.cpf,
+        data_nascimento: formData.data_nascimento,
+        senha: formData.senha,
+      });
+
+      //localStorage.setItem("token", resposta.token);
+
+      alert("Cadastro realizado com sucesso! Faça login para continuar.");
+
+      navigate("/"); //vai para login
+    } catch (erro) {
+      console.error(erro);
+    }
   };
 
   return (
@@ -50,14 +75,6 @@ export default function Cadastro() {
               name="nome"
               placeholder="Nome completo"
               value={formData.nome}
-              onChange={handleChange}
-            />
-
-            <input
-              type="text"
-              name="nomeUsuario"
-              placeholder="Nome de usuário"
-              value={formData.nomeUsuario}
               onChange={handleChange}
             />
 
@@ -86,6 +103,13 @@ export default function Cadastro() {
                 onChange={handleChange}
               />
             </div>
+
+            <input
+              type="date"
+              name="data_nascimento"
+              value={formData.data_nascimento}
+              onChange={handleChange}
+            />
 
             <div className="row">
               <input

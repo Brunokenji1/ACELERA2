@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
 import { useNavigate } from "react-router-dom";
+import { login } from "../services/authService";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -9,18 +10,31 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(email, senha);
 
-  navigate("/perfil");
+    try {
+      const resposta = await login(email, senha);
+
+      console.log(resposta);
+
+      console.log("TOKEN RECEBIDO:", resposta.token);
+
+      localStorage.setItem("token", resposta.token);
+
+      alert("Login realizado com sucesso!");
+
+      navigate("/perfil");
+
+    } catch (erro) {
+      console.error(erro);
+      alert("Erro ao realizar login");
+    }
   };
 
   return (
     <div className="background">
-
       <div className="login-card">
-
         {/* ESQUERDA (LOGO) */}
         <div className="login-left">
           <h1 className="logo-title">
@@ -32,7 +46,6 @@ function Login() {
         {/* DIREITA (LOGIN) */}
         <div className="login-right">
           <form onSubmit={handleLogin}>
-
             <h2>Login</h2>
 
             <input
@@ -47,19 +60,18 @@ function Login() {
               onChange={(e) => setSenha(e.target.value)}
             />
 
-            <a href="#" className="link">Esqueci minha senha</a>
+            <a href="#" className="link">
+              Esqueci minha senha
+            </a>
 
             <button type="submit">Entrar</button>
 
             <p className="register">
               <Link to="/cadastro">Não possui uma conta? Cadastre-se</Link>
             </p>
-
           </form>
         </div>
-
       </div>
-
     </div>
   );
 }
