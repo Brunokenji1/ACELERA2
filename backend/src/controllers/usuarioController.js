@@ -13,9 +13,15 @@ async function perfil(req, res) {
         // calcula posição no ranking
         const usuariosAcima = await Usuarios.count({
             where: {
-                pontos_totais: { [require('sequelize').Op.gt]: usuario.pontos_totais }
-            }
-        })
+                [require('sequelize').Op.or]: [
+                    { pontos_totais: { [require('sequelize').Op.gt]: usuario.pontos_totais } },
+                    {
+                        pontos_totais: usuario.pontos_totais,
+                        id: { [require('sequelize').Op.lt]: usuario.id }    
+                    }
+                ]
+        }
+    })  
         const posicao = usuariosAcima + 1
 
         return res.status(200).json({
@@ -39,7 +45,7 @@ async function perfil(req, res) {
 async function ranking(req, res) {
     try {
         const usuarios = await Usuarios.findAll({
-            order: [['pontos_totais', 'DESC']] //DESC -> decrescente 
+            order: [['pontos_totais', 'DESC'], ['id', 'ASC']] //DESC -> decrescente 
         })
         return res.status(200).json({
             ranking: usuarios.map((u, index) => ({  //map pega só o que eu quero
