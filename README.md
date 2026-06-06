@@ -4,7 +4,7 @@ Sistema de quiz de vestibular com botões físicos (ESP32) conectados a uma apli
 
 ## Stack
 
-- **Firmware (ESP32):** MicroPython
+- **Firmware (ESP32):** Arduino
 - **Backend:** Node.js + WebSocket
 - **Frontend:** React.js
 - **Banco de dados:** PostgreSQL 16
@@ -52,4 +52,4 @@ Sistema de quiz de vestibular com botões físicos (ESP32) conectados a uma apli
 - Pedro Augusto Chaves da Silva — Backend
 
 ## Contexto acadêmico
-Projeto desenvolvido para o evento Acelera da Fatec Cruzeiro, 2026.
+Projeto desenvolvido para o evento Acelera da Fatec Cruzeiro, 1º semestre de 2026.
