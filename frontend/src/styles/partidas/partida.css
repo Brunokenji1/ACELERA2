@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.partida-page {
+  min-height: 100vh;
+  background: #dfe3ea;
+
+  display: flex;
+}
+
+.faixa-esquerda,
+.faixa-direita {
+  width: 60px;
+  background: #2d00c8;
+}
+
+.partida-container {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 30px;
+
+  padding: 25px;
+}
+
+/* COLUNAS DOS JOGADORES */
+
+.jogador-coluna {
+  width: 240px;
+  min-height: 700px;
+
+  background: white;
+  border-radius: 20px;
+
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 18px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.jogador-coluna h2 {
+  font-size: 22px;
+}
+
+.avatar-box {
+  width: 140px;
+  height: 140px;
+
+  border: 2px solid #d0d5dd;
+  border-radius: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f5f6f8;
+}
+
+.nome-jogador {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* PONTOS */
+
+.pontos-box {
+  width: 120px;
+  height: 80px;
+
+  border: 3px solid #38b26d;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pontos-box span {
+  font-size: 16px;
+}
+
+.pontos-box h3 {
+  font-size: 28px;
+}
+
+/* TIMER DO JOGADOR */
+
+.timer-jogador {
+  width: 110px;
+  height: 220px;
+
+  border: 3px solid #ff4f4f;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 45px;
+  font-weight: bold;
+}
+
+/* COLUNA CENTRAL */
+
+.centro-coluna {
+  flex: 1;
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+/* TOPO */
+
+.topo-partida {
+  height: 50px;
+
+  background: white;
+  border-radius: 16px;
+
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.pontos-questao,
+.timer-principal,
+.rodada-info {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* QUESTÃO */
+
+.enunciado-box {
+  height: 400px;
+
+  background: white;
+  border-radius: 16px;
+
+  padding: 15px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+  overflow-y: auto;
+}
+
+.enunciado-box h3 {
+  margin-bottom: 15px;
+}
+
+.enunciado-box p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* ALTERNATIVAS */
+
+.alternativas-box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.alternativas-box button {
+  height: 40px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: white;
+
+  font-size: 15px;
+  text-align: left;
+
+  padding-left: 20px;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+  transition: 0.2s;
+}
+
+.alternativas-box button:hover {
+  transform: translateY(-2px);
+}

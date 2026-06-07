@@ -91,6 +91,11 @@
   gap: 20px;
 }
 
+.nome-jogador {
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .configuracoes-card {
   width: 420px;
 
@@ -104,11 +109,17 @@
   
 }
 
+.campo-config {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 /* AVATAR */
 
 .avatar-placeholder {
-   width: 160px;
-  height: 160px;
+   width: 180px;
+  height: 180px;
 
   border-radius: 20px;
 
@@ -174,7 +185,7 @@
 
   cursor: pointer;
 
-  margin-top: auto;
+  margin-top: 20px;
 }
 
 .nome-box {

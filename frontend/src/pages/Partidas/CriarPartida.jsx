@@ -1,9 +1,57 @@
 import "../../styles/partidas/criarPartida.css";
-
+import { useEffect } from "react";
+import { useState } from "react";
+import { buscarPerfil } from "../../services/usuarioService";
+import { criarPartida } from "../../services/partidaService";
 import { useNavigate } from "react-router-dom";
 
 export default function CriarPartida() {
   const navigate = useNavigate();
+
+  const [usuario, setUsuario] = useState(null);
+
+  const [materia, setMateria] = useState(1);
+
+  const [dificuldade, setDificuldade] =
+    useState("facil");
+
+  const [quantidadeQuestoes, setQuantidadeQuestoes] =
+    useState(5);
+
+  useEffect(() => {
+    async function carregarPerfil() {
+      try {
+        const resposta = await buscarPerfil();
+
+        console.log(resposta);
+
+        setUsuario(resposta.usuario);
+      } catch (erro) {
+        console.error(erro);
+      }
+    }
+
+    carregarPerfil();
+  }, []);
+
+  async function iniciarPartida() {
+  try {
+    const resposta = await criarPartida({
+      id_materia: materia,
+      dificuldade,
+      quantidade_questoes: quantidadeQuestoes,
+    });
+
+    //console.log(resposta);
+    navigate(`/partidas/${resposta.partida.id}`);
+
+    alert("Partida criada com sucesso!");
+  } catch (erro) {
+    console.error(erro);
+
+    alert(erro.message);
+  }
+}
 
   function voltar() {
     const confirmar = window.confirm(
@@ -28,45 +76,63 @@ export default function CriarPartida() {
       <div className="conteudo-partida">
         {/* JOGADOR 1 */}
         <div className="jogador-card">
-          <div className="nome-box">Jogador 1</div>
+          <h2>Jogador 1</h2>
+
           <div className="avatar-placeholder">Foto Perfil</div>
 
-          <p>Usuário Logado</p>
+          <p className="nome-jogador">{usuario?.nome || "Carregando..."}</p>
         </div>
+
+  
 
         {/* CONFIGURAÇÕES */}
         <div className="configuracoes-card">
           <h2>Configurações</h2>
 
-          <select>
-            <option>Matemática</option>
-            <option>Linguagens</option>
-            <option>Ciências Humanas</option>
-            <option>Ciências da Natureza</option>
-            <option>ENEM</option>
-          </select>
+          <div className="campo-config">
+            <label>Selecionar matéria</label>
+            <select 
+              value={materia}
+              onChange={(e) => 
+                setMateria(Number(e.target.value))}
+            >
+              <option value={1}>Matemática</option>
+              <option value={2}>Português</option>
+              <option value={3}>História</option>
+              <option value={7}>Biologia</option>
+            </select>
+          </div>
 
-          <select>
-            <option>Fácil</option>
-            <option>Médio</option>
-            <option>Difícil</option>
-          </select>
+          <div className="campo-config">
+            <label>Selecionar dificuldade</label>
+            <select 
+              value={dificuldade}
+              onChange={(e) => 
+                setDificuldade(e.target.value)}
+            >
+              <option value="facil">Fácil</option>
+              <option value="medio">Médio</option>
+              <option value="dificil">Difícil</option>
+            </select>
+          </div>
 
-          <select>
-            <option>5 Questões</option>
-            <option>10 Questões</option>
-            <option>15 Questões</option>
-            <option>20 Questões</option>
-          </select>
+          <div className="campo-config">
+            <label>Quantidade de questões</label>
+            <select 
+              value={quantidadeQuestoes}
+              onChange={(e) => 
+                setQuantidadeQuestoes(Number(e.target.value))}
+            >
+              <option value={5}>5 Questões</option>
+              <option value={7}>7 Questões</option>
+              <option value={11}>11 Questões</option>
+              <option value={13}>13 Questões</option>
+            </select>
+          </div>
 
-          <select>
-            <option>15 segundos</option>
-            <option>30 segundos</option>
-            <option>45 segundos</option>
-            <option>60 segundos</option>
-          </select>
-
-          <button className="btn-iniciar">Iniciar Partida</button>
+          <button className="btn-iniciar" onClick={iniciarPartida}>
+            Iniciar Partida
+          </button>
         </div>
 
         {/* JOGADOR 2 */}
@@ -75,9 +141,7 @@ export default function CriarPartida() {
 
           <div className="avatar-placeholder">Avatar</div>
 
-          <div className="campo-label">Nome</div>
-
-          <input type="text" placeholder="Digite o nome" />
+          <p className="nome-jogador">Convidado</p>
         </div>
       </div>
 

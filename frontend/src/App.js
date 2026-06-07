@@ -31,6 +31,7 @@ function App() {
         <Route path="/cadastro" element={<Cadastro />} />
 
         <Route path="/partidas/criar" element={<CriarPartida />} />
+        <Route path="/partidas/:id" element={<Partida />} />
 
         <Route element={<Layout />}>
 
@@ -47,7 +48,7 @@ function App() {
 
           <Route path="/partidas" element={<ListaPartidas />} />
          
-          <Route path="/partidas/:id" element={<Partida />} />
+          
 
         </Route>
       </Routes>
