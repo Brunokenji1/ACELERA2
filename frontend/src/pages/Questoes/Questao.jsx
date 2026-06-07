@@ -1,8 +1,8 @@
 import "../../styles/questao.css";
-
 import { useState } from "react";
-
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import {buscarQuestao, responderQuestao as responderQuestaoAPI } from "../../services/questaoService";
 
 export default function Questao() {
   const navigate = useNavigate();
@@ -13,57 +13,75 @@ export default function Questao() {
 
   const [selecionada, setSelecionada] = useState(null);
 
-  const alternativaCorreta = "B";
+  const { id } = useParams();
 
-  const alternativas = [
-    {
-      letra: "A",
-      texto: "a ascensão social era improvável.",
-    },
+  const [questao, setQuestao] = useState(null);
 
-    {
-      letra: "B",
-      texto: "a mudança de nome era impensável.",
-    },
+  useEffect(() => {
+    async function carregarQuestao() {
+      try {
+        const resposta = await buscarQuestao(id);
 
-    {
-      letra: "C",
-      texto: "a origem do indivíduo era irrelevante.",
-    },
+        console.log(resposta);
 
-    {
-      letra: "D",
-      texto: "o trabalho feminino era inimaginável.",
-    },
+        setQuestao(resposta.questaoBuscada);
 
-    {
-      letra: "E",
-      texto: "o comportamento parental era irresponsável.",
-    },
-  ];
+        console.log(resposta.questaoBuscada.enunciado);
+      } catch (erro) {
+        console.error(erro);
+      }
+    }
 
-  function responder(alternativa) {
-    if (bloqueado) return;
+    carregarQuestao();
+  }, [id]);
 
-    setSelecionada(alternativa);
+async function responder(alternativa) {
+  if (bloqueado) return;
 
-    // ACERTO
-    if (alternativa === alternativaCorreta) {
+  try {
+    const resposta = await responderQuestaoAPI(
+      questao.id,
+      alternativa.id
+    );
+
+    console.log(resposta);
+
+    setSelecionada(alternativa.ordem);
+
+    if (resposta.acertou) {
       setBloqueado(true);
-
       return;
     }
 
-    // ERRO
     const novasTentativas = tentativas - 1;
-
     setTentativas(novasTentativas);
 
-    // ACABARAM AS TENTATIVAS
     if (novasTentativas <= 0) {
       setBloqueado(true);
     }
+  } catch (erro) {
+    console.error(erro);
   }
+}
+
+  if (!questao) {
+    return <p>Carregando questão...</p>;
+  }
+
+  const imagemMatch = questao.enunciado?.match(
+    /https?:\/\/[^\s)]+\.(png|jpg|jpeg|gif|webp)/i,
+  );
+
+  const imagemUrl = imagemMatch ? imagemMatch[0] : null;
+
+  const enunciadoLimpo = questao.enunciado
+    ?.replace(/!\[.*?\]\(.*?\)/g, "")
+    ?.replace(/\*\*/g, "")
+    ?.replace(/#/g, "");
+
+  const alternativaCorreta = questao.alternativas.find(
+    (alt) => alt.correta,
+  )?.ordem;
 
   return (
     <div className="questao-container">
@@ -76,11 +94,11 @@ export default function Questao() {
       <div className="questao-header">
         {/* ESQUERDA */}
         <div className="questao-tags">
-          <span className="tag-id">0005</span>
+          <span className="tag-id">{String(questao.id).padStart(4, "0")}</span>
 
-          <span className="tag-enem">ENEM 2023</span>
+          <span className="tag-enem">ENEM {questao.ano}</span>
 
-          <span className="tag-categoria">Linguagens e suas Tecnologias</span>
+          <span className="tag-categoria">Matéria {questao.id_materia}</span>
         </div>
 
         {/* DIREITA */}
@@ -89,38 +107,45 @@ export default function Questao() {
 
       {/* QUESTÃO */}
       <div className="questao-box">
-        <p>
-          A crítica do livro de memórias de Michelle Obama aborda a história das
-          relações humanas e destaca:
-        </p>
+        <>
+          {imagemUrl && (
+            <img
+              src={imagemUrl}
+              alt="Imagem da questão"
+              className="questao-imagem"
+            />
+          )}
+
+          <p className="enunciado-texto">{enunciadoLimpo}</p>
+        </>
       </div>
 
       {/* ALTERNATIVAS */}
       <div className="alternativas">
-        {alternativas.map((alt) => {
+        {questao.alternativas.map((alt) => {
           let classe = "";
 
           // VERDE
-          if (bloqueado && alt.letra === alternativaCorreta) {
+          if (bloqueado && alt.ordem === alternativaCorreta) {
             classe = "correta";
           }
 
           // VERMELHO
           else if (
-            selecionada === alt.letra &&
-            alt.letra !== alternativaCorreta
+            selecionada === alt.ordem &&
+            alt.ordem !== alternativaCorreta
           ) {
             classe = "errada";
           }
 
           return (
             <button
-              key={alt.letra}
+              key={alt.ordem}
               className={`alternativa ${classe}`}
-              onClick={() => responder(alt.letra)}
+              onClick={() => responder(alt)}
               disabled={bloqueado}
             >
-              <span className="letra">{alt.letra}</span>
+              <span className="letra">{alt.ordem}</span>
 
               <span>{alt.texto}</span>
             </button>

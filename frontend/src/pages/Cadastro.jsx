@@ -34,6 +34,69 @@ export default function Cadastro() {
       return;
     }
 
+    if (
+      !formData.nome.trim() ||
+      !formData.email.trim() ||
+      !formData.telefone.trim() ||
+      !formData.cpf.trim() ||
+      !formData.data_nascimento ||
+      !formData.senha.trim() ||
+      !formData.confirmaSenha.trim()
+    ) {
+      alert("Preencha todos os campos");
+      return;
+    }
+
+    if (formData.senha.length < 6) {
+      alert("A senha deve ter pelo menos 6 caracteres");
+      return;
+    }
+
+    if (!formData.nome.trim()) {
+      alert("Informe seu nome completo");
+      return;
+    }
+
+    if (!formData.email.trim()) {
+      alert("Informe seu e-mail");
+      return;
+    }
+
+    if (!formData.email.includes("@")) {
+      alert("Digite um e-mail válido");
+      return;
+    }
+
+    if (!formData.telefone.trim()) {
+      alert("Informe seu telefone");
+      return;
+    }
+
+    if (!formData.cpf.trim()) {
+      alert("Informe seu CPF");
+      return;
+    }
+
+    if (formData.cpf.length < 11) {
+      alert("CPF inválido");
+      return;
+    }
+
+    if (!formData.data_nascimento) {
+      alert("Informe sua data de nascimento");
+      return;
+    }
+
+    if (!formData.senha.trim()) {
+      alert("Informe uma senha");
+      return;
+    }
+
+    if (!formData.confirmaSenha.trim()) {
+      alert("Confirme sua senha");
+      return;
+    }
+
     try {
       const resposta = await cadastrar({
         nome: formData.nome,
@@ -51,6 +114,7 @@ export default function Cadastro() {
       navigate("/"); //vai para login
     } catch (erro) {
       console.error(erro);
+      alert(erro.message);
     }
   };
 

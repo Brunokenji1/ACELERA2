@@ -13,6 +13,11 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
+    if (!email.trim() || !senha.trim()) {
+      alert("Preencha email e senha");
+      return;
+    }
+
     try {
       const resposta = await login(email, senha);
 
@@ -25,10 +30,9 @@ function Login() {
       alert("Login realizado com sucesso!");
 
       navigate("/perfil");
-
     } catch (erro) {
-      console.error(erro);
-      alert("Erro ao realizar login");
+        console.error(erro);
+        alert(erro.message);
     }
   };
 

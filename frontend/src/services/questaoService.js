@@ -11,3 +11,23 @@ export async function buscarQuestao(id) {
     
     return await resposta.json();
 }
+
+export async function responderQuestao(idQuestao, idAlternativa) {
+  const token = localStorage.getItem("token");
+
+  const resposta = await fetch(
+    `${API_URL}/questoes/${idQuestao}/responder`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        id_alternativa: idAlternativa,
+      }),
+    }
+  );
+
+  return await resposta.json();
+}

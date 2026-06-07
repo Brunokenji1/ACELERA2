@@ -22,8 +22,16 @@ async function importarDoJson() {
     let total = 0
 
     for (const q of questoes) {
-        const materia = await Materias.findOne({ where: { nome: q.materia } })
+        
+    console.log("Matéria do JSON:", q.materia)
+
+    const materia = await Materias.findOne({
+      where: { nome: q.materia }
+    })
+
+    console.log("Encontrada no banco:", materia?.nome)
         if (!materia) continue
+
 
         const [fonte] = await Fontes.findOrCreate({
             where: { nome: `ENEM ${q.ano}` },

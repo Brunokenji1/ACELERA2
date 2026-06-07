@@ -9,7 +9,16 @@ export async function cadastrar(dados) {
     body: JSON.stringify(dados),
   });
 
-  return await resposta.json();
+  const dadosResposta = await resposta.json();
+
+  if (!resposta.ok) {
+    throw new Error(
+      dadosResposta.erro ||
+      "Erro ao cadastrar"
+    );
+  }
+
+  return dadosResposta;
 }
 
 export async function login(email, senha) {
@@ -24,5 +33,15 @@ export async function login(email, senha) {
     }),
   });
 
-  return await resposta.json();
+  const dados = await resposta.json();
+
+  if (!resposta.ok) {
+    throw new Error(
+      dados.erro ||
+      dados.message ||
+      "Erro ao fazer login"
+    );
+  }
+
+  return dados;
 }
