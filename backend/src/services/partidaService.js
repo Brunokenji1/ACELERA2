@@ -16,13 +16,45 @@ async function sortearQuestoes(partida) {
 async function iniciarPartida(id_partida) {
     const partida = await Partidas.findOne({ where: { id: id_partida } })
 
+    // Real. Troquei para fazer teste com um jogador, para fazer o fluxo.
+    /*
     const jogadores = await UsuarioPartida.findAll({ where: { id_partida } })
     if (jogadores.length < 2) {
         return { erro: 'A partida precisa de 2 jogadores' }
-    }
+    }*/
+   
+    // Teste com um jogador só
+    const jogadores = await UsuarioPartida.findAll({
+        where: { id_partida }
+    })
 
+    if (jogadores.length < 1) {
+        return {
+            erro: 'A partida precisa de pelo menos 1 jogador'
+        }
+    }
+    //-----------------
+
+    //Real
+    /*
     const jogador1 = jogadores.find(j => j.botao_numero === 1)
-    const jogador2 = jogadores.find(j => j.botao_numero === 2)
+    const jogador2 = jogadores.find(j => j.botao_numero === 2)*/
+
+    //Teste
+    const jogador1 = jogadores.find(
+        j => j.botao_numero === 1
+    )   
+
+    let jogador2 = jogadores.find(
+        j => j.botao_numero === 2
+    )
+
+    if (!jogador2) {
+        jogador2 = {
+            id_usuario: 2
+        };
+    }
+    //--------------------
 
     const questoes = await sortearQuestoes(partida)
     if (questoes.length < partida.quantidade_questoes) {

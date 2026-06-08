@@ -112,6 +112,14 @@
   font-weight: bold;
 }
 
+.timer-oculto {
+  visibility: hidden;
+}
+
+.timer-vazio {
+  color: #c0c0c0;
+}
+
 /* COLUNA CENTRAL */
 
 .centro-coluna {
@@ -148,6 +156,23 @@
   font-weight: bold;
 }
 
+.status-buzz {
+  text-align: center;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.liberado {
+  background: #d4edda;
+  color: #155724;
+}
+
+.bloqueado {
+  background: #fff3cd;
+  color: #856404;
+}
+
 /* QUESTÃO */
 
 .enunciado-box {
@@ -168,8 +193,36 @@
 }
 
 .enunciado-box p {
-  font-size: 18px;
-  line-height: 1.6;
+  white-space: pre-line;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.imagem-questao {
+  max-width: 100%;
+  max-height: 150px;
+  
+  object-fit: contain;
+
+  display: block;
+
+  margin: 10px auto;
+
+  border-radius: 8px;
+}
+
+.btn-iniciar-rodada {
+  height: 30px;
+  width: 150px;
+  align-content: center;
+  
+  border: none;
+  border-radius: 12px;
+  background: #ff7300;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* ALTERNATIVAS */
@@ -180,10 +233,9 @@
   gap: 5px;
 }
 
-.alternativas-box button {
+.alternativa-box {
   height: 40px;
 
-  border: none;
   border-radius: 12px;
 
   background: white;
@@ -191,15 +243,24 @@
   font-size: 15px;
   text-align: left;
 
-  padding-left: 20px;
+  display: flex;
+  align-items: center;
 
-  cursor: pointer;
+  padding-left: 20px;
 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 
   transition: 0.2s;
 }
 
-.alternativas-box button:hover {
+.alternativa-bloqueada {
+  opacity: 0.5;
+}
+
+.alternativa-selecionada {
+  border: 2px solid #ff7300;
+  font-weight: bold;
+}
+.alternativa-box:hover {
   transform: translateY(-2px);
 }

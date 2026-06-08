@@ -29,6 +29,13 @@ async function criarPartida (req,res) {
             id_partida: novaPartida.id,
             botao_numero:1 
         });
+        await UsuarioPartida.create({
+    id_usuario: 2,
+    id_partida: novaPartida.id,
+    botao_numero: 2
+});
+        
+        
         return res.status(201).json({partida: novaPartida });
     }
     catch(err){
@@ -38,7 +45,7 @@ async function criarPartida (req,res) {
 async function entrarPartida(req,res) {
     try{
         const {id} = req.params;            //id do jogador que hospeda partida
-        const id_usuario = 21       //id do convidado
+        const id_usuario = 2       //id do convidado
 
         const partida = await Partidas.findOne({where: {id}})
         if(!partida){
@@ -92,9 +99,21 @@ async function iniciar(req,res) {
         if(!partida){
             return res.status(404).json({erro: 'Partida não encontrada'})
         }
+        
+        //Real
+        /*
         if (partida.status !== 'em_andamento'){
             return res.status(400).json({erro: 'Partida não está em andamento'})
+        }*/
+
+        //Teste
+        if (partida.status === 'finalizada'){
+            return res.status(400).json({
+                erro: 'Partida já foi finalizada'
+            })
         }
+        //-------------------------
+
         const resultado = await iniciarPartida(id)
         if(resultado.erro) {
             return res.status(400).json({erro: resultado.erro})
