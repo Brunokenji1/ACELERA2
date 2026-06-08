@@ -5,23 +5,23 @@ INSERT INTO tipo_nivel (nome) VALUES
 	('VESTIBULAR');
 	
 -- Fonte --
-INSERT INTO fonte (id_tipo_nivel, nome) VALUES
+INSERT INTO fontes (id_tipo_nivel, nome) VALUES
 	('2', 'ENEM');
 
 -- Matérias iniciais
 INSERT INTO materias (nome) VALUES
-    ('Matemática'),
-    ('Português'),
-    ('História'),
+    ('Matematica'),
+    ('Portugues'),
+    ('Historia'),
     ('Geografia'),
-    ('Física'),
-    ('Química'),
+    ('Fisica'),
+    ('Quimica'),
     ('Biologia'),
     ('Filosofia'),
     ('Sociologia'),
-    ('Inglês'),
+    ('Ingles'),
     ('Literatura'),
-    ('Redação');
+    ('Redacao');
 
 
 
