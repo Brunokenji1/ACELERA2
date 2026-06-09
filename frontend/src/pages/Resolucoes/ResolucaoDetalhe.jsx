@@ -1,6 +1,6 @@
 import "../../styles/resolucoes/resolucaoDetalhe.css";
-
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react"; 
 
 export default function ResolucaoDetalhe() {
   const navigate = useNavigate();
@@ -57,7 +57,7 @@ export default function ResolucaoDetalhe() {
       {/* TOPO */}
       <div className="resolucao-topo">
         <button className="resolucao-btn-voltar" onClick={() => navigate(-1)}>
-          ←
+          <ArrowLeft size={25} /> 
         </button>
 
         <div className="resolucao-tags">
