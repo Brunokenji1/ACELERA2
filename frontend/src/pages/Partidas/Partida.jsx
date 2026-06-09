@@ -1,5 +1,5 @@
 import "../../styles/partidas/partida.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   buscarPartida,
@@ -7,22 +7,28 @@ import {
   registrarBuzz,
   responderQuestao,
 } from "../../services/partidaService";
+import VencedorModal from "../../components/VencedorModal";
 
 export default function Partida() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [partida, setPartida] = useState(null);
   const [questaoAtual, setQuestaoAtual] = useState(null);
-
+  // Simbolos para exibir nas alternativas
   const simbolos = ["◯", "□", "△", "✕", "◇"];
 
+  // Estados para controle da partida
   const [tempoPreparacao, setTempoPreparacao] = useState(10);
   const [partidaIniciada, setPartidaIniciada] = useState(false);
 
+  // Controle do buzz
   const [buzzLiberado, setBuzzLiberado] = useState(false);
 
+  // Controle do jogador da vez e tempo de resposta
   const [jogadorDaVez, setJogadorDaVez] = useState(null);
   const [tempoResposta, setTempoResposta] = useState(5);
 
+  //
   const [respostaSelecionada, setRespostaSelecionada] = useState(null);
 
   const [pontosJogador1, setPontosJogador1] = useState(0);
@@ -33,6 +39,10 @@ export default function Partida() {
   const [rodadaAtual, setRodadaAtual] = useState(null);
 
   const [partidaFinalizada, setPartidaFinalizada] = useState(false);
+
+  // Estados para controle do modal de vencedor
+  const [vencedor, setVencedor] = useState(null);
+  const [empate, setEmpate] = useState(false);
 
   useEffect(() => {
     atualizarPartida();
@@ -127,9 +137,11 @@ export default function Partida() {
     return () => clearInterval(intervalo);
   }, [tempoPreparacao, partidaIniciada]);
 
+  //formatação do timer principal
   const minutos = String(Math.floor(tempoPreparacao / 60)).padStart(2, "0");
   const segundos = String(tempoPreparacao % 60).padStart(2, "0");
 
+  // Extração da URL da imagem do enunciado e formatação do texto do enunciado
   const imagemMatch = questaoAtual?.enunciado?.match(/!\[\]\((.*?)\)/);
   const imagemUrl = imagemMatch?.[1];
   const textoFormatado = questaoAtual?.enunciado
@@ -139,25 +151,33 @@ export default function Partida() {
     ?.trim();
 
   async function atualizarPartida() {
-        try {
-          const resposta = await buscarPartida(id);
+    try {
+      const resposta = await buscarPartida(id);
 
-          setPartida(resposta.partida);
+      setPartida(resposta.partida);
 
-          const jogador1 = resposta.partida.UsuarioPartidas?.find(
-            (j) => j.botao_numero === 1,
-          );
+      const jogador1 = resposta.partida.UsuarioPartidas?.find(
+        (j) => j.botao_numero === 1,
+      );
 
-          const jogador2 = resposta.partida.UsuarioPartidas?.find(
-            (j) => j.botao_numero === 2,
-          );
+      const jogador2 = resposta.partida.UsuarioPartidas?.find(
+        (j) => j.botao_numero === 2,
+      );
 
-          setPontosJogador1(jogador1?.pontos_partida || 0);
-          setPontosJogador2(jogador2?.pontos_partida || 0);
-        } catch (erro) {
-          console.error(erro);
-        }
-      }
+      const pontos1 = jogador1?.pontos_partida || 0;
+      const pontos2 = jogador2?.pontos_partida || 0;
+
+      setPontosJogador1(jogador1?.pontos_partida || 0);
+      setPontosJogador2(jogador2?.pontos_partida || 0);
+
+      return {
+        pontos1,
+        pontos2,
+      };
+    } catch (erro) {
+      console.error(erro);
+    }
+  }
 
   async function responder(alternativa) {
     if (!jogadorDaVez) return;
@@ -206,23 +226,29 @@ export default function Partida() {
 
         setSegundaChance(false);
       } else {
+        setEmpate(false);
+        setVencedor(null);
+
+        const placar = await atualizarPartida();
+
+        if (!placar) {
+          setPartidaFinalizada(true);
+          return;
+        }
+
+        if (placar.pontos1 > placar.pontos2) {
+          setVencedor(1);
+        } else if (placar.pontos2 > placar.pontos1) {
+          setVencedor(2);
+        } else {
+          setEmpate(true);
+        }
+
         setPartidaFinalizada(true);
       }
     } catch (erro) {
       console.error(erro);
     }
-  }
-
-  if (partidaFinalizada) {
-    return (
-      <div className="partida-finalizada">
-        <h1>Partida Encerrada!</h1>
-
-        <p>Jogador 1: {pontosJogador1} pontos</p>
-
-        <p>Jogador 2: {pontosJogador2} pontos</p>
-      </div>
-    );
   }
 
   return (
@@ -333,6 +359,16 @@ export default function Partida() {
       </div>
 
       <div className="faixa-direita"></div>
+
+      <VencedorModal
+        aberto={partidaFinalizada}
+        vencedor={vencedor}
+        empate={empate}
+        pontosJogador1={pontosJogador1}
+        pontosJogador2={pontosJogador2}
+        fechar={() => navigate("/partidas")}
+        novaPartida={() => {navigate("/partidas/criar")}}
+      />
     </div>
   );
 }
