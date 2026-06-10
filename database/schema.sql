@@ -37,6 +37,7 @@ CREATE TABLE questoes(
     titulo VARCHAR(255),
     enunciado TEXT NOT NULL,
     dificuldade VARCHAR(10) NOT NULL CHECK (dificuldade IN ('facil', 'medio', 'dificil')),
+    pontuacao INTEGER NOT NULL DEFAULT 1,
     ano INTEGER CHECK (ano BETWEEN 1970 AND 2100),
     criado_em TIMESTAMP NOT NULL DEFAULT NOW()
 );
