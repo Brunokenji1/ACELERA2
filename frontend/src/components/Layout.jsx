@@ -64,9 +64,16 @@ export default function Layout() {
           <Menu size={24} />
         </button>
 
-        <h1 className="logo">
-          STUDY<span>flow</span>
-        </h1>
+        <div className="logo-container-layout">
+          <img 
+            src="/logo192.png" 
+            alt="Logo StudyFlow" 
+            className="logo-header" />
+
+          <h1 className="logo">
+            STUDY<span>flow</span>
+          </h1>
+        </div>
 
         <div className="user">Aluno</div>
       </header>
@@ -80,7 +87,7 @@ export default function Layout() {
           </Link>
 
           <Link to="/ranking" className="item">
-              <Trophy className="icon" size={20} />
+            <Trophy className="icon" size={20} />
             {open && <span>Ranking</span>}
           </Link>
 

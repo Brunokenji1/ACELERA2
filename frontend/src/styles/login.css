@@ -38,22 +38,50 @@ body {
 
   background: linear-gradient(135deg, #2000B1, #3a1fd9);
   border-right: 1px solid rgba(255,255,255,0.2);
+
+  padding-bottom: 20px;
 }
 
 /* LOGO TEXTO */
+.logo-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 0;
+
+  transform: translateY(-60px);      
+}
+
+.logo-principal {
+  width: 250px;           
+  height: auto;
+}
+
 .logo-title {
   display: flex;
-  flex-direction: column;
-  font-size: 40px;
+  flex-direction: column; 
+  align-items: center;
+
+  margin: 0;
+  padding: 0; 
+  line-height: 1;
+}
+
+.logo-title span {
+  margin: 0;
+  padding: 0;
 }
 
 .study {
   color: white;
-  font-weight: bold;
+  font-size: 48px;
+  font-weight: 700;
 }
 
 .flow {
-  color: orange;
+  color: #ff6600;
+  font-size: 48px;
+  font-weight: 700;
 }
 
 /* LADO DIREITO */

@@ -31,8 +31,8 @@ function Login() {
 
       navigate("/perfil");
     } catch (erro) {
-        console.error(erro);
-        alert(erro.message);
+      console.error(erro);
+      alert(erro.message);
     }
   };
 
@@ -41,10 +41,18 @@ function Login() {
       <div className="login-card">
         {/* ESQUERDA (LOGO) */}
         <div className="login-left">
-          <h1 className="logo-title">
-            <span className="study">STUDY</span>
-            <span className="flow">flow</span>
-          </h1>
+          <div className="logo-container">
+            <img
+              src="/logo192.png"
+              alt="Logo StudyFlow"
+              className="logo-principal"
+            />
+
+            <h1 className="logo-title">
+              <span className="study">STUDY</span>
+              <span className="flow">flow</span>
+            </h1>
+          </div>
         </div>
 
         {/* DIREITA (LOGIN) */}

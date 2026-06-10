@@ -31,23 +31,57 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: white;
+  background: linear-gradient(135deg, #2000B1, #3a1fd9);
+  border-right: 1px solid rgba(255,255,255,0.2);
+
+
+  padding-bottom: 20px;
 }
 
 /* LOGO */
+.logo-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 0;
+
+  transform: translateY(-100px);      
+}
+
+.logo-principal {
+  width: 250px;           
+  height: auto;
+  position: relative;
+  top: 80px;
+}
+
 .logo-title {
   display: flex;
-  flex-direction: column;
-  font-size: 40px;
+  flex-direction: column; 
+  align-items: center;
+  position: relative;
+  bottom: 20px;
+
+  margin: 0;
+  padding: 0; 
+  line-height: 1;
 }
 
-.cadastro-left .study {
-  color: #2000B1;
-  font-weight: bold;
+.logo-title span {
+  margin: 0;
+  padding: 0;
 }
 
-.cadastro-left .flow {
-  color: orange;
+.study-cadastro {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.flow {
+  color: #ff6600;
+  font-size: 48px;
+  font-weight: 700;
 }
 
 /* LADO DIREITO (AZUL) */
@@ -57,8 +91,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: linear-gradient(135deg, #2000B1, #3a1fd9);
-  color: white;
+  background: white;
 }
 
 /* FORM */
@@ -72,14 +105,14 @@ body {
 /* TITULO */
 .cadastro-right h2 {
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 /* INPUTS */
 .cadastro-right input {
   padding: 12px;
   border-radius: 8px;
-  border: none;
+  border: 1px solid #b9b9b9;
   outline: none;
 
   background: rgba(255,255,255,0.9);
@@ -117,7 +150,7 @@ body {
 .register {
   text-align: center;
   font-size: 12px;
-  color: white;
+  color: #2000B1;
 }
 
 .cadastro-link a {

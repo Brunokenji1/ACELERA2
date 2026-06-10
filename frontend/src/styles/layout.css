@@ -52,7 +52,19 @@ body,
 
 /* LOGO */
 .logo span {
-  color: orange;
+  color: #ff6d00;
+}
+
+.logo-container-layout {
+  display: flex;
+  align-items: center;
+
+}
+
+.logo-header {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
 }
 
 /* BOTÃO */
