@@ -1,9 +1,8 @@
 import "../../styles/listaQuestoes.css";
 import { useState, useEffect } from "react";
 import { listarQuestoes } from "../../services/questaoService";
-
 import { useParams, useNavigate } from "react-router-dom";
-
+import { ArrowLeft } from "lucide-react";
 export default function ListaQuestoes() {
   const { categoria } = useParams();
 
@@ -23,11 +22,11 @@ export default function ListaQuestoes() {
           setQuestoes(todas.filter((q) => q.id_materia === 1));
 
         } else if (categoria === "linguagens") {
-          setQuestoes(todas.filter((q) => [2, 8, 9].includes(q.id_materia)));
+          setQuestoes(todas.filter((q) => [2, 10, 11].includes(q.id_materia)));
 
         } else if (categoria === "ciencias-humanas") {
           setQuestoes(
-            todas.filter((q) => [3, 4, 10, 11].includes(q.id_materia)),
+            todas.filter((q) => [3, 4, 8, 9].includes(q.id_materia)),
           );
 
         } else if (categoria === "ciencias-da-natureza") {
@@ -58,7 +57,7 @@ export default function ListaQuestoes() {
             className="btn-voltar-lista"
             onClick={() => navigate("/questoes")}
           >
-            ←
+            <ArrowLeft size={25} /> 
           </button>
 
           <div>

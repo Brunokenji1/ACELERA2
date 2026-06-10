@@ -1,11 +1,12 @@
 import "../../styles/partidas/partida.css";
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   buscarPartida,
   iniciarPartida,
   registrarBuzz,
   responderQuestao,
+  pularRodada,
 } from "../../services/partidaService";
 import VencedorModal from "../../components/VencedorModal";
 
@@ -35,6 +36,9 @@ export default function Partida() {
   const [pontosJogador2, setPontosJogador2] = useState(0);
 
   const [segundaChance, setSegundaChance] = useState(false);
+  const primeiraVezUsada = useRef(false);
+  const timeoutRef = useRef(null);
+  const countdownRef = useRef(null);
 
   const [rodadaAtual, setRodadaAtual] = useState(null);
 
@@ -92,10 +96,9 @@ export default function Partida() {
 
       console.log(resultado);
 
+      primeiraVezUsada.current = false;
       setJogadorDaVez(jogador);
-
       setTempoResposta(5);
-
       setSegundaChance(false);
 
       console.log(`Jogador ${jogador} ganhou a vez`);
@@ -105,22 +108,59 @@ export default function Partida() {
   }
 
   useEffect(() => {
-    if (!jogadorDaVez) return;
+    clearTimeout(timeoutRef.current);
+    clearInterval(countdownRef.current);
 
-    if (tempoResposta <= 0) {
-      console.log("Tempo esgotado");
-
-      setJogadorDaVez(null);
-
+    if (!jogadorDaVez) {
+      setTempoResposta(5);
       return;
     }
 
-    const intervalo = setInterval(() => {
-      setTempoResposta((tempo) => tempo - 1);
+    setTempoResposta(5);
+
+    countdownRef.current = setInterval(() => {
+      setTempoResposta((t) => Math.max(0, t - 1));
     }, 1000);
 
-    return () => clearInterval(intervalo);
-  }, [tempoResposta, jogadorDaVez]);
+    timeoutRef.current = setTimeout(() => {
+      clearInterval(countdownRef.current);
+
+      if (!primeiraVezUsada.current) {
+        const outroNumero = jogadorDaVez === 1 ? 2 : 1;
+        primeiraVezUsada.current = true;
+        setJogadorDaVez(outroNumero);
+      } else {
+        primeiraVezUsada.current = false;
+        setJogadorDaVez(null);
+        pularRodada(id)
+          .then((resultado) => {
+            if (resultado.proxima_rodada) {
+              setRodadaAtual(resultado.proxima_rodada);
+              setQuestaoAtual(resultado.proxima_rodada.RodadaDeQuestoes[0].Questo);
+              setBuzzLiberado(false);
+              setTempoPreparacao(10);
+              setPartidaIniciada(true);
+              setRespostaSelecionada(null);
+              setSegundaChance(false);
+            } else {
+              atualizarPartida().then((placar) => {
+                if (!placar) { setPartidaFinalizada(true); return; }
+                if (placar.pontos1 > placar.pontos2) setVencedor(1);
+                else if (placar.pontos2 > placar.pontos1) setVencedor(2);
+                else setEmpate(true);
+                setPartidaFinalizada(true);
+              });
+            }
+          })
+          .catch(console.error);
+      }
+    }, 5000);
+
+    return () => {
+      clearTimeout(timeoutRef.current);
+      clearInterval(countdownRef.current);
+    };
+  }, [jogadorDaVez]);
 
   useEffect(() => {
     if (!partidaIniciada) return;
@@ -193,15 +233,11 @@ export default function Partida() {
 
       await atualizarPartida();
 
-      if (resultado.outra_chance) {
-        console.log("Nova chance: aguardando novo buzz");
-
-        setJogadorDaVez(null);
-
+      if (resultado.vez_jogador) {
+        const outroNumero = jogadorDaVez === 1 ? 2 : 1;
+        primeiraVezUsada.current = true;
+        setJogadorDaVez(outroNumero);
         setTempoResposta(5);
-
-        setBuzzLiberado(true);
-
         return;
       }
 
@@ -215,16 +251,12 @@ export default function Partida() {
         setQuestaoAtual(resultado.proxima_rodada.RodadaDeQuestoes[0].Questo);
 
         setBuzzLiberado(false);
-
         setJogadorDaVez(null);
-
         setTempoPreparacao(10);
-
         setPartidaIniciada(true);
-
         setRespostaSelecionada(null);
-
         setSegundaChance(false);
+        primeiraVezUsada.current = false;
       } else {
         setEmpate(false);
         setVencedor(null);

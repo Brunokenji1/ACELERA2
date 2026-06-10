@@ -123,10 +123,18 @@ export default function Cadastro() {
       <div className="cadastro-card">
         {/* ESQUERDA (LOGO BRANCA) */}
         <div className="left cadastro-left">
-          <h1 className="logo-title">
-            <span className="study">STUDY</span>
-            <span className="flow">flow</span>
-          </h1>
+          <div className="logo-container">
+            <img
+              src="/logo192.png"
+              alt="Logo StudyFlow"
+              className="logo-principal"
+            />
+
+            <h1 className="logo-title">
+              <span className="study-cadastro">STUDY</span>
+              <span className="flow">flow</span>
+            </h1>
+          </div>
         </div>
 
         {/* DIREITA (FORM AZUL) */}

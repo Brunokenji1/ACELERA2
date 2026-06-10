@@ -34,6 +34,7 @@ CREATE TABLE questoes(
     id SERIAL PRIMARY KEY,
     id_fonte INTEGER NOT NULL,
     id_materia INTEGER NOT NULL,
+    titulo VARCHAR(255),
     enunciado TEXT NOT NULL,
     dificuldade VARCHAR(10) NOT NULL CHECK (dificuldade IN ('facil', 'medio', 'dificil')),
     ano INTEGER CHECK (ano BETWEEN 1970 AND 2100),

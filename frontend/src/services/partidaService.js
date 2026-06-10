@@ -99,3 +99,22 @@ export async function responderQuestao(idPartida, dados) {
 
   return resultado;
 }
+
+export async function pularRodada(id) {
+  const token = localStorage.getItem("token");
+
+  const resposta = await fetch(`${API_URL}/partidas/${id}/pular-rodada`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const resultado = await resposta.json();
+
+  if (!resposta.ok) {
+    throw new Error(resultado.erro || "Erro ao pular rodada");
+  }
+
+  return resultado;
+}

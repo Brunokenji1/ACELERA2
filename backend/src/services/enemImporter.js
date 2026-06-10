@@ -75,6 +75,7 @@ async function importar(){
                 const novaQuestao = await Questoes.create({
                     id_fonte: fonte.id,
                     id_materia: materia.id,
+                    titulo: q.title || null,
                     enunciado: q.context || q.title,
                     dificuldade: 'medio',       //POR ENQUANTO vai continuar assim, pq a API n tem isso determinado, depois resolve
                     ano: q.year,

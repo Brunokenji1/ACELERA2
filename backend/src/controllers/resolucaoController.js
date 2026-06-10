@@ -33,6 +33,7 @@ async function listarResolucoes(req,res){
                 respondido_em: t.respondido_em,
                 questao:{
                     id: questao.id,
+                    titulo: questao.titulo,
                     enunciado: questao.enunciado,
                 },
                 alternativa_escolhida:{
