@@ -71,12 +71,14 @@ async function responderQuestao(req, res) {
 
         // registra a tentativa
         const { Tentativas } = require('../models')
+        const pontos = acertou ? questao.pontuacao : 0
+
         await Tentativas.create({
             id_alternativa,
             id_usuario,
             modo: 'solo',
             acertou,
-            pontos_ganhos: acertou ? 1 : 0,
+            pontos_ganhos: pontos,
             tempo_resposta_ms: 0,
             ordem_tentativa: 1,
             tempo_buzz_ms: 0,
@@ -86,7 +88,7 @@ async function responderQuestao(req, res) {
         if (acertou) {
             const { Usuarios } = require('../models')
             await Usuarios.increment('pontos_totais', {
-                by: 1,
+                by: pontos,
                 where: { id: id_usuario }
             })
         }

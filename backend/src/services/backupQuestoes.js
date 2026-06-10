@@ -38,12 +38,15 @@ async function importarDoJson() {
             defaults: { id_tipo_nivel: tipoNivel.id }
         })
 
+        const pontuacaoPorDificuldade = { facil: 1, medio: 3, dificil: 5 }
+
         const novaQuestao = await Questoes.create({
             id_fonte: fonte.id,
             id_materia: materia.id,
             titulo: q.titulo || null,
             enunciado: q.enunciado,
             dificuldade: q.dificuldade,
+            pontuacao: pontuacaoPorDificuldade[q.dificuldade] ?? 1,
             ano: q.ano,
         })
 

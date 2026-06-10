@@ -42,7 +42,8 @@
         "explicacao": "O texto usa metáforas como motor argumentativo: 'a vida engata uma primeira' (carro), 'amor mastigado e engolido' (alimento), 'refeição que pode durar uma vida'. Essas imagens constroem o raciocínio sobre paciência no amor."
       }
     ],
-    "titulo": "Urgência Emocional"
+    "titulo": "Urgência Emocional",
+    "pontuacao": 3
   },
   {
     "id": 138,
@@ -87,7 +88,8 @@
         "explicacao": "Promover campanha de adoção seria o objetivo do Texto I isoladamente. O Texto II, porém, narra um cão que nunca foi adotado e viveu nas ruas. A articulação dos dois textos vai além da promoção de campanha."
       }
     ],
-    "titulo": "O Cão Comunitário e a Adoção"
+    "titulo": "O Cão Comunitário e a Adoção",
+    "pontuacao": 1
   },
   {
     "id": 139,
@@ -132,7 +134,8 @@
         "explicacao": "Desenvolver conhecimentos lúdicos específicos dos tempos atuais é vaga e não captura a proposta central. O jogo tem objetivo declarado de educar sobre mulheres notáveis e seus feitos históricos e contemporâneos."
       }
     ],
-    "titulo": "Who's She? — O Jogo das Mulheres Notáveis"
+    "titulo": "Who's She? — O Jogo das Mulheres Notáveis",
+    "pontuacao": 1
   },
   {
     "id": 140,
@@ -177,7 +180,8 @@
         "explicacao": "O sofrimento de entes queridos seria perspectiva das famílias das vítimas. A campanha coloca o condutor como foco — é ele quem carrega o peso emocional do que causou."
       }
     ],
-    "titulo": "Campanha de Segurança no Trânsito"
+    "titulo": "Campanha de Segurança no Trânsito",
+    "pontuacao": 3
   },
   {
     "id": 141,
@@ -222,7 +226,8 @@
         "explicacao": "Compartilhamento das obras é mencionado como uma das capacidades da tecnologia, mas não resume o debate. O texto discute criação, divulgação e dilemas éticos de forma mais ampla."
       }
     ],
-    "titulo": "Tecnologia e Criação Artística"
+    "titulo": "Tecnologia e Criação Artística",
+    "pontuacao": 5
   },
   {
     "id": 142,
@@ -267,7 +272,8 @@
         "explicacao": "O texto afirma o oposto: cada nova técnica exige aprendizagem ainda mais longa. A rapidez no aprendizado é a ilusão que as novas técnicas prometem, não a realidade descrita pelo autor."
       }
     ],
-    "titulo": "O Mito da Nova Técnica"
+    "titulo": "O Mito da Nova Técnica",
+    "pontuacao": 3
   },
   {
     "id": 143,
@@ -312,7 +318,8 @@
         "explicacao": "O nível social não é abordado no texto. Veríssimo satiriza o purismo gramatical descontextualizado, não diferenças de classe social entre os falantes."
       }
     ],
-    "titulo": "Papos — Veríssimo"
+    "titulo": "Papos — Veríssimo",
+    "pontuacao": 1
   },
   {
     "id": 144,
@@ -357,7 +364,8 @@
         "explicacao": "Políticas inclusivas não são mencionadas como condição para expansão da rede. Os autores descrevem o problema sem propor essa solução específica."
       }
     ],
-    "titulo": "Exclusão Digital no Brasil"
+    "titulo": "Exclusão Digital no Brasil",
+    "pontuacao": 3
   },
   {
     "id": 145,
@@ -402,7 +410,8 @@
         "explicacao": "Objetividade na comunicação diária é característica do registro informativo, não do fenômeno descrito. Os textos abordam como valores e preconceitos — não objetividade — se incorporam à língua."
       }
     ],
-    "titulo": "Língua e Preconceito"
+    "titulo": "Língua e Preconceito",
+    "pontuacao": 5
   },
   {
     "id": 146,
@@ -447,7 +456,8 @@
         "explicacao": "Assegurar a fiscalização dos gastos seria mais amplo e envolveria mecanismos de controle. A imagem trata especificamente de divulgar um projeto de transparência, não de garantir fiscalização."
       }
     ],
-    "titulo": "Campanha do Senado Federal"
+    "titulo": "Campanha do Senado Federal",
+    "pontuacao": 1
   },
   {
     "id": 147,
@@ -492,7 +502,8 @@
         "explicacao": "O texto analisa o filme criticamente — apresenta o contexto, a proposta artística, os temas abordados e emite juízo de valor sobre o resultado, caracterizando análise crítica cinematográfica."
       }
     ],
-    "titulo": "Elena — Resenha Crítica"
+    "titulo": "Elena — Resenha Crítica",
+    "pontuacao": 1
   },
   {
     "id": 148,
@@ -537,7 +548,8 @@
         "explicacao": "O texto usa a classificação gramatical como ponto de partida para ir além dela, não para informar sobre o conceito de palavra. A proposta é poética, não definitória ou enciclopédica."
       }
     ],
-    "titulo": "A Alma das Palavras"
+    "titulo": "A Alma das Palavras",
+    "pontuacao": 3
   },
   {
     "id": 149,
@@ -582,7 +594,8 @@
         "explicacao": "Orações interligadas por elementos lógicos (conjunções causais, conclusivas) criariam raciocínio encadeado. O texto faz o oposto: fragmenta, justapõe, enumera sem conectivos lógicos formais."
       }
     ],
-    "titulo": "Maldita Calçada Portuguesa"
+    "titulo": "Maldita Calçada Portuguesa",
+    "pontuacao": 5
   },
   {
     "id": 150,
@@ -627,7 +640,8 @@
         "explicacao": "Insatisfação dos clubes com a organização não é mencionada. O texto foca nos torcedores e nas condições sociais, não em desentendimentos institucionais entre clubes e organizadores."
       }
     ],
-    "titulo": "Violência no Futebol Brasileiro"
+    "titulo": "Violência no Futebol Brasileiro",
+    "pontuacao": 3
   },
   {
     "id": 151,
@@ -672,7 +686,8 @@
         "explicacao": "Incentivo fiscal à iniciativa privada não é sugerido nem pelos dados nem pelo texto. A análise aponta para desigualdades estruturais de renda e educação, não para modelos de financiamento privado."
       }
     ],
-    "titulo": "Sedentarismo no Brasil — IBGE"
+    "titulo": "Sedentarismo no Brasil — IBGE",
+    "pontuacao": 3
   },
   {
     "id": 152,
@@ -717,7 +732,8 @@
         "explicacao": "Ironizar proprietários de terra não é o foco — a personagem dirige seu discurso a quem defende a escravidão com argumentos morais e religiosos, expondo a incoerência desse discurso."
       }
     ],
-    "titulo": "A Escrava — Discurso Abolicionista"
+    "titulo": "A Escrava — Discurso Abolicionista",
+    "pontuacao": 5
   },
   {
     "id": 153,
@@ -762,7 +778,8 @@
         "explicacao": "Ambos os projetos têm como objetivo central disseminar conhecimento e informação para pessoas com deficiência, usando tecnologia como meio de inclusão e acesso."
       }
     ],
-    "titulo": "Tecnologia e Inclusão — Mural e Surdonews"
+    "titulo": "Tecnologia e Inclusão — Mural e Surdonews",
+    "pontuacao": 1
   },
   {
     "id": 154,
@@ -807,7 +824,8 @@
         "explicacao": "O olhar verde da personagem condensa gerações de sofrimento e orgulho. O fluxo de consciência do narrador, ao descrever esse olhar, recupera a memória coletiva de privações e sacrifícios históricos."
       }
     ],
-    "titulo": "Fronteira — Cornélio Penna"
+    "titulo": "Fronteira — Cornélio Penna",
+    "pontuacao": 5
   },
   {
     "id": 155,
@@ -852,7 +870,8 @@
         "explicacao": "O texto defende que a verdadeira competência linguística é adequar a linguagem à situação: usa-se o juridiquês em documentos formais, mas não numa padaria de manhã."
       }
     ],
-    "titulo": "O Complexo de Falar Difícil"
+    "titulo": "O Complexo de Falar Difícil",
+    "pontuacao": 3
   },
   {
     "id": 156,
@@ -897,7 +916,8 @@
         "explicacao": "A conquista da medalha é o gatilho da notícia, não a tese do discurso. A jornalista usa o fato para falar sobre representatividade e desconstrução de padrões de gênero no esporte."
       }
     ],
-    "titulo": "Rayssa Leal e a Representatividade Feminina"
+    "titulo": "Rayssa Leal e a Representatividade Feminina",
+    "pontuacao": 1
   },
   {
     "id": 157,
@@ -942,7 +962,8 @@
         "explicacao": "'Ó Manuel, Miguilim' é convocação de personagens literários do sertão (Guimarães Rosa), reforçando o pertencimento à cultura rural, mas não expressa diretamente o desejo de retorno."
       }
     ],
-    "titulo": "Assentamento — Chico Buarque"
+    "titulo": "Assentamento — Chico Buarque",
+    "pontuacao": 3
   },
   {
     "id": 158,
@@ -987,7 +1008,8 @@
         "explicacao": "Retomar opiniões sobre diversidade seria debate discursivo. A imagem vai além da opinião — propõe revisão das próprias representações culturais de gênero."
       }
     ],
-    "titulo": "Representações de Gênero"
+    "titulo": "Representações de Gênero",
+    "pontuacao": 3
   },
   {
     "id": 159,
@@ -1032,7 +1054,8 @@
         "explicacao": "O número de línguas não aumentou — o texto indica redução drástica desde a colonização. A preservação busca manter as que restam, não criar novas."
       }
     ],
-    "titulo": "As Línguas Silenciadas do Brasil"
+    "titulo": "As Línguas Silenciadas do Brasil",
+    "pontuacao": 3
   },
   {
     "id": 160,
@@ -1077,7 +1100,8 @@
         "explicacao": "O interesse do narrador é pela personagem Bárbara especificamente, não por figuras femininas ambíguas em geral. A narração não generaliza — foca nos atributos únicos dessa personagem."
       }
     ],
-    "titulo": "Esaú e Jacó — Machado de Assis"
+    "titulo": "Esaú e Jacó — Machado de Assis",
+    "pontuacao": 5
   },
   {
     "id": 161,
@@ -1122,7 +1146,8 @@
         "explicacao": "O texto descreve relações de poder e controle, não acolhimento afetivo. Margarida dá ordens e organiza o trabalho; o 'respeito mútuo' entre ela e o marido é de conveniência mútua, não afeto."
       }
     ],
-    "titulo": "Dona Guidinha do Poço"
+    "titulo": "Dona Guidinha do Poço",
+    "pontuacao": 5
   },
   {
     "id": 162,
@@ -1167,7 +1192,8 @@
         "explicacao": "Contemplação lírica transformaria a paisagem em objeto de beleza e reflexão. O texto usa a descrição para chocar e documentar, não para criar lirismo ou alegoria."
       }
     ],
-    "titulo": "A Bagaceira — Os Retirantes"
+    "titulo": "A Bagaceira — Os Retirantes",
+    "pontuacao": 5
   },
   {
     "id": 163,
@@ -1212,7 +1238,8 @@
         "explicacao": "Estratégias formativas seriam um conjunto sistemático de métodos pedagógicos. A imagem propõe orientações práticas por fase, não um sistema formal de estratégias educativas."
       }
     ],
-    "titulo": "Educação por Faixa Etária"
+    "titulo": "Educação por Faixa Etária",
+    "pontuacao": 1
   },
   {
     "id": 164,
@@ -1257,7 +1284,8 @@
         "explicacao": "Léxico do campo semântico de funerais está presente (caixão, tocheiros, sacristão), mas é consequência da enumeração, não o recurso em si. O recurso é a enumeração que organiza esses elementos."
       }
     ],
-    "titulo": "Notas — Machado de Assis"
+    "titulo": "Notas — Machado de Assis",
+    "pontuacao": 3
   },
   {
     "id": 165,
@@ -1302,7 +1330,8 @@
         "explicacao": "O texto afirma o oposto: o esporte funciona em 'diversos tipos de terreno', inclusive trilhas. A ausência de espaço fixo é apresentada como vantagem, não limitação."
       }
     ],
-    "titulo": "Mountainboard — Esporte de Aventura"
+    "titulo": "Mountainboard — Esporte de Aventura",
+    "pontuacao": 1
   },
   {
     "id": 166,
@@ -1347,7 +1376,8 @@
         "explicacao": "Público leitor exclusivo seria um nicho fechado. A crônica em jornal alcança 'todo o mundo', o que Clarice contrasta com o livro, aberto apenas por quem realmente quer."
       }
     ],
-    "titulo": "Ser Cronista — Clarice Lispector"
+    "titulo": "Ser Cronista — Clarice Lispector",
+    "pontuacao": 5
   },
   {
     "id": 167,
@@ -1392,7 +1422,8 @@
         "explicacao": "Responsabilizar agentes públicos por demoras não é mencionado. O texto descreve aprovação da proposta pela Comissão, sem crítica à velocidade do processo."
       }
     ],
-    "titulo": "Vacinação contra Leishmaniose em BH"
+    "titulo": "Vacinação contra Leishmaniose em BH",
+    "pontuacao": 1
   },
   {
     "id": 168,
@@ -1437,7 +1468,8 @@
         "explicacao": "Padrões de beleza física são mencionados (corpo esbelto), mas como um elemento entre vários. O texto aborda a felicidade editada de forma mais ampla, incluindo viagens, casas e alegria permanente."
       }
     ],
-    "titulo": "Positividade Tóxica nas Redes Sociais"
+    "titulo": "Positividade Tóxica nas Redes Sociais",
+    "pontuacao": 1
   },
   {
     "id": 169,
@@ -1482,7 +1514,8 @@
         "explicacao": "A perspectiva para integrar planos seria recurso renascentista clássico. El Greco rompe com esse equilíbrio, distorcendo figuras e criando tensão — característica do Maneirismo."
       }
     ],
-    "titulo": "Laocoonte — El Greco"
+    "titulo": "Laocoonte — El Greco",
+    "pontuacao": 5
   },
   {
     "id": 170,
@@ -1527,7 +1560,8 @@
         "explicacao": "A obra de Judd combina formas sintéticas — caixas, módulos, volumes regulares — no espaço expositivo, criando relações entre as formas e o espaço que as contém."
       }
     ],
-    "titulo": "Minimalismo — Donald Judd"
+    "titulo": "Minimalismo — Donald Judd",
+    "pontuacao": 5
   },
   {
     "id": 171,
@@ -1572,7 +1606,8 @@
         "explicacao": "A virilidade não é tema. O texto mostra o vaqueiro emocionado, incapaz de esconder o sentimento, e o narrador percebe isso com compaixão — sem julgamento sobre masculinidade."
       }
     ],
-    "titulo": "Firmo, o Vaqueiro"
+    "titulo": "Firmo, o Vaqueiro",
+    "pontuacao": 3
   },
   {
     "id": 172,
@@ -1617,7 +1652,8 @@
         "explicacao": "Reconhecer o carnaval como manifestação cultural seria distanciamento analítico. O narrador está imerso na experiência, vivendo-a com ambiguidade, não a observando de fora."
       }
     ],
-    "titulo": "O Bebê de Tarlatana Rosa — João do Rio"
+    "titulo": "O Bebê de Tarlatana Rosa — João do Rio",
+    "pontuacao": 5
   },
   {
     "id": 173,
@@ -1662,7 +1698,8 @@
         "explicacao": "Revelar anseios íntimos seria tom confessional. Carolina expressa crítica social estruturada — sobre poder, desigualdade e hipocrisia — não sentimentos pessoais."
       }
     ],
-    "titulo": "Quarto de Despejo — A Visita ao Tenente"
+    "titulo": "Quarto de Despejo — A Visita ao Tenente",
+    "pontuacao": 3
   },
   {
     "id": 174,
@@ -1707,7 +1744,8 @@
         "explicacao": "O texto narra violências reais — nariz quebrado, promessas quebradas, trabalho infantil — com tom anedótico, quase cômico, através das histórias que Vanda contava às crianças para as expulsar da cozinha."
       }
     ],
-    "titulo": "Vanda — Nu de Botas"
+    "titulo": "Vanda — Nu de Botas",
+    "pontuacao": 3
   },
   {
     "id": 175,
@@ -1752,7 +1790,8 @@
         "explicacao": "O objeto ausente como degradação formal é interpretação específica da obra de Silveira, não conclusão geral dos dois textos. A questão pede o ponto em comum entre as criações."
       }
     ],
-    "titulo": "Ready-Made e In Absentia"
+    "titulo": "Ready-Made e In Absentia",
+    "pontuacao": 5
   },
   {
     "id": 176,
@@ -1797,7 +1836,8 @@
         "explicacao": "O manguebeat integrou maracatu, hip-hop, rock e elementos eletrônicos, criando uma nova estética que combina referências culturais locais e globais numa síntese original."
       }
     ],
-    "titulo": "Manguebeat — O Movimento Recifense"
+    "titulo": "Manguebeat — O Movimento Recifense",
+    "pontuacao": 3
   },
   {
     "id": 177,
@@ -1842,7 +1882,8 @@
         "explicacao": "Identificar espécies arbustivas seria botânica. A cena não envolve vegetação — o método usa sal, tempo e observação atmosférica para previsão climática."
       }
     ],
-    "titulo": "Os Sertões — A Experiência de Santa Luzia"
+    "titulo": "Os Sertões — A Experiência de Santa Luzia",
+    "pontuacao": 3
   },
   {
     "id": 178,
@@ -1887,7 +1928,8 @@
         "explicacao": "Para Arendt, o discurso é o que permite aos homens no plural — vivendo juntos — construir sentido compartilhado, agir politicamente e constituir a sociabilidade humana."
       }
     ],
-    "titulo": "A Condição Humana — Hannah Arendt"
+    "titulo": "A Condição Humana — Hannah Arendt",
+    "pontuacao": 5
   },
   {
     "id": 179,
@@ -1932,7 +1974,8 @@
         "explicacao": "Precariedade da educação não é tema. O episódio narra violência policial com motivação racial, não falhas no sistema educacional."
       }
     ],
-    "titulo": "Quarto de Despejo — Racismo e Violência Policial"
+    "titulo": "Quarto de Despejo — Racismo e Violência Policial",
+    "pontuacao": 1
   },
   {
     "id": 180,
@@ -1977,7 +2020,8 @@
         "explicacao": "Estrutura das rochas é objeto da petrografia e geologia. A imagem mostra fluxos de água, não composição ou estrutura rochosa."
       }
     ],
-    "titulo": "Representação do Ciclo da Água"
+    "titulo": "Representação do Ciclo da Água",
+    "pontuacao": 1
   },
   {
     "id": 181,
@@ -2022,7 +2066,8 @@
         "explicacao": "O texto opõe o discurso de modernidade e progresso nacional à realidade dos trabalhadores — adoecidos, anônimos, abandonados — revelando a contradição entre desenvolvimento e respeito humano."
       }
     ],
-    "titulo": "Ferrovia Madeira-Marmoré — O Preço do Progresso"
+    "titulo": "Ferrovia Madeira-Marmoré — O Preço do Progresso",
+    "pontuacao": 3
   },
   {
     "id": 182,
@@ -2067,7 +2112,8 @@
         "explicacao": "A economia informacional em rede não depende de território fixo — empresas se organizam em redes globais, produção se fragmenta entre países, capital circula digitalmente. A desterritorialização é sua marca."
       }
     ],
-    "titulo": "A Sociedade em Rede — Manuel Castells"
+    "titulo": "A Sociedade em Rede — Manuel Castells",
+    "pontuacao": 3
   },
   {
     "id": 183,
@@ -2112,7 +2158,8 @@
         "explicacao": "Moradia básica não é mencionada na letra. O tema é o trabalho agrícola e a produção de alimentos pelos trabalhadores do sertão."
       }
     ],
-    "titulo": "Do Brasil — Vander Lee"
+    "titulo": "Do Brasil — Vander Lee",
+    "pontuacao": 1
   },
   {
     "id": 184,
@@ -2157,7 +2204,8 @@
         "explicacao": "Editoras comerciais não são o foco. O texto descreve transformação no público leitor e no protagonismo feminino na produção cultural, não no surgimento de empresas editoriais."
       }
     ],
-    "titulo": "Folhetins e o Público Feminino no Século XIX"
+    "titulo": "Folhetins e o Público Feminino no Século XIX",
+    "pontuacao": 3
   },
   {
     "id": 185,
@@ -2202,7 +2250,8 @@
         "explicacao": "Os caixeiros participavam da arena política junto a republicanos e abolicionistas, questionando a ordem imperial e suas estruturas de poder — contribuindo para a contestação do regime monárquico."
       }
     ],
-    "titulo": "Os Caixeiros e a Luta por Direitos"
+    "titulo": "Os Caixeiros e a Luta por Direitos",
+    "pontuacao": 3
   },
   {
     "id": 186,
@@ -2247,7 +2296,8 @@
         "explicacao": "Fertilizantes orgânicos alteram química do solo de forma diferente. A salinização descrita resulta de acúmulo de sais solúveis por evaporação, não de adição de matéria orgânica."
       }
     ],
-    "titulo": "Solos Salinos e Salinização"
+    "titulo": "Solos Salinos e Salinização",
+    "pontuacao": 5
   },
   {
     "id": 187,
@@ -2292,7 +2342,8 @@
         "explicacao": "Valorização intelectual não é abordada. O texto critica as condições materiais que impedem o acesso ao ensino, não questões de reconhecimento intelectual."
       }
     ],
-    "titulo": "Exclusão Digital na Pandemia"
+    "titulo": "Exclusão Digital na Pandemia",
+    "pontuacao": 1
   },
   {
     "id": 188,
@@ -2337,7 +2388,8 @@
         "explicacao": "Hierarquização da burocracia estatal seria análise institucional. Foucault foca nos mecanismos disciplinares de controle dos corpos, não na organização hierárquica do Estado."
       }
     ],
-    "titulo": "Vigiar e Punir — Foucault"
+    "titulo": "Vigiar e Punir — Foucault",
+    "pontuacao": 5
   },
   {
     "id": 189,
@@ -2382,7 +2434,8 @@
         "explicacao": "Os textos descrevem a criação de Juazeiro como lugar sagrado através de romarias e milagres — manifestações do catolicismo popular nordestino, com devoção à beata e ao Padre Cícero."
       }
     ],
-    "titulo": "Juazeiro e o Catolicismo Popular"
+    "titulo": "Juazeiro e o Catolicismo Popular",
+    "pontuacao": 3
   },
   {
     "id": 190,
@@ -2427,7 +2480,8 @@
         "explicacao": "Negociação em bolsa de valores é mecanismo do mercado financeiro, inacessível à agricultura familiar. O PAA cria canal direto de compra pública, fora do mercado especulativo."
       }
     ],
-    "titulo": "Programa de Aquisição de Alimentos — PAA"
+    "titulo": "Programa de Aquisição de Alimentos — PAA",
+    "pontuacao": 1
   },
   {
     "id": 191,
@@ -2472,7 +2526,8 @@
         "explicacao": "Ferramentas virtuais favorecem cognição seria afirmação sobre aprendizado digital. O FunFit usa tecnologia para fins comportamentais e sociais, não cognitivos."
       }
     ],
-    "titulo": "FunFit — Tecnologia e Atividade Física"
+    "titulo": "FunFit — Tecnologia e Atividade Física",
+    "pontuacao": 3
   },
   {
     "id": 192,
@@ -2517,7 +2572,8 @@
         "explicacao": "A IA de dublagem tende a automatizar funções antes exercidas por dubladores e atores, reduzindo as oportunidades de trabalho nessa área — ampliando o desemprego estrutural tecnológico."
       }
     ],
-    "titulo": "Inteligência Artificial e o Mercado de Dublagem"
+    "titulo": "Inteligência Artificial e o Mercado de Dublagem",
+    "pontuacao": 1
   },
   {
     "id": 193,
@@ -2562,7 +2618,8 @@
         "explicacao": "Equivalência da legislação trabalhista seria harmonização de direitos do trabalho. A TEC é instrumento comercial e alfandegário, sem relação direta com legislação trabalhista."
       }
     ],
-    "titulo": "Brasil e Argentina — Redução da TEC no Mercosul"
+    "titulo": "Brasil e Argentina — Redução da TEC no Mercosul",
+    "pontuacao": 3
   },
   {
     "id": 194,
@@ -2607,7 +2664,8 @@
         "explicacao": "Corporações são associações de artesãos e comerciantes medievais posteriores. O texto trata da Alta Idade Média, antes do desenvolvimento das corporações de ofício."
       }
     ],
-    "titulo": "Fome e Poder na Idade Média"
+    "titulo": "Fome e Poder na Idade Média",
+    "pontuacao": 5
   },
   {
     "id": 195,
@@ -2652,7 +2710,8 @@
         "explicacao": "Dobramentos modernos como os Andes e Alpes resultam de colisão de placas tectônicas — forças internas. São exemplos de soerguimento de montanhas mencionado no próprio texto."
       }
     ],
-    "titulo": "Forças Internas e Externas da Terra"
+    "titulo": "Forças Internas e Externas da Terra",
+    "pontuacao": 5
   },
   {
     "id": 196,
@@ -2697,7 +2756,8 @@
         "explicacao": "Defesa da honra foi argumento histórico usado para justificar violência contra mulheres no Brasil. A imagem provavelmente questiona esse argumento, não o defende."
       }
     ],
-    "titulo": "Feminicídio — Campanha de Conscientização"
+    "titulo": "Feminicídio — Campanha de Conscientização",
+    "pontuacao": 1
   },
   {
     "id": 197,
@@ -2742,7 +2802,8 @@
         "explicacao": "Exclusão de competências e participação política são temas adjacentes. O debate nos textos centra-se no currículo matemático e na capacidade intelectual feminina, não em participação política."
       }
     ],
-    "titulo": "Currículo Feminino — Lei de 1827"
+    "titulo": "Currículo Feminino — Lei de 1827",
+    "pontuacao": 3
   },
   {
     "id": 198,
@@ -2787,7 +2848,8 @@
         "explicacao": "Especulação imobiliária seria interesse de mercado em valorizar terrenos. O movimento buscou habitação para famílias sem moradia, o oposto da lógica especulativa."
       }
     ],
-    "titulo": "Ocupação e Direito à Moradia"
+    "titulo": "Ocupação e Direito à Moradia",
+    "pontuacao": 1
   },
   {
     "id": 199,
@@ -2832,7 +2894,8 @@
         "explicacao": "Preservação de recursos naturais não é mencionada. Os textos tratam de hegemonia econômica e política, não de questões ambientais."
       }
     ],
-    "titulo": "Hegemonia Americana e o Gap Global"
+    "titulo": "Hegemonia Americana e o Gap Global",
+    "pontuacao": 5
   },
   {
     "id": 200,
@@ -2877,7 +2940,8 @@
         "explicacao": "Expulsão de forças navais ocidentais não é mencionada. O argumento é histórico e identitário — a Crimeia como parte inseparável da Rússia pela convicção do povo."
       }
     ],
-    "titulo": "A Crimeia e o Discurso de Putin"
+    "titulo": "A Crimeia e o Discurso de Putin",
+    "pontuacao": 3
   },
   {
     "id": 201,
@@ -2922,7 +2986,8 @@
         "explicacao": "Escolaridade e fecundidade são variáveis demográficas relacionadas a gênero, mas o texto trata especificamente da intersecção de raça e gênero como geradores de discriminação complexa."
       }
     ],
-    "titulo": "Interseccionalidade — IBGE"
+    "titulo": "Interseccionalidade — IBGE",
+    "pontuacao": 3
   },
   {
     "id": 202,
@@ -2967,7 +3032,8 @@
         "explicacao": "Regulamentação das relações de trabalho pelo Legislativo é exercício legítimo do poder dentro do Estado de direito — leis sendo criadas pelo órgão competente e vinculando a todos."
       }
     ],
-    "titulo": "Estado de Direito — Canotilho"
+    "titulo": "Estado de Direito — Canotilho",
+    "pontuacao": 3
   },
   {
     "id": 203,
@@ -3012,7 +3078,8 @@
         "explicacao": "Deslocamento forçado envolve refúgio, conflito ou catástrofe. O texto trata de mobilidade urbana voluntária e cotidiana, não de deslocamento compulsório."
       }
     ],
-    "titulo": "O Longo Caminho ao Trabalho"
+    "titulo": "O Longo Caminho ao Trabalho",
+    "pontuacao": 1
   },
   {
     "id": 204,
@@ -3057,7 +3124,8 @@
         "explicacao": "Tradição popular sugere origem espontânea e anônima. O texto enfatiza que foi 'ato político deliberado' — consciente e organizado pelos socialistas, não surgido espontaneamente do povo."
       }
     ],
-    "titulo": "O Primeiro de Maio — Perrot"
+    "titulo": "O Primeiro de Maio — Perrot",
+    "pontuacao": 3
   },
   {
     "id": 205,
@@ -3102,7 +3170,8 @@
         "explicacao": "Continentalidade refere-se à distância do mar e seus efeitos térmicos. Não é o principal fator explicativo da distribuição da irradiação solar no mapa."
       }
     ],
-    "titulo": "Atlas Brasileiro de Energia Solar"
+    "titulo": "Atlas Brasileiro de Energia Solar",
+    "pontuacao": 5
   },
   {
     "id": 206,
@@ -3147,7 +3216,8 @@
         "explicacao": "O rio é patrimônio cultural e afetivo do povo Kambeba — ligado à cosmologia de origem, à identidade coletiva e ao saber milenar transmitido pelo pai à filha através da escuta e da experiência."
       }
     ],
-    "titulo": "O Povo Kambeba e os Rios"
+    "titulo": "O Povo Kambeba e os Rios",
+    "pontuacao": 3
   },
   {
     "id": 207,
@@ -3192,7 +3262,8 @@
         "explicacao": "Negociantes organizando redes comerciais seria atividade mercantil. O texto descreve trabalhadores em obra física de construção, sem menção a comércio."
       }
     ],
-    "titulo": "Açude Itans — Trabalho no Sertão"
+    "titulo": "Açude Itans — Trabalho no Sertão",
+    "pontuacao": 1
   },
   {
     "id": 208,
@@ -3237,7 +3308,8 @@
         "explicacao": "Emancipadores das metrópoles seriam movimentos de independência. O contexto é colonial — a medicina servia à dominação, não à emancipação das colônias."
       }
     ],
-    "titulo": "Medicina e Escravidão Colonial"
+    "titulo": "Medicina e Escravidão Colonial",
+    "pontuacao": 5
   },
   {
     "id": 209,
@@ -3282,7 +3354,8 @@
         "explicacao": "1:125.000.000 representaria escala para mapa-múndi ou continental. Nessa escala, o Brasil caberia em poucos centímetros — menor que o tamanho de um estado em um mapa comum."
       }
     ],
-    "titulo": "Escala Cartográfica do Brasil"
+    "titulo": "Escala Cartográfica do Brasil",
+    "pontuacao": 5
   },
   {
     "id": 210,
@@ -3327,7 +3400,8 @@
         "explicacao": "Competências econômica e financeira dos comerciantes remetem a habilidades de negócio. O texto valoriza os dons artísticos e o saber técnico dos criadores, não suas capacidades comerciais."
       }
     ],
-    "titulo": "O Tamborete de Baiana — Memória e Patrimônio"
+    "titulo": "O Tamborete de Baiana — Memória e Patrimônio",
+    "pontuacao": 3
   },
   {
     "id": 211,
@@ -3372,7 +3446,8 @@
         "explicacao": "Os poetas rapsodos transmitiam mitos oralmente antes da Polis. O texto descreve justamente a superação do pensamento mítico pela racionalidade filosófica nascida na cidade grega."
       }
     ],
-    "titulo": "A Polis e o Nascimento da Filosofia"
+    "titulo": "A Polis e o Nascimento da Filosofia",
+    "pontuacao": 5
   },
   {
     "id": 212,
@@ -3417,7 +3492,8 @@
         "explicacao": "Privatização dos meios de comunicação seria transferência ao setor privado. O DIP estatizava o controle editorial, subordinando a imprensa privada ao Estado, não privatizando meios públicos."
       }
     ],
-    "titulo": "O DIP e o Controle da Imprensa no Estado Novo"
+    "titulo": "O DIP e o Controle da Imprensa no Estado Novo",
+    "pontuacao": 3
   },
   {
     "id": 213,
@@ -3462,7 +3538,8 @@
         "explicacao": "Estruturas geológicas metamórficas são formações do embasamento cristalino. O mapa de recursos naturais representa jazidas exploráveis, não tipos de rocha."
       }
     ],
-    "titulo": "Recursos Naturais da Amazônia Legal"
+    "titulo": "Recursos Naturais da Amazônia Legal",
+    "pontuacao": 3
   },
   {
     "id": 214,
@@ -3507,7 +3584,8 @@
         "explicacao": "Clandestinas são pessoas que entram em país sem documentação. As irmãs não entraram ilegalmente em nenhum lugar — simplesmente não têm nacionalidade reconhecida por nenhum Estado."
       }
     ],
-    "titulo": "Crianças Sírias Sem Registro"
+    "titulo": "Crianças Sírias Sem Registro",
+    "pontuacao": 1
   },
   {
     "id": 215,
@@ -3552,7 +3630,8 @@
         "explicacao": "Inteligência como implicação das representações é formulação racionalista. Os textos propõem que a percepção e a imagem precedem e constituem o pensamento, não que a inteligência implica representações."
       }
     ],
-    "titulo": "Arte e Conhecimento — Merleau-Ponty e Deleuze"
+    "titulo": "Arte e Conhecimento — Merleau-Ponty e Deleuze",
+    "pontuacao": 5
   },
   {
     "id": 216,
@@ -3597,7 +3676,8 @@
         "explicacao": "Ordenar cultos de heresia seria o oposto do objetivo inquisitorial. O auto de fé punia a heresia, não a ordenava — era instrumento de controle religioso e social."
       }
     ],
-    "titulo": "O Auto de Fé — Ritual Inquisitorial"
+    "titulo": "O Auto de Fé — Ritual Inquisitorial",
+    "pontuacao": 3
   },
   {
     "id": 217,
@@ -3642,7 +3722,8 @@
         "correta": true,
         "explicacao": "Correta. V = T² − 4 = 0 quando T = 2. Contando os cruzamentos do gráfico com T = 2 ao longo das 10 horas, obtém-se exatamente 5 anulações da velocidade."
       }
-    ]
+    ],
+    "pontuacao": 5
   },
   {
     "id": 218,
@@ -3687,7 +3768,8 @@
         "correta": false,
         "explicacao": "Incorreta. Esta fórmula inclui mais termos do que o necessário para o caso de série encerrada em exatamente 4 partidas."
       }
-    ]
+    ],
+    "pontuacao": 5
   },
   {
     "id": 219,
@@ -3732,7 +3814,8 @@
         "correta": false,
         "explicacao": "Incorreta. O valor 5,5 resulta de somar todas as diferenças sem descontar os meses de prejuízo, superestimando o resultado."
       }
-    ]
+    ],
+    "pontuacao": 1
   },
   {
     "id": 220,
@@ -3777,7 +3860,8 @@
         "correta": false,
         "explicacao": "Incorreta. Dimensões de 2,00 m × 1,00 m não cabem no espaço de 1,90 m × 0,80 m com as margens mínimas exigidas."
       }
-    ]
+    ],
+    "pontuacao": 1
   },
   {
     "id": 221,
@@ -3822,7 +3906,8 @@
         "correta": false,
         "explicacao": "Incorreta. 64 corresponde ao total de equipes multiplicado por 2, não ao número de dias do torneio."
       }
-    ]
+    ],
+    "pontuacao": 5
   },
   {
     "id": 223,
@@ -3867,7 +3952,8 @@
         "correta": true,
         "explicacao": "Correta. Esta cartela contém os quatro números sorteados (03, 27, 07, 48) em uma disposição que permite a Pedro completar linha, coluna ou diagonal com apenas mais um número."
       }
-    ]
+    ],
+    "pontuacao": 5
   },
   {
     "id": 224,
@@ -3912,7 +3998,8 @@
         "correta": false,
         "explicacao": "Incorreta. 24 está muito acima do mínimo necessário; 9 cores já garante as mais de 1 000 configurações."
       }
-    ]
+    ],
+    "pontuacao": 3
   },
   {
     "id": 225,
@@ -3957,7 +4044,8 @@
         "correta": false,
         "explicacao": "Incorreta. Esta planificação posiciona os quadrados em faces opostas ou não adjacentes pelo mesmo vértice."
       }
-    ]
+    ],
+    "pontuacao": 5
   },
   {
     "id": 226,
@@ -4002,7 +4090,8 @@
         "correta": true,
         "explicacao": "Correta. O pacote especial oferece o dobro das moedas em relação ao equivalente de dois pacotes básicos: 2 × 200 000 = 400 000 moedas."
       }
-    ]
+    ],
+    "pontuacao": 3
   },
   {
     "id": 227,
@@ -4047,7 +4136,8 @@
         "correta": true,
         "explicacao": "Correta. Resolvendo o sistema: circuito maior M = 400 m, menor m = 300 m. Para maximizar a + b com 400a + 300b = 5 000, a solução ótima é a = 2 e b = 14, totalizando 16 voltas."
       }
-    ]
+    ],
+    "pontuacao": 5
   },
   {
     "id": 228,
@@ -4092,52 +4182,8 @@
         "correta": false,
         "explicacao": "Incorreta. \"Excelente\" exigiria aumento entre 190% e 200%, superior ao resultado real obtido."
       }
-    ]
-  },
-  {
-    "id": 229,
-    "materia": "Matematica",
-    "ano": 2022,
-    "titulo": "Lei de Stefan-Boltzmann — Luminosidade de Estrelas",
-    "enunciado": "A luminosidade _L_ de uma estrela está relacionada com o raio _R_ e com a temperatura _T_ dessa estrela segundo a Lei de Stefan-Boltzmann: ![](https://enem.dev/2022/questions/148/00e98ef8-6901-4d38-91f1-1fa1afda8b14.png) em que c é uma constante igual para todas as estrelas.\n\nDisponível em: http://ciencia.hsw.uol.com.br. Acesso em: 22 nov. 2013 (adaptado)\n\nConsidere duas estrelas _E_ e _F_, sendo que a estrela _E_ tem metade do raio da estrela _F_ e o dobro da temperatura de _F_.\n\nQual é a relação entre a luminosidade da estrela E e a luminosidade da estrela F?",
-    "dificuldade": "dificil",
-    "alternativas": [
-      {
-        "id": 1141,
-        "ordem": "A",
-        "texto": "https://enem.dev/2022/questions/148/623219f3-b839-4f65-b990-99e2416e78ac.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta expressão não aplica corretamente os expoentes da Lei de Stefan-Boltzmann (L = cR²T⁴) para R_E = R_F/2 e T_E = 2T_F."
-      },
-      {
-        "id": 1142,
-        "ordem": "B",
-        "texto": "https://enem.dev/2022/questions/148/ac0ff64f-89bb-4e7c-a004-f3a22719d728.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta relação subestima a luminosidade de E, sem considerar o expoente 4 da temperatura."
-      },
-      {
-        "id": 1143,
-        "ordem": "C",
-        "texto": "https://enem.dev/2022/questions/148/282300db-f32c-4e24-b4ec-da66e734e9c4.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta expressão não contabiliza o efeito combinado da redução de raio ao quadrado e do aumento de temperatura à quarta potência."
-      },
-      {
-        "id": 1144,
-        "ordem": "D",
-        "texto": "https://enem.dev/2022/questions/148/2e2fa9f3-4c51-4920-8048-790d9f42ed80.png",
-        "correta": true,
-        "explicacao": "Correta. L_E = c(R_F/2)²(2T_F)⁴ = c × (R_F²/4) × 16T_F⁴ = 4cR_F²T_F⁴ = 4L_F. A luminosidade de E é 4 vezes a de F."
-      },
-      {
-        "id": 1145,
-        "ordem": "E",
-        "texto": "https://enem.dev/2022/questions/148/c37d4dda-0f9a-4756-a282-99e7ddd27c64.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta relação inverte a comparação ou usa expoentes incorretos para raio e temperatura."
-      }
-    ]
+    ],
+    "pontuacao": 5
   },
   {
     "id": 230,
@@ -4182,7 +4228,8 @@
         "correta": false,
         "explicacao": "Incorreta. O valor 2,5 seria a média dos extremos dos valores possíveis, não a mediana da distribuição real."
       }
-    ]
+    ],
+    "pontuacao": 3
   },
   {
     "id": 231,
@@ -4227,7 +4274,8 @@
         "correta": false,
         "explicacao": "Incorreta. No ginásio V, com teto a 40 m, a bola não atinge o teto em seu pico de trajetória — o saque é válido."
       }
-    ]
+    ],
+    "pontuacao": 5
   },
   {
     "id": 232,
@@ -4272,7 +4320,8 @@
         "correta": false,
         "explicacao": "Incorreta. 70 minutos ou mais resultaria em mais de 1,75 kg perdidos e mais de 2,45 L recomendados."
       }
-    ]
+    ],
+    "pontuacao": 1
   },
   {
     "id": 233,
@@ -4317,7 +4366,8 @@
         "correta": false,
         "explicacao": "Incorreta. 35 poltronas corresponderia a um cálculo que ultrapassa o limite aceitável da norma."
       }
-    ]
+    ],
+    "pontuacao": 5
   },
   {
     "id": 234,
@@ -4362,7 +4412,8 @@
         "correta": false,
         "explicacao": "Incorreta. 7,20 seria o novo diâmetro (2 × 3,6 = 7,2 cm), não o raio pedido."
       }
-    ]
+    ],
+    "pontuacao": 3
   },
   {
     "id": 235,
@@ -4407,7 +4458,8 @@
         "correta": false,
         "explicacao": "Incorreta. 448 568 pode resultar de somar admissões e desligamentos sem aplicar a relação percentual corretamente."
       }
-    ]
+    ],
+    "pontuacao": 1
   },
   {
     "id": 236,
@@ -4452,6 +4504,7 @@
         "correta": false,
         "explicacao": "Incorreta. Este valor representa o total de pares possíveis por andar sem filtrar pelo critério de incidência solar matutina."
       }
-    ]
+    ],
+    "pontuacao": 3
   }
 ]

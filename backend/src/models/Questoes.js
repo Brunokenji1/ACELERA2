@@ -30,6 +30,11 @@ const Questoes = sequelize.define('Questoes',{
             isIn:[['facil','medio','dificil']]
         },
     },
+    pontuacao:{
+        type:DataTypes.INTEGER,
+        allowNull:false,
+        defaultValue: 1,
+    },
     ano:{
         type:DataTypes.INTEGER,
         validate:{
