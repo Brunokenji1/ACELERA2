@@ -1,6 +1,7 @@
 import "../../styles/partidas/listaPartidas.css";
 
 import { useNavigate } from "react-router-dom";
+import { Gamepad2, Globe } from "lucide-react";
 
 export default function ListaPartidas() {
   const navigate = useNavigate();
@@ -22,7 +23,9 @@ export default function ListaPartidas() {
           className="partida-card"
           onClick={() => navigate("/partidas/criar")}
         >
-          <div className="partida-icon">🎮</div>
+          <div className="partida-icon">
+            <Gamepad2 size={42} />
+          </div>
 
           <h2>Partida Local</h2>
 
@@ -31,7 +34,9 @@ export default function ListaPartidas() {
 
         {/* PARTIDA ONLINE */}
         <div className="partida-card partida-online">
-          <div className="partida-icon">🌐</div>
+          <div className="partida-icon">
+            <Globe size={42} />
+          </div>
 
           <h2>Partida Online</h2>
 

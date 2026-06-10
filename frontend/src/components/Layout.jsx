@@ -2,6 +2,15 @@ import { Outlet, Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import AjudaModal from "./AjudaModal";
 import "../styles/layout.css";
+import {
+  User,
+  Trophy,
+  BookOpen,
+  FileText,
+  Gamepad2,
+  CircleHelp,
+  Menu,
+} from "lucide-react";
 
 export default function Layout() {
   const [open, setOpen] = useState(true);
@@ -52,7 +61,7 @@ export default function Layout() {
       {/* HEADER */}
       <header className="header">
         <button className="menu-btn" onClick={() => setOpen(!open)}>
-          ☰
+          <Menu size={24} />
         </button>
 
         <h1 className="logo">
@@ -66,27 +75,27 @@ export default function Layout() {
       <aside className="sidebar">
         <nav>
           <Link to="/perfil" className="item">
-            <span className="icon">👤</span>
+            <User clasName="icon" size={24} />
             {open && <span>Perfil</span>}
           </Link>
 
           <Link to="/ranking" className="item">
-            <span className="icon">🏆</span>
+              <Trophy className="icon" size={20} />
             {open && <span>Ranking</span>}
           </Link>
 
           <Link to="/questoes" className="item">
-            <span className="icon">📚</span>
+            <BookOpen className="icon" size={20} />
             {open && <span>Questões</span>}
           </Link>
 
           <Link to="/resolucoes" className="item">
-            <span className="icon">📄</span>
+            <FileText className="icon" size={20} />
             {open && <span>Resoluções</span>}
           </Link>
 
           <Link to="/partidas" className="item">
-            <span className="icon">🎮</span>
+            <Gamepad2 className="icon" size={20} />
             {open && <span>Partida</span>}
           </Link>
 
@@ -94,7 +103,7 @@ export default function Layout() {
             className="item ajuda-btn"
             onClick={() => setAjudaAberta(true)}
           >
-            <span className="icon">❓</span>
+            <CircleHelp className="icon" size={20} />
 
             {open && <span>Ajuda</span>}
           </button>

@@ -57,7 +57,10 @@
 }
 
 .partida-icon {
-  font-size: 42px;
+  display: flex;
+  align-items: center;
+
+  color: #ff6d00;
 
   margin-bottom: 20px;
 }

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import {buscarQuestao, responderQuestao as responderQuestaoAPI } from "../../services/questaoService";
+import { ArrowLeft } from "lucide-react";
 
 export default function Questao() {
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ async function responder(alternativa) {
     <div className="questao-container">
       {/* BOTÃO VOLTAR */}
       <button className="btn-voltar-questao" onClick={() => navigate(-1)}>
-        ←
+        <ArrowLeft size={25} />
       </button>
 
       {/* HEADER */}

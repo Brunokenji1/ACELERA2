@@ -4,6 +4,7 @@ import { useState } from "react";
 import { buscarPerfil } from "../../services/usuarioService";
 import { criarPartida } from "../../services/partidaService";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react"; 
 
 export default function CriarPartida() {
   const navigate = useNavigate();
@@ -68,7 +69,7 @@ export default function CriarPartida() {
       {/* FAIXA ESQUERDA */}
       <div className="faixa-esquerda">
         <button className="btn-voltar-partida" onClick={voltar}>
-          ←
+          <ArrowLeft size={25} />
         </button>
       </div>
 

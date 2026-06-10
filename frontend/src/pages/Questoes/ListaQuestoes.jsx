@@ -1,9 +1,8 @@
 import "../../styles/listaQuestoes.css";
 import { useState, useEffect } from "react";
 import { listarQuestoes } from "../../services/questaoService";
-
 import { useParams, useNavigate } from "react-router-dom";
-
+import { ArrowLeft } from "lucide-react";
 export default function ListaQuestoes() {
   const { categoria } = useParams();
 
@@ -58,7 +57,7 @@ export default function ListaQuestoes() {
             className="btn-voltar-lista"
             onClick={() => navigate("/questoes")}
           >
-            ←
+            <ArrowLeft size={25} /> 
           </button>
 
           <div>
