@@ -4,7 +4,7 @@ const Partidas = require('../models/Partidas');
 const UsuarioPartida = require('../models/UsuarioPartida')
 const Rodadas = require('../models/Rodadas');
 const {validationResult} = require('express-validator');
-const {iniciarPartida, buscarRodadaAtual, registrarBuzz, processarResposta} = require('../services/partidaService')
+const {iniciarPartida, buscarRodadaAtual, registrarBuzz, processarResposta, pularRodadaAtual} = require('../services/partidaService')
 
 async function criarPartida (req,res) {
     try{
@@ -27,19 +27,14 @@ async function criarPartida (req,res) {
         await UsuarioPartida.create({
             id_usuario: id_criador,
             id_partida: novaPartida.id,
-            botao_numero:1 
+            botao_numero: 1
         });
-        await UsuarioPartida.create({
-    id_usuario: 2,
-    id_partida: novaPartida.id,
-    botao_numero: 2
-});
         
         
         return res.status(201).json({partida: novaPartida });
     }
     catch(err){
-        return res.status(500).json({ err: 'Erro interno'});
+        return res.status(500).json({ erro: err.message});
     }
 }
 async function entrarPartida(req,res) {
@@ -201,7 +196,7 @@ async function responder(req,res){
         }
         return res.status(200).json({
             acertou: resultado.acertou,
-            outra_chance: resultado.outra_chance || false,
+            vez_jogador: resultado.vez_jogador || null,
             proxima_rodada: resultado.proxima_rodada || null
         })
     }
@@ -210,4 +205,15 @@ async function responder(req,res){
     }
 }
 
-module.exports = {criarPartida, buscarPartida, entrarPartida, iniciar, buzz, responder }
+async function pularRodada(req, res) {
+    try {
+        const { id } = req.params
+        const resultado = await pularRodadaAtual(id)
+        if (resultado.erro) return res.status(400).json({ erro: resultado.erro })
+        return res.status(200).json(resultado)
+    } catch(err) {
+        return res.status(500).json({ erro: err.message })
+    }
+}
+
+module.exports = {criarPartida, buscarPartida, entrarPartida, iniciar, buzz, responder, pularRodada }

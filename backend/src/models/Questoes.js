@@ -15,6 +15,10 @@ const Questoes = sequelize.define('Questoes',{
         type:DataTypes.INTEGER,
         allowNull:false,
     },
+    titulo:{
+        type:DataTypes.STRING(255),
+        allowNull:true,
+    },
     enunciado:{
         type:DataTypes.TEXT,
         allowNull:false,

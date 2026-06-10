@@ -41,6 +41,7 @@ async function importarDoJson() {
         const novaQuestao = await Questoes.create({
             id_fonte: fonte.id,
             id_materia: materia.id,
+            titulo: q.titulo || null,
             enunciado: q.enunciado,
             dificuldade: q.dificuldade,
             ano: q.ano,

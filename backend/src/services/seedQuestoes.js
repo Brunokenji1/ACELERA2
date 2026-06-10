@@ -75,6 +75,7 @@ async function importar() {
                         const novaQuestao = await Questoes.create({
                             id_fonte: fonte.id,
                             id_materia: materia.id,
+                            titulo: q.title || null,
                             enunciado: q.context || q.title,
                             dificuldade: 'medio',
                             ano: q.year,
@@ -103,6 +104,7 @@ async function importar() {
                             id: novaQuestao.id,
                             materia: nomeMateria,
                             ano: q.year,
+                            titulo: q.title || null,
                             enunciado: q.context || q.title,
                             dificuldade: 'medio',
                             alternativas: alternativasSalvas

@@ -50,9 +50,11 @@ async function iniciarPartida(id_partida) {
     )
 
     if (!jogador2) {
-        jogador2 = {
-            id_usuario: 2
-        };
+        jogador2 = await UsuarioPartida.create({
+            id_usuario: 2,
+            id_partida,
+            botao_numero: 2
+        })
     }
     //--------------------
 
@@ -146,6 +148,11 @@ async function processarResposta(id_rodada, id_usuario, id_alternativa, tempo_re
         return { erro: 'Não é possível responder agora' }
     }
 
+    const jaRespondeu = await Tentativas.findOne({ where: { id_rodada, id_usuario } })
+    if (jaRespondeu) {
+        return { erro: 'Jogador já respondeu nesta rodada' }
+    }
+
     const alternativa = await Alternativas.findOne({ where: { id: id_alternativa } })
     const acertou = alternativa.correta
 
@@ -188,8 +195,12 @@ async function processarResposta(id_rodada, id_usuario, id_alternativa, tempo_re
         return { acertou: false, proxima_rodada: proxima }
     }
 
-    await rdq.update({ status: 'aguardando_buzz' })
-    return { acertou: false, outra_chance: true }
+    // passa automaticamente para o outro jogador sem precisar de buzz
+    const vezJogador = (id_usuario === rdq.id_participante_1)
+        ? rdq.id_participante_2
+        : rdq.id_participante_1
+
+    return { acertou: false, vez_jogador: vezJogador }
 }
 // avança para a próxima rodada
 async function avancarRodada(id_partida) {
@@ -243,6 +254,22 @@ async function encerrarPartida(id_partida) {
     }
 }
 
+async function pularRodadaAtual(id_partida) {
+    const rodada = await Rodadas.findOne({
+        where: { id_partida, status: 'em_andamento' },
+        include: [{ model: RodadaDeQuestoes }]
+    })
+
+    if (!rodada) return { erro: 'Nenhuma rodada em andamento' }
+
+    const rdq = rodada.RodadaDeQuestoes[0]
+    await rdq.update({ status: 'finalizada', finalizada_em: new Date() })
+    await rodada.update({ status: 'finalizada', finalizada_em: new Date() })
+
+    const proxima = await avancarRodada(id_partida)
+    return { proxima_rodada: proxima }
+}
+
 module.exports = {
     iniciarPartida,
     buscarRodadaAtual,
@@ -250,4 +277,5 @@ module.exports = {
     processarResposta,
     avancarRodada,
     encerrarPartida,
+    pularRodadaAtual,
 }
