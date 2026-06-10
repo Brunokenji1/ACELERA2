@@ -24,13 +24,16 @@
 }
 
 .btn-editar-perfil {
-  background: linear-gradient(90deg, #ff6d00);
+  background: linear-gradient(90deg, #ff6d00, #ff8c42);
   color: white;
   border: none;
   padding: 15px 25px;
   border-radius: 12px;
   cursor: pointer;
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* LAYOUT */
@@ -60,14 +63,42 @@
 
 }
 
-.avatar {
+/* AVATAR */
+.avatar-container {
+  position: relative;
   width: 160px;
   height: 160px;
-  border-radius: 50%;
-  background: #ccc;
   margin: 0 auto 10px;
+}
 
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ccc;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.btn-editar-foto {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background: #ff6d00;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-editar-foto:hover {
+  background: #ff8c42;
 }
 
 /* CARDS */
@@ -134,4 +165,66 @@
 
 .row div {
   flex: 1;
+}
+
+/* MODO EDIÇÃO */
+.campo-bloqueado {
+  opacity: 0.55;
+  background: #f3f3f3;
+  cursor: default;
+}
+
+.perfil-right input:not(.campo-bloqueado):focus,
+.perfil-right textarea:not(.campo-bloqueado):focus {
+  border-color: #ff6d00;
+  outline: none;
+}
+
+.perfil-acoes {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.btn-salvar-perfil {
+  background: linear-gradient(90deg, #ff6d00, #ff8c42);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-salvar-perfil:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-cancelar-perfil {
+  background: transparent;
+  color: #1a1a2e;
+  border: 2px solid #1a1a2e;
+  padding: 13px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* TEXTAREA DA BIO — campo grande */
+.perfil-right textarea {
+  height: 130px;
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* CONTADOR DE CARACTERES */
+.contador-bio {
+  text-align: right;
+  font-size: 13px;
+  color: #888;
+  margin-top: -22px;
+  margin-bottom: 10px;
 }

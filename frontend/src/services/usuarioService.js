@@ -17,3 +17,24 @@ export async function buscarRanking() {
 
   return await resposta.json();
 }
+
+export async function atualizarPerfil(dados) {
+  const token = localStorage.getItem("token");
+
+  const resposta = await fetch(`${API_URL}/usuarios/perfil`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(dados),
+  });
+
+  const json = await resposta.json();
+
+  if (!resposta.ok) {
+    throw new Error(json.erro || "Erro ao atualizar o perfil");
+  }
+
+  return json;
+}

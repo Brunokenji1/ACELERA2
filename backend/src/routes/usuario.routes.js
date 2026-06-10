@@ -6,7 +6,7 @@ const router = Router();
 
 router.get('/perfil', autenticar, perfil);
 router.get('/ranking', ranking);
-router.get('/perfil', autenticar, atualizarPerfil);
+router.put('/perfil', autenticar, atualizarPerfil);
 
 
 module.exports = router
