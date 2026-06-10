@@ -234,6 +234,33 @@ export default function Partida() {
       await atualizarPartida();
 
       if (resultado.vez_jogador) {
+        if (primeiraVezUsada.current) {
+          // primeiro jogador já usou sua chance (errou ou não respondeu), segundo também errou → pula rodada
+          primeiraVezUsada.current = false;
+          setJogadorDaVez(null);
+          pularRodada(id)
+            .then((res) => {
+              if (res.proxima_rodada) {
+                setRodadaAtual(res.proxima_rodada);
+                setQuestaoAtual(res.proxima_rodada.RodadaDeQuestoes[0].Questo);
+                setBuzzLiberado(false);
+                setTempoPreparacao(10);
+                setPartidaIniciada(true);
+                setRespostaSelecionada(null);
+                setSegundaChance(false);
+              } else {
+                atualizarPartida().then((placar) => {
+                  if (!placar) { setPartidaFinalizada(true); return; }
+                  if (placar.pontos1 > placar.pontos2) setVencedor(1);
+                  else if (placar.pontos2 > placar.pontos1) setVencedor(2);
+                  else setEmpate(true);
+                  setPartidaFinalizada(true);
+                });
+              }
+            })
+            .catch(console.error);
+          return;
+        }
         const outroNumero = jogadorDaVez === 1 ? 2 : 1;
         primeiraVezUsada.current = true;
         setJogadorDaVez(outroNumero);

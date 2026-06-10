@@ -96,7 +96,7 @@ export default function ListaQuestoes() {
 
               <span className="ano">ENEM {questao.ano}</span>
 
-              <span className="pontos">1 pt</span>
+              <span className="pontos">{questao.pontuacao} pt{questao.pontuacao > 1 ? "s" : ""}</span>
             </div>
           </div>
         ))}

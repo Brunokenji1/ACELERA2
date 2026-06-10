@@ -103,7 +103,7 @@ async function responder(alternativa) {
         </div>
 
         {/* DIREITA */}
-        <span className="pontos">3,00</span>
+        <span className="pontos">{questao?.pontuacao} pt{questao?.pontuacao > 1 ? "s" : ""}</span>
       </div>
 
       {/* QUESTÃO */}
