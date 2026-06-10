@@ -97,10 +97,11 @@ export default function CriarPartida() {
               onChange={(e) => 
                 setMateria(Number(e.target.value))}
             >
-              <option value={1}>Matemática</option>
-              <option value={2}>Português</option>
-              <option value={3}>História</option>
-              <option value={7}>Biologia</option>
+              <option value={1}>Matemática e suas Tecnologias</option>
+              <option value={2}>Linguagens, Códigos e suas Tecnologias</option>
+              <option value={3}>Ciências Humanas e suas Tecnologias</option>
+              <option value={7}>Ciências da Natureza e suas Tecnologias</option>
+              <option value={0}>Todas</option>
             </select>
           </div>
 
