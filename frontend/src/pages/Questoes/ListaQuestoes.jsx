@@ -23,11 +23,11 @@ export default function ListaQuestoes() {
           setQuestoes(todas.filter((q) => q.id_materia === 1));
 
         } else if (categoria === "linguagens") {
-          setQuestoes(todas.filter((q) => [2, 8, 9].includes(q.id_materia)));
+          setQuestoes(todas.filter((q) => [2, 10, 11].includes(q.id_materia)));
 
         } else if (categoria === "ciencias-humanas") {
           setQuestoes(
-            todas.filter((q) => [3, 4, 10, 11].includes(q.id_materia)),
+            todas.filter((q) => [3, 4, 8, 9].includes(q.id_materia)),
           );
 
         } else if (categoria === "ciencias-da-natureza") {
