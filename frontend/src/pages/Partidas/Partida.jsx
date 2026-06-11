@@ -320,7 +320,10 @@ export default function Partida() {
 
     try {
       const device = await navigator.bluetooth.requestDevice({
-        filters: [{ name: "StudyFlow_certo" }],
+        filters: [
+          { name: "StudyFlow_certo" },
+          { services: [NUS_SERVICE] },
+        ],
         optionalServices: [NUS_SERVICE],
       });
 
