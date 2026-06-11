@@ -80,7 +80,7 @@ export default function ListaQuestoes() {
             <div className="questao-left">
               <span className="questao-id">{questao.id}</span>
 
-              <h2>{questao.enunciado.substring(0, 80)}...</h2>
+              <h2>{questao.titulo || `$questao.enunciado.substring(0, 80)...`}</h2>
             </div>
 
             {/* DIREITA */}
