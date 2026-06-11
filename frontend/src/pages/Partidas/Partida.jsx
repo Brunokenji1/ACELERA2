@@ -1,6 +1,7 @@
 import "../../styles/partidas/partida.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
+import { buscarPerfil } from "../../services/usuarioService";
 import {
   buscarPartida,
   iniciarPartida,
@@ -9,6 +10,7 @@ import {
   pularRodada,
 } from "../../services/partidaService";
 import VencedorModal from "../../components/VencedorModal";
+import { Circle, Square, Plus, Minus, X } from "lucide-react";
 
 export default function Partida() {
   const navigate = useNavigate();
@@ -16,7 +18,13 @@ export default function Partida() {
   const [partida, setPartida] = useState(null);
   const [questaoAtual, setQuestaoAtual] = useState(null);
   // Simbolos para exibir nas alternativas
-  const simbolos = ["◯", "□", "△", "✕", "◇"];
+  const simbolos = [
+    <Circle size={22} strokeWidth={2.5} />,
+    <Square size={22} strokeWidth={2.5} />,
+    <Plus size={22} strokeWidth={2.5} />,
+    <Minus size={22} strokeWidth={2.5} />,
+    <X size={22} strokeWidth={2.5} />,
+  ];
 
   // Estados para controle da partida
   const [tempoPreparacao, setTempoPreparacao] = useState(10);
@@ -31,6 +39,7 @@ export default function Partida() {
 
   //
   const [respostaSelecionada, setRespostaSelecionada] = useState(null);
+  const [statusResposta, setStatusResposta] = useState(null);
 
   const [pontosJogador1, setPontosJogador1] = useState(0);
   const [pontosJogador2, setPontosJogador2] = useState(0);
@@ -44,6 +53,8 @@ export default function Partida() {
 
   const [partidaFinalizada, setPartidaFinalizada] = useState(false);
 
+  const [usuario, setUsuario] = useState(null);
+
   // Estados para controle do modal de vencedor
   const [vencedor, setVencedor] = useState(null);
   const [empate, setEmpate] = useState(false);
@@ -51,6 +62,20 @@ export default function Partida() {
   useEffect(() => {
     atualizarPartida();
   }, [id]);
+
+  useEffect(() => {
+    async function carregarPerfil() {
+      try {
+        const resposta = await buscarPerfil();
+
+        setUsuario(resposta.usuario);
+      } catch (erro) {
+        console.error(erro);
+      }
+    }
+
+    carregarPerfil();
+  }, []);
 
   async function iniciar() {
     try {
@@ -136,15 +161,21 @@ export default function Partida() {
           .then((resultado) => {
             if (resultado.proxima_rodada) {
               setRodadaAtual(resultado.proxima_rodada);
-              setQuestaoAtual(resultado.proxima_rodada.RodadaDeQuestoes[0].Questo);
+              setQuestaoAtual(
+                resultado.proxima_rodada.RodadaDeQuestoes[0].Questo,
+              );
               setBuzzLiberado(false);
               setTempoPreparacao(10);
               setPartidaIniciada(true);
               setRespostaSelecionada(null);
+              setStatusResposta(null);
               setSegundaChance(false);
             } else {
               atualizarPartida().then((placar) => {
-                if (!placar) { setPartidaFinalizada(true); return; }
+                if (!placar) {
+                  setPartidaFinalizada(true);
+                  return;
+                }
                 if (placar.pontos1 > placar.pontos2) setVencedor(1);
                 else if (placar.pontos2 > placar.pontos1) setVencedor(2);
                 else setEmpate(true);
@@ -233,6 +264,14 @@ export default function Partida() {
 
       await atualizarPartida();
 
+      setRespostaSelecionada(alternativa.id);
+
+      if (resultado.acertou) {
+        setStatusResposta("acertou");
+      } else {
+        setStatusResposta("errou");
+      }
+
       if (resultado.vez_jogador) {
         if (primeiraVezUsada.current) {
           // primeiro jogador já usou sua chance (errou ou não respondeu), segundo também errou → pula rodada
@@ -247,10 +286,14 @@ export default function Partida() {
                 setTempoPreparacao(10);
                 setPartidaIniciada(true);
                 setRespostaSelecionada(null);
+                setStatusResposta(null);
                 setSegundaChance(false);
               } else {
                 atualizarPartida().then((placar) => {
-                  if (!placar) { setPartidaFinalizada(true); return; }
+                  if (!placar) {
+                    setPartidaFinalizada(true);
+                    return;
+                  }
                   if (placar.pontos1 > placar.pontos2) setVencedor(1);
                   else if (placar.pontos2 > placar.pontos1) setVencedor(2);
                   else setEmpate(true);
@@ -321,7 +364,7 @@ export default function Partida() {
 
           <div className="avatar-box">Avatar</div>
 
-          <p className="nome-jogador">Luiz Felipe</p>
+          <p className="nome-jogador">{usuario?.nome || "Carregando..."}</p>
 
           <div className="pontos-box">
             <span>Pontos</span>
@@ -375,22 +418,38 @@ export default function Partida() {
             <p>{textoFormatado}</p>
           </div>
 
-          <button className="btn-iniciar-rodada" onClick={iniciar}>
-            Iniciar Rodada
-          </button>
+          {!partidaIniciada && (
+            <button className="btn-iniciar-rodada" onClick={iniciar}>
+              Iniciar Rodada
+            </button>
+          )}
 
           <div className="alternativas-box">
             {questaoAtual?.alternativas?.map((alternativa, index) => (
               <div
                 key={alternativa.id}
-                className={`alternativa-box ${
-                  respostaSelecionada === alternativa.id
-                    ? "alternativa-selecionada"
-                    : ""
-                }`}
+                className={`alternativa-box alternativa-${index + 1}
+                  ${respostaSelecionada === alternativa.id ? "alternativa-selecionada" : ""}
+                  ${
+                    respostaSelecionada === alternativa.id &&
+                    statusResposta === "acertou"
+                      ? "alternativa-acertou"
+                      : ""
+                  }
+                  ${
+                    respostaSelecionada === alternativa.id &&
+                    statusResposta === "errou"
+                      ? "alternativa-errou"
+                      : ""
+                  }
+                `}
                 onClick={() => responder(alternativa)}
               >
-                {simbolos[index]} {alternativa.texto}
+                <span className={`simbolo-alternativa simbolo-${index + 1}`}>
+                  {simbolos[index]}
+                </span>
+
+                <span className="texto-alternativa">{alternativa.texto}</span>
               </div>
             ))}
           </div>
@@ -426,7 +485,9 @@ export default function Partida() {
         pontosJogador1={pontosJogador1}
         pontosJogador2={pontosJogador2}
         fechar={() => navigate("/partidas")}
-        novaPartida={() => {navigate("/partidas/criar")}}
+        novaPartida={() => {
+          navigate("/partidas/criar");
+        }}
       />
     </div>
   );
