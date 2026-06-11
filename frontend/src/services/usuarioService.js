@@ -38,3 +38,26 @@ export async function atualizarPerfil(dados) {
 
   return json;
 }
+
+export async function atualizarFotoPerfil(blobFoto){
+  const token = localStorage.getItem("token");
+
+  const formData = new FormData();
+  formData.append("foto", blobFoto, "foto.jpg");
+
+  const resposta = await fetch(`${API_URL}/usuarios/perfil/foto`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: formData,
+  });
+
+  const json = await resposta.json();
+
+  if (!resposta.ok) {
+    throw new Error(json.erro || "Erro ao salvar a foto");
+  }
+
+  return json;
+}

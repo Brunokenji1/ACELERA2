@@ -332,3 +332,9 @@
   color: white;
   font-weight: bold;
 }
+
+.btn-ble { padding: 6px 14px; border: none; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; }
+.btn-ble-desconectado { background: #2d00c8; color: white; }
+.btn-ble-conectando { background: #f0a500; color: white; }
+.btn-ble-conectado { background: #38b26d; color: white; }
+.btn-ble:disabled { opacity: 0.6; cursor: not-allowed; }

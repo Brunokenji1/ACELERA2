@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { buscarPerfil, atualizarPerfil } from "../services/usuarioService";
 import { Pencil, Save } from "lucide-react";
 import avatarPadrao from "../assets/avatar-padrao.svg";
+import FotoPerfilModal from "../components/FotoPerfilModal";
 
 const BIO_MAX = 300;
 
@@ -194,6 +195,11 @@ export default function Perfil() {
           )}
         </div>
       </div>
+      <FotoPerfilModal
+        aberto={modalFotoAberto}
+        fechar={() => setModalFotoAberto(false)}
+        onFotoSalva={(u) => setUsuario({ ...usuario, ...u })}
+      />
     </div>
   );
 }

@@ -1,0 +1,64 @@
+.foto-escolher{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 30px 0;
+}
+
+.btn-escolher-foto {
+    background: linear-gradient(90deg, #ff6d00, #ff8c42);
+    color: write;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.foto-dica {
+    font-size: 13px;
+    color: #888;
+}
+
+.cropper-area{
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: #1a1a2e;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.zoom-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.foto-acoes{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.foto-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.preview-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit:cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}

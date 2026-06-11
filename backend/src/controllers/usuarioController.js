@@ -89,4 +89,31 @@ async function atualizarPerfil(req, res) {  //para poder editar as informações
     }
 }
 
-module.exports = { perfil, ranking, atualizarPerfil }
+async function atualizarFoto(req, res) {
+    try {
+        if (!req.file) {
+            return res.status(400).json({ erro: 'Nenhuma imagem enviada' })
+        }
+
+        const id = req.usuarioId
+        const usuario = await Usuarios.findOne({ where: { id } })
+        if (!usuario) {
+            return res.status(404).json({ erro: 'Usuario não encontrado' })
+        }
+
+        const novaUrl = `http://localhost:3001/uploads/${req.file.filename}`
+        await usuario.update({ foto_url: novaUrl })
+
+        return res.status(200).json({
+            mensagem: 'Foto atualizada com sucesso',
+            usuario: {
+                id: usuario.id,
+                foto_url: usuario.foto_url
+            }
+        })
+    } catch (err) {
+        return res.status(500).json({ erro: 'Erro interno' })
+    }
+}
+
+module.exports = { perfil, ranking, atualizarPerfil, atualizarFoto }
