@@ -23,8 +23,19 @@ async function listarResolucoes(req, res) {
       ],
     });
 
+    // mantém apenas a última tentativa por questão
+    const ultimasPorQuestao = new Map()
+    for (const t of tentativas) {
+      const idQuestao = t.Alternativa?.questao?.id
+      if (!idQuestao) continue
+      const atual = ultimasPorQuestao.get(idQuestao)
+      if (!atual || t.id > atual.id) {
+        ultimasPorQuestao.set(idQuestao, t)
+      }
+    }
+
     //monta a resposta com questão, alternativa escolhida e a correta
-    const resolucoes = tentativas.map((t) => {
+    const resolucoes = [...ultimasPorQuestao.values()].map((t) => {
       const alternativaEscolhida = t.Alternativa;
       //debug console.log('alternativaEscolhida:', JSON.stringify(alternativaEscolhida, null, 2))
       const questao = alternativaEscolhida.questao; //sequelize tira o 'es' no model Questoes, ficando só Questo, mas com o alias que defini da pra usar 'questoes' aqui
