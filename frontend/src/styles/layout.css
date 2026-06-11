@@ -50,6 +50,27 @@ body,
   padding: 0 20px;
 }
 
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  color: #ff6d00;
+}
+
 /* LOGO */
 .logo span {
   color: #ff6d00;

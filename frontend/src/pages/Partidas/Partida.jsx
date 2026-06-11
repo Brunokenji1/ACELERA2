@@ -2,6 +2,7 @@ import "../../styles/partidas/partida.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { buscarPerfil } from "../../services/usuarioService";
+import avatarPadrao from "../../assets/avatar-padrao.svg";
 import {
   buscarPartida,
   iniciarPartida,
@@ -55,13 +56,21 @@ export default function Partida() {
   // Refs para o callback BLE sempre ler os valores mais recentes
   const buzzLiberadoRef = useRef(buzzLiberado);
   const jogadorDaVezRef = useRef(jogadorDaVez);
-  const rodadaAtualRef  = useRef(rodadaAtual);
+  const rodadaAtualRef = useRef(rodadaAtual);
   const questaoAtualRef = useRef(questaoAtual);
 
-  useEffect(() => { buzzLiberadoRef.current  = buzzLiberado;  }, [buzzLiberado]);
-  useEffect(() => { jogadorDaVezRef.current  = jogadorDaVez;  }, [jogadorDaVez]);
-  useEffect(() => { rodadaAtualRef.current   = rodadaAtual;   }, [rodadaAtual]);
-  useEffect(() => { questaoAtualRef.current  = questaoAtual;  }, [questaoAtual]);
+  useEffect(() => {
+    buzzLiberadoRef.current = buzzLiberado;
+  }, [buzzLiberado]);
+  useEffect(() => {
+    jogadorDaVezRef.current = jogadorDaVez;
+  }, [jogadorDaVez]);
+  useEffect(() => {
+    rodadaAtualRef.current = rodadaAtual;
+  }, [rodadaAtual]);
+  useEffect(() => {
+    questaoAtualRef.current = questaoAtual;
+  }, [questaoAtual]);
 
   useEffect(() => {
     atualizarPartida();
@@ -83,7 +92,9 @@ export default function Partida() {
     try {
       const resposta = await iniciarPartida(id);
       console.log(resposta);
-      console.log(resposta.rodada_atual.RodadaDeQuestoes[0].Questo.alternativas[0]);
+      console.log(
+        resposta.rodada_atual.RodadaDeQuestoes[0].Questo.alternativas[0],
+      );
       console.log("RODADA COMPLETA", resposta.rodada_atual);
       setQuestaoAtual(resposta.rodada_atual.RodadaDeQuestoes[0].Questo);
       setRodadaAtual(resposta.rodada_atual);
@@ -146,7 +157,9 @@ export default function Partida() {
           .then((resultado) => {
             if (resultado.proxima_rodada) {
               setRodadaAtual(resultado.proxima_rodada);
-              setQuestaoAtual(resultado.proxima_rodada.RodadaDeQuestoes[0].Questo);
+              setQuestaoAtual(
+                resultado.proxima_rodada.RodadaDeQuestoes[0].Questo,
+              );
               setBuzzLiberado(false);
               setTempoPreparacao(10);
               setPartidaIniciada(true);
@@ -155,7 +168,10 @@ export default function Partida() {
               setSegundaChance(false);
             } else {
               atualizarPartida().then((placar) => {
-                if (!placar) { setPartidaFinalizada(true); return; }
+                if (!placar) {
+                  setPartidaFinalizada(true);
+                  return;
+                }
                 if (placar.pontos1 > placar.pontos2) setVencedor(1);
                 else if (placar.pontos2 > placar.pontos1) setVencedor(2);
                 else setEmpate(true);
@@ -175,7 +191,10 @@ export default function Partida() {
 
   useEffect(() => {
     if (!partidaIniciada) return;
-    if (tempoPreparacao <= 0) { setBuzzLiberado(true); return; }
+    if (tempoPreparacao <= 0) {
+      setBuzzLiberado(true);
+      return;
+    }
     const intervalo = setInterval(() => {
       setTempoPreparacao((tempo) => tempo - 1);
     }, 1000);
@@ -197,8 +216,12 @@ export default function Partida() {
     try {
       const resposta = await buscarPartida(id);
       setPartida(resposta.partida);
-      const jogador1 = resposta.partida.UsuarioPartidas?.find((j) => j.botao_numero === 1);
-      const jogador2 = resposta.partida.UsuarioPartidas?.find((j) => j.botao_numero === 2);
+      const jogador1 = resposta.partida.UsuarioPartidas?.find(
+        (j) => j.botao_numero === 1,
+      );
+      const jogador2 = resposta.partida.UsuarioPartidas?.find(
+        (j) => j.botao_numero === 2,
+      );
       const pontos1 = jogador1?.pontos_partida || 0;
       const pontos2 = jogador2?.pontos_partida || 0;
       setPontosJogador1(pontos1);
@@ -246,7 +269,10 @@ export default function Partida() {
                 setSegundaChance(false);
               } else {
                 atualizarPartida().then((placar) => {
-                  if (!placar) { setPartidaFinalizada(true); return; }
+                  if (!placar) {
+                    setPartidaFinalizada(true);
+                    return;
+                  }
                   if (placar.pontos1 > placar.pontos2) setVencedor(1);
                   else if (placar.pontos2 > placar.pontos1) setVencedor(2);
                   else setEmpate(true);
@@ -279,7 +305,10 @@ export default function Partida() {
         setEmpate(false);
         setVencedor(null);
         const placar = await atualizarPartida();
-        if (!placar) { setPartidaFinalizada(true); return; }
+        if (!placar) {
+          setPartidaFinalizada(true);
+          return;
+        }
         if (placar.pontos1 > placar.pontos2) setVencedor(1);
         else if (placar.pontos2 > placar.pontos1) setVencedor(2);
         else setEmpate(true);
@@ -312,7 +341,9 @@ export default function Partida() {
 
   async function conectarBLE() {
     if (!navigator.bluetooth) {
-      alert("Web Bluetooth não suportado.\nUse o Chrome no desktop ou Android.");
+      alert(
+        "Web Bluetooth não suportado.\nUse o Chrome no desktop ou Android.",
+      );
       return;
     }
 
@@ -327,9 +358,9 @@ export default function Partida() {
         optionalServices: [NUS_SERVICE],
       });
 
-      const server  = await device.gatt.connect();
+      const server = await device.gatt.connect();
       const service = await server.getPrimaryService(NUS_SERVICE);
-      const txChar  = await service.getCharacteristic(NUS_TX_CHAR);
+      const txChar = await service.getCharacteristic(NUS_TX_CHAR);
 
       await txChar.startNotifications();
       txChar.addEventListener("characteristicvaluechanged", onMensagemESP32);
@@ -360,7 +391,16 @@ export default function Partida() {
         {/* Jogador 1 */}
         <div className="jogador-coluna">
           <h2>Jogador 1</h2>
-          <div className="avatar-box">Avatar</div>
+          <div className="avatar-box">
+            <img
+              src={usuario?.foto_url || avatarPadrao}
+              alt="Foto do jogador"
+              className="avatar-img-partida"
+              onError={(e) => {
+                e.currentTarget.src = avatarPadrao;
+              }}
+            />
+          </div>
           <p className="nome-jogador">{usuario?.nome || "Carregando..."}</p>
           <div className="pontos-box">
             <span>Pontos</span>
@@ -402,8 +442,8 @@ export default function Partida() {
                 disabled={bleStatus === "conectando"}
               >
                 {bleStatus === "desconectado" && "🔵 Conectar ESP32"}
-                {bleStatus === "conectando"   && "⏳ Conectando..."}
-                {bleStatus === "conectado"    && "🟢 ESP32 Conectado"}
+                {bleStatus === "conectando" && "⏳ Conectando..."}
+                {bleStatus === "conectado" && "🟢 ESP32 Conectado"}
               </button>
             </div>
 
@@ -415,7 +455,11 @@ export default function Partida() {
           <div className="enunciado-box">
             <h3>Questão</h3>
             {imagemUrl && (
-              <img src={imagemUrl} alt="Imagem da questão" className="imagem-questao" />
+              <img
+                src={imagemUrl}
+                alt="Imagem da questão"
+                className="imagem-questao"
+              />
             )}
             <p>{textoFormatado}</p>
           </div>
@@ -449,7 +493,13 @@ export default function Partida() {
         {/* Jogador 2 */}
         <div className="jogador-coluna">
           <h2>Jogador 2</h2>
-          <div className="avatar-box">Avatar</div>
+          <div className="avatar-box">
+            <img
+              src={avatarPadrao}
+              alt="Avatar do convidado"
+              className="avatar-img-partida"
+            />
+          </div>
           <p className="nome-jogador">Convidado</p>
           <div className="pontos-box">
             <span>Pontos</span>

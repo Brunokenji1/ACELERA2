@@ -2,7 +2,10 @@ import "../../styles/questao.css";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import {buscarQuestao, responderQuestao as responderQuestaoAPI } from "../../services/questaoService";
+import {
+  buscarQuestao,
+  responderQuestao as responderQuestaoAPI,
+} from "../../services/questaoService";
 import { ArrowLeft } from "lucide-react";
 
 export default function Questao() {
@@ -36,34 +39,31 @@ export default function Questao() {
     carregarQuestao();
   }, [id]);
 
-async function responder(alternativa) {
-  if (bloqueado) return;
+  async function responder(alternativa) {
+    if (bloqueado) return;
 
-  try {
-    const resposta = await responderQuestaoAPI(
-      questao.id,
-      alternativa.id
-    );
+    try {
+      const resposta = await responderQuestaoAPI(questao.id, alternativa.id);
 
-    console.log(resposta);
+      console.log(resposta);
 
-    setSelecionada(alternativa.ordem);
+      setSelecionada(alternativa.ordem);
 
-    if (resposta.acertou) {
-      setBloqueado(true);
-      return;
+      if (resposta.acertou) {
+        setBloqueado(true);
+        return;
+      }
+
+      const novasTentativas = tentativas - 1;
+      setTentativas(novasTentativas);
+
+      if (novasTentativas <= 0) {
+        setBloqueado(true);
+      }
+    } catch (erro) {
+      console.error(erro);
     }
-
-    const novasTentativas = tentativas - 1;
-    setTentativas(novasTentativas);
-
-    if (novasTentativas <= 0) {
-      setBloqueado(true);
-    }
-  } catch (erro) {
-    console.error(erro);
   }
-}
 
   if (!questao) {
     return <p>Carregando questão...</p>;
@@ -84,6 +84,26 @@ async function responder(alternativa) {
     (alt) => alt.correta,
   )?.ordem;
 
+  const nomeMateria = () => {
+    if (questao.id_materia === 1) {
+      return "Matemática e suas Tecnologias";
+    }
+
+    if ([2, 10, 11].includes(questao.id_materia)) {
+      return "Linguagens e suas Tecnologias";
+    }
+
+    if ([3, 4, 8, 9].includes(questao.id_materia)) {
+      return "Ciências Humanas e suas Tecnologias";
+    }
+
+    if ([5, 6, 7].includes(questao.id_materia)) {
+      return "Ciências da Natureza e suas Tecnologias";
+    }
+
+    return "ENEM";
+  };
+
   return (
     <div className="questao-container">
       {/* BOTÃO VOLTAR */}
@@ -99,11 +119,13 @@ async function responder(alternativa) {
 
           <span className="tag-enem">ENEM {questao.ano}</span>
 
-          <span className="tag-categoria">Matéria {questao.id_materia}</span>
+          <span className="tag-categoria">{nomeMateria()}</span>
         </div>
 
         {/* DIREITA */}
-        <span className="pontos">{questao?.pontuacao} pt{questao?.pontuacao > 1 ? "s" : ""}</span>
+        <span className="pontos">
+          {questao?.pontuacao} pt{questao?.pontuacao > 1 ? "s" : ""}
+        </span>
       </div>
 
       {/* QUESTÃO */}

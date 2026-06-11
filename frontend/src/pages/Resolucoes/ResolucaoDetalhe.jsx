@@ -49,6 +49,28 @@ export default function ResolucaoDetalhe() {
     return <h2>Resolução não encontrada.</h2>;
   }
 
+  const nomeMateria = () => {
+    const idMateria = resolucao?.questao?.id_materia;
+
+    if (idMateria === 1) {
+      return "Matemática e suas Tecnologias";
+    }
+
+    if ([2, 10, 11].includes(idMateria)) {
+      return "Linguagens e suas Tecnologias";
+    }
+
+    if ([3, 4, 8, 9].includes(idMateria)) {
+      return "Ciências Humanas e suas Tecnologias";
+    }
+
+    if ([5, 6, 7].includes(idMateria)) {
+      return "Ciências da Natureza e suas Tecnologias";
+    }
+
+    return "ENEM";
+  };
+
   return (
     <div className="resolucao-container">
       {/* TOPO */}
@@ -60,7 +82,7 @@ export default function ResolucaoDetalhe() {
         <div className="resolucao-tags">
           <span className="resolucao-id">{resolucao.questao.id}</span>
 
-          <span className="resolucao-materia">materia</span>
+          <span className="resolucao-materia">{nomeMateria()}</span>
 
           <span className="resolucao-prova">
             {resolucao.acertou ? "Acertou" : "Errou"}

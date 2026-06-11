@@ -4,7 +4,8 @@ import { useState } from "react";
 import { buscarPerfil } from "../../services/usuarioService";
 import { criarPartida } from "../../services/partidaService";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react"; 
+import { ArrowLeft } from "lucide-react";
+import avatarPadrao from "../../assets/avatar-padrao.svg";
 
 export default function CriarPartida() {
   const navigate = useNavigate();
@@ -13,11 +14,9 @@ export default function CriarPartida() {
 
   const [materia, setMateria] = useState(1);
 
-  const [dificuldade, setDificuldade] =
-    useState("facil");
+  const [dificuldade, setDificuldade] = useState("facil");
 
-  const [quantidadeQuestoes, setQuantidadeQuestoes] =
-    useState(5);
+  const [quantidadeQuestoes, setQuantidadeQuestoes] = useState(5);
 
   useEffect(() => {
     async function carregarPerfil() {
@@ -36,23 +35,23 @@ export default function CriarPartida() {
   }, []);
 
   async function iniciarPartida() {
-  try {
-    const resposta = await criarPartida({
-      id_materia: materia,
-      dificuldade,
-      quantidade_questoes: quantidadeQuestoes,
-    });
+    try {
+      const resposta = await criarPartida({
+        id_materia: materia,
+        dificuldade,
+        quantidade_questoes: quantidadeQuestoes,
+      });
 
-    //console.log(resposta);
-    navigate(`/partidas/${resposta.partida.id}`);
+      //console.log(resposta);
+      navigate(`/partidas/${resposta.partida.id}`);
 
-    alert("Partida criada com sucesso!");
-  } catch (erro) {
-    console.error(erro);
+      alert("Partida criada com sucesso!");
+    } catch (erro) {
+      console.error(erro);
 
-    alert(erro.message);
+      alert(erro.message);
+    }
   }
-}
 
   function voltar() {
     const confirmar = window.confirm(
@@ -79,12 +78,19 @@ export default function CriarPartida() {
         <div className="jogador-card">
           <h2>Jogador 1</h2>
 
-          <div className="avatar-placeholder">Foto Perfil</div>
+          <div className="avatar-placeholder">
+            <img
+              src={usuario?.foto_url || avatarPadrao}
+              alt="Foto do jogador"
+              className="avatar-img-partida"
+              onError={(e) => {
+                e.currentTarget.src = avatarPadrao;
+              }}
+            />
+          </div>
 
           <p className="nome-jogador">{usuario?.nome || "Carregando..."}</p>
         </div>
-
-  
 
         {/* CONFIGURAÇÕES */}
         <div className="configuracoes-card">
@@ -92,10 +98,9 @@ export default function CriarPartida() {
 
           <div className="campo-config">
             <label>Selecionar matéria</label>
-            <select 
+            <select
               value={materia}
-              onChange={(e) => 
-                setMateria(Number(e.target.value))}
+              onChange={(e) => setMateria(Number(e.target.value))}
             >
               <option value={1}>Matemática e suas Tecnologias</option>
               <option value={2}>Linguagens, Códigos e suas Tecnologias</option>
@@ -107,10 +112,9 @@ export default function CriarPartida() {
 
           <div className="campo-config">
             <label>Selecionar dificuldade</label>
-            <select 
+            <select
               value={dificuldade}
-              onChange={(e) => 
-                setDificuldade(e.target.value)}
+              onChange={(e) => setDificuldade(e.target.value)}
             >
               <option value="facil">Fácil</option>
               <option value="medio">Médio</option>
@@ -120,10 +124,9 @@ export default function CriarPartida() {
 
           <div className="campo-config">
             <label>Quantidade de questões</label>
-            <select 
+            <select
               value={quantidadeQuestoes}
-              onChange={(e) => 
-                setQuantidadeQuestoes(Number(e.target.value))}
+              onChange={(e) => setQuantidadeQuestoes(Number(e.target.value))}
             >
               <option value={5}>5 Questões</option>
               <option value={7}>7 Questões</option>
@@ -141,7 +144,13 @@ export default function CriarPartida() {
         <div className="jogador-card">
           <h2>Jogador 2</h2>
 
-          <div className="avatar-placeholder">Avatar</div>
+          <div className="avatar-placeholder">
+            <img
+              src={avatarPadrao}
+              alt="Avatar do convidado"
+              className="avatar-img-partida"
+            />
+          </div>
 
           <p className="nome-jogador">Convidado</p>
         </div>
