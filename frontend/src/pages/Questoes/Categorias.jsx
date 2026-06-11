@@ -59,7 +59,6 @@ export default function Categorias() {
           <p>Escolha uma categoria para começar a estudar</p>
         </div>
 
-        <Button className="btn-filtro">Filtrar Matérias</Button>
       </div>
 
       {/* GRID */}

@@ -1,71 +1,70 @@
 import "../../styles/resolucoes/resolucaoDetalhe.css";
-import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react"; 
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { buscarResolucao } from "../../services/resolucaoService";
+import { ArrowLeft } from "lucide-react";
 
 export default function ResolucaoDetalhe() {
   const navigate = useNavigate();
 
-  const questao = {
-    id: "0026",
+  const { id } = useParams();
 
-    materia: "Matemática e suas Tecnologias",
+  const [resolucao, setResolucao] = useState(null);
+  const [carregando, setCarregando] = useState(true);
 
-    prova: "ENEM 2022",
+  const imagemMatch = resolucao?.questao?.enunciado?.match(
+    /https?:\/\/[^\s)]+\.(png|jpg|jpeg|gif|webp)/i,
+  );
+  const imagemUrl = imagemMatch ? imagemMatch[0] : null;
 
-    pergunta:
-      "Ao calcular a média de suas notas em 4 provas, um estudante dividiu, por engano, a soma das notas por 5.",
+  const textoFormatado = resolucao?.questao?.enunciado
+    ?.replace(/!\[\]\(.*?\)/g, "")
+    ?.replace(/\*\*/g, "")
+    ?.replace(/#/g, "")
+    ?.trim();
 
-    imagem: "",
+  useEffect(() => {
+    async function carregarResolucao() {
+      try {
+        const resposta = await buscarResolucao(id);
 
-    correta: "B",
+        console.log(resposta);
 
-    respostaUsuario: "A",
+        setResolucao(resposta.resolucao);
+      } catch (erro) {
+        console.error(erro);
+      } finally {
+        setCarregando(false);
+      }
+    }
 
-    resolucao:
-      "A média correta deveria ser calculada dividindo a soma das notas por 4. Como foi dividida por 5, o valor encontrado ficou menor.",
+    carregarResolucao();
+  }, [id]);
 
-    alternativas: [
-      {
-        letra: "A",
-        texto: "4",
-      },
+  if (carregando) {
+    return <h2>Carregando resolução...</h2>;
+  }
 
-      {
-        letra: "B",
-        texto: "5",
-      },
-
-      {
-        letra: "C",
-        texto: "6",
-      },
-
-      {
-        letra: "D",
-        texto: "19",
-      },
-
-      {
-        letra: "E",
-        texto: "21",
-      },
-    ],
-  };
+  if (!resolucao) {
+    return <h2>Resolução não encontrada.</h2>;
+  }
 
   return (
     <div className="resolucao-container">
       {/* TOPO */}
       <div className="resolucao-topo">
         <button className="resolucao-btn-voltar" onClick={() => navigate(-1)}>
-          <ArrowLeft size={25} /> 
+          <ArrowLeft size={25} />
         </button>
 
         <div className="resolucao-tags">
-          <span className="resolucao-id">{questao.id}</span>
+          <span className="resolucao-id">{resolucao.questao.id}</span>
 
-          <span className="resolucao-materia">{questao.materia}</span>
+          <span className="resolucao-materia">materia</span>
 
-          <span className="resolucao-prova">{questao.prova}</span>
+          <span className="resolucao-prova">
+            {resolucao.acertou ? "Acertou" : "Errou"}
+          </span>
         </div>
       </div>
 
@@ -73,35 +72,33 @@ export default function ResolucaoDetalhe() {
       <div className="resolucao-box">
         <h2>Questão</h2>
 
-        <p>{questao.pergunta}</p>
-
-        {questao.imagem && (
-          <img
-            src={questao.imagem}
-            alt="Questão"
-            className="resolucao-imagem"
-          />
+        {imagemUrl && (
+          <img src={imagemUrl} alt="Questão" className="resolucao-imagem" />
         )}
+        <p>{textoFormatado}</p>
       </div>
 
       {/* ALTERNATIVAS */}
       <div className="resolucao-alternativas">
-        {questao.alternativas.map((alt) => {
+        {resolucao.questao.alternativas.map((alt) => {
           let classe = "";
 
           // CORRETA
-          if (alt.letra === questao.correta) {
+          if (alt.ordem === resolucao.alternativa_correta.ordem) {
             classe = "resolucao-correta";
           }
 
           // ERRADA DO USUÁRIO
-          else if (alt.letra === questao.respostaUsuario) {
+          else if (
+            alt.ordem === resolucao.alternativa_escolhida.ordem &&
+            !resolucao.acertou
+          ) {
             classe = "resolucao-errada";
           }
 
           return (
-            <div key={alt.letra} className={`resolucao-alternativa ${classe}`}>
-              <span className="resolucao-letra">{alt.letra}</span>
+            <div key={alt.ordem} className={`resolucao-alternativa ${classe}`}>
+              <span className="resolucao-letra">{alt.ordem}</span>
 
               <span>{alt.texto}</span>
             </div>
@@ -113,7 +110,7 @@ export default function ResolucaoDetalhe() {
       <div className="resolucao-explicacao-box">
         <h2>Resolução</h2>
 
-        <p>{questao.resolucao}</p>
+        <p>{resolucao.alternativa_correta.explicacao}</p>
       </div>
     </div>
   );

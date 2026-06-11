@@ -1,42 +1,34 @@
 import "../../styles/resolucoes/listaResolucoes.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
+
+import { listarResolucoes } from "../../services/resolucaoService";
 
 export default function ListaResolucoes() {
   const navigate = useNavigate();
 
   const [pesquisa, setPesquisa] = useState("");
+  const [resolucoes, setResolucoes] = useState([]);
+  
 
-  const resolucoes = [
-    {
-      id: "0002",
+  useEffect(() => {
+    async function carregarResolucoes() {
+      try {
+        const resposta = await listarResolucoes();
+        console.log(resposta);
+        setResolucoes(resposta.resolucoes);
+      } catch (erro) {
+        console.error(erro);
+      }
+    }
 
-      titulo: "Espanhol",
+    carregarResolucoes();
+  }, []);
 
-      status: "acertou",
-    },
-
-    {
-      id: "0026",
-
-      titulo: "Média Aritmética",
-
-      status: "errou",
-    },
-
-    {
-      id: "0027",
-
-      titulo: "Geometria Plana",
-
-      status: "acertou",
-    },
-  ];
-
-  const resolucoesFiltradas = resolucoes.filter((questao) =>
-    questao.titulo.toLowerCase().includes(pesquisa.toLowerCase()),
+  const resolucoesFiltradas = resolucoes.filter((resolucao) =>
+    resolucao.questao.titulo.toLowerCase().includes(pesquisa.toLowerCase()),
   );
 
   return (
@@ -62,23 +54,24 @@ export default function ListaResolucoes() {
       {/* LISTA */}
       {resolucoesFiltradas.length > 0 ? (
         <div className="resolucoes-lista">
-          {resolucoesFiltradas.map((questao) => (
+          {resolucoesFiltradas.map((resolucao) => (
             <div
-              key={questao.id}
+              key={resolucao.id_tentativa}
               className="resolucao-card"
-              onClick={() => navigate(`/resolucoes/${questao.id}`)}
+              onClick={() => navigate(`/resolucoes/${resolucao.id_tentativa}`)}
             >
-                
               {/* ESQUERDA */}
               <div className="resolucao-left">
-                <span className="questaoRes-id">{questao.id}</span>
+                <span className="questaoRes-id">{resolucao.questao.id}</span>
 
-                <h2>{questao.titulo}</h2>
+                <h2>{resolucao.questao.titulo}</h2>
               </div>
 
               {/* STATUS */}
-              <span className={`status ${questao.status}`}>
-                {questao.status === "acertou" ? "Acertou" : "Errou"}
+              <span
+                className={`status ${resolucao.acertou ? "acertou" : "errou"}`}
+              >
+                {resolucao.acertou ? "Acertou" : "Errou"}
               </span>
             </div>
           ))}

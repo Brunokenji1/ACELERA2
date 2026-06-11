@@ -3725,52 +3725,7 @@
     ],
     "pontuacao": 5
   },
-  {
-    "id": 218,
-    "materia": "Matematica",
-    "ano": 2022,
-    "titulo": "World Series — Probabilidade no Beisebol",
-    "enunciado": "A World Series é a decisão do campeonato norte-americano de beisebol. Os dois times que chegam  \na essa fase jogam, entre si, até sete partidas. O primeiro desses times que completar quatro vitórias é declarado campeão.\n\nConsidere que, em todas as partidas, a probabilidade de qualquer um dos dois times vencer é sempre ![](https://enem.dev/2022/questions/137/091aafba-f2dd-4f19-9655-73e6bd1599b6.png)\n\nQual é a probabilidade de uma equipe específica vencer a série em exatamente 4 partidas?",
-    "dificuldade": "dificil",
-    "alternativas": [
-      {
-        "id": 1086,
-        "ordem": "A",
-        "texto": "https://enem.dev/2022/questions/137/a62b92ab-65a1-4608-a3ac-3a1e08008845.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta expressão não representa corretamente a probabilidade para um resultado de 4-0 com as combinações de ordem das vitórias."
-      },
-      {
-        "id": 1087,
-        "ordem": "B",
-        "texto": "https://enem.dev/2022/questions/137/bcc4e92c-3d8c-40e8-8651-b1829f138eb3.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta fórmula subestima a probabilidade, sem contabilizar corretamente as sequências possíveis."
-      },
-      {
-        "id": 1088,
-        "ordem": "C",
-        "texto": "https://enem.dev/2022/questions/137/b783250d-3cdc-48c4-b60a-44d5b2ccc932.png",
-        "correta": true,
-        "explicacao": "Correta. Para vencer em 4 jogos (4-0), o time deve ganhar todos os 4 confrontos, cada um com probabilidade 1/2, resultando em (1/2)^4 = 1/16."
-      },
-      {
-        "id": 1089,
-        "ordem": "D",
-        "texto": "https://enem.dev/2022/questions/137/ccd84f4e-31eb-4dfe-85be-202683fe5af7.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta expressão corresponde a um número de jogos diferente de 4, com combinações de sequências não aplicáveis."
-      },
-      {
-        "id": 1090,
-        "ordem": "E",
-        "texto": "https://enem.dev/2022/questions/137/1cb4062d-0ed1-45ac-a1f7-ce783f591515.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta fórmula inclui mais termos do que o necessário para o caso de série encerrada em exatamente 4 partidas."
-      }
-    ],
-    "pontuacao": 5
-  },
+  
   {
     "id": 219,
     "materia": "Matematica",
@@ -3909,52 +3864,7 @@
     ],
     "pontuacao": 5
   },
-  {
-    "id": 223,
-    "materia": "Matematica",
-    "ano": 2022,
-    "titulo": "Jogo de Bingo — Cartela de Pedro",
-    "enunciado": "Em um jogo de bingo, as cartelas contêm 16 quadrículas dispostas em linhas e colunas. Cada quadrícula tem impresso um número, dentre os inteiros de 1 a 50, sem repetição de número. Na primeira rodada, um número é sorteado, aleatoriamente, dentre os 50 possíveis. Em todas as rodadas, o número sorteado é descartado e não participa dos sorteios das rodadas seguintes. Caso o jogador tenha em sua cartela o número sorteado, ele o assinala na cartela. Ganha o jogador que primeiro conseguir preencher quatro quadrículas que formam uma linha, uma coluna ou uma diagonal, conforme os tipos de situações ilustradas na Figura 1.\n\n![](https://enem.dev/2022/questions/141/e8e788ea-4e28-4ceb-b928-494d2ca68033.png)\n\nO jogo inicia e, nas quatro primeiras rodadas, foram sorteados os seguintes números: 03, 27, 07 e 48. Ao final da quarta rodada, somente Pedro possuía uma cartela que continha esses quatro números sorteados, sendo que todos os demais jogadores conseguiram assinalar, no máximo, um desses números em suas cartelas. Observe na Figura 2 o cartão de Pedro após as quatro primeiras rodadas.\n\n![](https://enem.dev/2022/questions/141/1e77b1bf-38e6-4145-b78b-91be4088bc11.png)\n\nQual das cartelas pode ser a de Pedro após as quatro primeiras rodadas?",
-    "dificuldade": "dificil",
-    "alternativas": [
-      {
-        "id": 1111,
-        "ordem": "A",
-        "texto": "https://enem.dev/2022/questions/141/cd5a2722-63ec-4baf-bb68-20df7b0342b6.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta cartela não posiciona corretamente os quatro números sorteados (03, 27, 07 e 48) para que Pedro possa completar uma linha, coluna ou diagonal com um único número adicional."
-      },
-      {
-        "id": 1112,
-        "ordem": "B",
-        "texto": "https://enem.dev/2022/questions/141/3098c816-0b2d-4a41-bd93-48a7103007d3.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta cartela não satisfaz as condições do problema: os quatro números sorteados não estão dispostos de forma a permitir vitória com o próximo sorteio."
-      },
-      {
-        "id": 1113,
-        "ordem": "C",
-        "texto": "https://enem.dev/2022/questions/141/f1b1ddb0-011b-422f-ad9c-be16c2322ab9.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta configuração contradiz a condição de que apenas Pedro tem os quatro números em sua cartela."
-      },
-      {
-        "id": 1114,
-        "ordem": "D",
-        "texto": "https://enem.dev/2022/questions/141/182be64f-689b-4ab6-b35b-f0dfae3b5a54.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta cartela não é compatível com as regras de preenchimento do bingo descritas no enunciado."
-      },
-      {
-        "id": 1115,
-        "ordem": "E",
-        "texto": "https://enem.dev/2022/questions/141/3d293613-50b5-494a-b8f3-52e16ae9f866.png",
-        "correta": true,
-        "explicacao": "Correta. Esta cartela contém os quatro números sorteados (03, 27, 07, 48) em uma disposição que permite a Pedro completar linha, coluna ou diagonal com apenas mais um número."
-      }
-    ],
-    "pontuacao": 5
-  },
+  
   {
     "id": 224,
     "materia": "Matematica",
@@ -4001,52 +3911,7 @@
     ],
     "pontuacao": 3
   },
-  {
-    "id": 225,
-    "materia": "Matematica",
-    "ano": 2022,
-    "titulo": "Planificação do Cubo com Faces Pintadas",
-    "enunciado": "Dentre as diversas planificações possíveis para o cubo, uma delas é a que se encontra apresentada na Figura 1.\n\n![](https://enem.dev/2022/questions/143/4da64c40-da53-4205-b673-aa5b6274e3e2.jpg)\n\nEm um cubo, foram pintados, em três de suas faces, quadrados de cor cinza escura, que ocupam um quarto dessas faces, tendo esses três quadrados um vértice em comum, conforme ilustrado na Figura 2.\n\n![](https://enem.dev/2022/questions/143/a05cd294-5321-4c85-a081-a86ed7aa3e39.jpg)\n\nQual das planificações representa corretamente o cubo com os três quadrados pintados compartilhando um vértice?",
-    "dificuldade": "dificil",
-    "alternativas": [
-      {
-        "id": 1121,
-        "ordem": "A",
-        "texto": "https://enem.dev/2022/questions/143/37b0d8a0-5992-4fac-8f58-93924c6877e2.jpg",
-        "correta": true,
-        "explicacao": "Correta. Esta planificação, ao ser dobrada, posiciona os três quadrados pintados em faces adjacentes que se encontram em um único vértice do cubo, com cada quadrado ocupando um quarto da face no canto compartilhado."
-      },
-      {
-        "id": 1122,
-        "ordem": "B",
-        "texto": "https://enem.dev/2022/questions/143/c2a2bae5-e20a-4bdb-af9e-b6d37b0cdc81.jpg",
-        "correta": false,
-        "explicacao": "Incorreta. Ao dobrar esta planificação, os quadrados pintados ficam em faces que não compartilham um único vértice comum."
-      },
-      {
-        "id": 1123,
-        "ordem": "C",
-        "texto": "https://enem.dev/2022/questions/143/bfd0a9ed-5ff2-444f-b297-e2f37eba789b.jpg",
-        "correta": false,
-        "explicacao": "Incorreta. A posição dos quadrados nesta planificação resulta, após a dobragem, em faces não adjacentes pelo mesmo vértice."
-      },
-      {
-        "id": 1124,
-        "ordem": "D",
-        "texto": "https://enem.dev/2022/questions/143/b76f04c7-e485-4c93-8e57-60d5ce9f5623.jpg",
-        "correta": false,
-        "explicacao": "Incorreta. Esta disposição não satisfaz a condição de três faces com vértice em comum ao montar o cubo."
-      },
-      {
-        "id": 1125,
-        "ordem": "E",
-        "texto": "https://enem.dev/2022/questions/143/2e478466-a3b6-4a44-8c04-a6187dc164df.jpg",
-        "correta": false,
-        "explicacao": "Incorreta. Esta planificação posiciona os quadrados em faces opostas ou não adjacentes pelo mesmo vértice."
-      }
-    ],
-    "pontuacao": 5
-  },
+  
   {
     "id": 226,
     "materia": "Matematica",
@@ -4461,50 +4326,5 @@
     ],
     "pontuacao": 1
   },
-  {
-    "id": 236,
-    "materia": "Matematica",
-    "ano": 2022,
-    "titulo": "Apartamentos com Incidência Solar pela Manhã",
-    "enunciado": "Um prédio, com 9 andares e 8 apartamentos de 2 quartos por andar, está com todos os seus apartamentos à venda. Os apartamentos são identificados por números formados por dois algarismos, sendo que a dezena indica o andar onde se encontra o apartamento, e a unidade, um algarismo de 1 a 8, que diferencia os apartamentos de um mesmo andar. Quanto à incidência de sol nos quartos desses apartamentos, constatam-se as seguintes características, em função de seus números de identificação:  \n• naqueles que finalizam em 1 ou 2, ambos os quartos recebem sol apenas na parte da manhã;  \n• naqueles que finalizam em 3, 4, 5 ou 6, apenas um dos quartos recebe sol na parte da manhã;  \n• naqueles que finalizam em 7 ou 8, ambos os quartos recebem sol apenas na parte da tarde.\n\nUma pessoa pretende comprar 2 desses apartamentos em um mesmo andar, mas quer que, em ambos, pelo menos um dos quartos receba sol na parte da manhã.\n\nDe quantas maneiras a pessoa pode escolher os 2 apartamentos seguindo sua preferência?",
-    "dificuldade": "medio",
-    "alternativas": [
-      {
-        "id": 1176,
-        "ordem": "A",
-        "texto": "https://enem.dev/2022/questions/155/4e4d5692-b3ea-4434-aaef-74309d2d3b2a.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta opção não contabiliza corretamente os pares em que ambos os apartamentos têm ao menos um quarto com sol de manhã."
-      },
-      {
-        "id": 1177,
-        "ordem": "B",
-        "texto": "https://enem.dev/2022/questions/155/2b0fcee8-c3b1-4c03-ac2a-342792f7ab28.png",
-        "correta": true,
-        "explicacao": "Correta. Apartamentos com sol de manhã (terminando em 1–6): 6 por andar. Escolher 2 deles: C(6,2) = 15 combinações."
-      },
-      {
-        "id": 1178,
-        "ordem": "C",
-        "texto": "https://enem.dev/2022/questions/155/e2dfe176-9a1a-49e7-aee5-62794ac8242b.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta opção inclui pares com apartamentos finalizados em 7 ou 8 (sol apenas à tarde), violando a condição."
-      },
-      {
-        "id": 1179,
-        "ordem": "D",
-        "texto": "https://enem.dev/2022/questions/155/0681d716-28d4-4521-801f-5a20871829e5.png",
-        "correta": false,
-        "explicacao": "Incorreta. Esta contagem considera pares onde ao menos um não tem sol de manhã, não satisfazendo a exigência."
-      },
-      {
-        "id": 1180,
-        "ordem": "E",
-        "texto": "https://enem.dev/2022/questions/155/027b58bd-d5b6-4ab1-afb6-a17dd85e31c8.png",
-        "correta": false,
-        "explicacao": "Incorreta. Este valor representa o total de pares possíveis por andar sem filtrar pelo critério de incidência solar matutina."
-      }
-    ],
-    "pontuacao": 3
-  }
+
 ]
