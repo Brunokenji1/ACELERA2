@@ -145,7 +145,7 @@ export default function Cadastro() {
             <input
               type="text"
               name="nome"
-              placeholder="Nome completo"
+              placeholder="Nome de usuário"
               value={formData.nome}
               onChange={handleChange}
             />

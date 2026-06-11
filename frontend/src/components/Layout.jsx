@@ -1,4 +1,4 @@
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import AjudaModal from "./AjudaModal";
 import "../styles/layout.css";
@@ -10,7 +10,9 @@ import {
   Gamepad2,
   CircleHelp,
   Menu,
+  LogOut,
 } from "lucide-react";
+import Categorias from "../pages/Questoes/Categorias";
 
 export default function Layout() {
   const [open, setOpen] = useState(true);
@@ -18,6 +20,8 @@ export default function Layout() {
   const [ajudaAberta, setAjudaAberta] = useState(false);
 
   const location = useLocation();
+
+  const navigate = useNavigate();
 
   const textosAjuda = {
     "/perfil": {
@@ -41,6 +45,13 @@ export default function Layout() {
         "Nesta área você pode escolher categorias e responder questões de diferentes matérias e níveis de dificuldade. Cada questão possui até três tentativas. Ao acertar, você ganha pontos que ajudam no seu desempenho geral e no ranking.",
     },
 
+    "/questoes/categoria": {
+      titulo: "Lista de questões",
+
+      descricao:
+        "Nesta tela são exibidas as questões disponíveis para estudo. Utilize as categorias para navegar e clique sobre uma questão para visualizar seu conteúdo e responder.",
+    },
+
     "/resolucoes": {
       titulo: "Resoluções",
 
@@ -56,6 +67,44 @@ export default function Layout() {
     },
   };
 
+  const textoAtual = (() => {
+    if (
+      location.pathname === "/questoes" ||
+      location.pathname.startsWith("/questoes/") ||
+      location.pathname.startsWith("/questao/")
+    ) {
+      return {
+        titulo: "Questões",
+        descricao:
+          "Nesta área você pode explorar questões de diversas matérias, responder atividades e acompanhar seu desempenho. Cada questão possui até três tentativas. Após responder, você poderá consultar a resolução completa para revisar o conteúdo e compreender a alternativa correta.",
+      };
+    }
+
+    if (
+      location.pathname === "/resolucoes" ||
+      location.pathname.startsWith("/resolucoes/")
+    ) {
+      return {
+        titulo: "Resoluções",
+        descricao:
+          "Nesta área você encontra o histórico das questões respondidas, com indicação de acertos e erros. Também é possível visualizar a alternativa correta e a explicação detalhada de cada questão para auxiliar nos estudos.",
+      };
+    }
+
+    if (
+      location.pathname === "/partidas" ||
+      location.pathname.startsWith("/partida")
+    ) {
+      return {
+        titulo: "Partidas",
+        descricao:
+          "O modo partida permite disputar desafios entre jogadores. Aguarde a leitura da questão, utilize o buzz para responder e acumule pontos ao acertar. Ao final, é exibido o resultado da disputa.",
+      };
+    }
+
+    return textosAjuda[location.pathname];
+  })();
+
   return (
     <div className={`layout ${open ? "open" : "closed"}`}>
       {/* HEADER */}
@@ -65,17 +114,27 @@ export default function Layout() {
         </button>
 
         <div className="logo-container-layout">
-          <img 
-            src="/logo192.png" 
-            alt="Logo StudyFlow" 
-            className="logo-header" />
+          <img
+            src="/logo192.png"
+            alt="Logo StudyFlow"
+            className="logo-header"
+          />
 
           <h1 className="logo">
             STUDY<span>flow</span>
           </h1>
         </div>
 
-        <div className="user">Aluno</div>
+        <button
+          className="user logout-btn"
+          onClick={() => {
+            localStorage.removeItem("token");
+            navigate("/");
+          }}
+        >
+          <LogOut size={18} />
+          <span>Sair</span>
+        </button>
       </header>
 
       {/* SIDEBAR */}
@@ -125,8 +184,8 @@ export default function Layout() {
       <AjudaModal
         aberto={ajudaAberta}
         fechar={() => setAjudaAberta(false)}
-        titulo={textosAjuda[location.pathname]?.titulo}
-        descricao={textosAjuda[location.pathname]?.descricao}
+        titulo={textoAtual?.titulo}
+        descricao={textoAtual?.descricao}
       />
     </div>
   );
